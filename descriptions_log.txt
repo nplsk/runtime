@@ -1,0 +1,272 @@
+./scenes/video_d70eccc0dba248d3856bb5c483469c87_prores_scene_002.mov:
+Description: A yellow dinosaur airborne against a soft-lit sky.
+Formal Tags: ['soft_light', 'daytime', 'motion']
+Emotional Tags: ['gentle', 'serene']
+Semantic Tags: ['yellow', 'dinosaur', 'flying', 'sky']
+Dominant Colors: ['#232429', '#accae5', '#6681aa']
+--------------------------------------------------------------------------------
+
+./scenes/TIM0_prores_scene_002.mov:
+Description: Two young men seated, neon sign in background, soft lighting.
+Formal Tags: ['interior', 'soft_lit', 'portrait']
+Emotional Tags: ['quiet', 'calm']
+Semantic Tags: ['people', 'sitting', 'neon_sign']
+Dominant Colors: ['#f47954', '#110400', '#983312']
+--------------------------------------------------------------------------------
+
+./scenes/2014-10-18 17.07.33_prores_scene_001.mov:
+Description: Two individuals ambulate on a sandy strand adjacent to a body of water. A geological formation is discernible in the backdrop. Illumination is subdued and diffuse.
+Formal Tags: ['outdoor', 'daylight', 'natural light', 'landscape']
+Emotional Tags: ['calm', 'peaceful']
+Semantic Tags: ['beach', 'people', 'rock', 'walking', 'soft light']
+Dominant Colors: ['#a19e96', '#f1f6f8', '#736e64']
+--------------------------------------------------------------------------------
+
+./scenes/Brute Spring Fog_prores_scene_001.mov:
+Description: Dimly lit garage with a parked car emitting smoke.
+Formal Tags: ['parked', 'indoor', 'atmospheric']
+Emotional Tags: ['moody', 'quiet']
+Semantic Tags: ['garage', 'car', 'smoke', 'dim_light']
+Dominant Colors: ['#121311', '#bcbfbb', '#4e5354']
+--------------------------------------------------------------------------------
+
+./scenes/IMG_0049_prores_scene_001.mov:
+Description: Fireworks illuminate a cityscape at night, light ebbs and flows with each burst, shadows cast across urban structures.
+Formal Tags: ['dim_lighting', 'urban_environment', 'explosions']
+Emotional Tags: ['celebratory', 'spectacle']
+Semantic Tags: ['fireworks', 'city', 'night', 'illumination']
+Dominant Colors: ['#396dc5', '#ef6e53', '#612627']
+--------------------------------------------------------------------------------
+
+./scenes/2014-11-08 16.34.48_prores_scene_001.mov:
+Description: Sunset over water, subdued lighting, low motion, outdoor setting.
+Formal Tags: ['soft_light', 'subdued_color', 'horizontal_lines']
+Emotional Tags: ['calm', 'serene']
+Semantic Tags: ['sunset', 'water', 'outdoor', 'low motion']
+Dominant Colors: ['#776b5a', '#1b1b1a', '#d8bf96']
+--------------------------------------------------------------------------------
+
+./scenes/Static 1_prores_scene_001.mov:
+Description: Thumbnail depicts a dimly lit environment with a black background and a visible quantity of dirt.
+Formal Tags: ['low_light', 'simple_composition']
+Emotional Tags: ['calm', 'quiet']
+Semantic Tags: ['thumbnail', 'soft_light', 'dirt', 'black_background']
+Dominant Colors: ['#080808', '#3c3c3c', '#797979']
+--------------------------------------------------------------------------------
+
+./scenes/GOOD_prores_scene_001.mov:
+Description: A dim room with light piercing through a window, illuminating dust particles in the air.
+Formal Tags: ['stillness', 'gentle_illumination']
+Emotional Tags: ['serene', 'mysterious']
+Semantic Tags: ['interior', 'low_light', 'window_light']
+Dominant Colors: ['#0d0805', '#dfc2a2', '#56402f']
+--------------------------------------------------------------------------------
+
+./scenes/2014-08-21 11.40.09_prores_scene_001.mov:
+Description: Interior space with a bed and a window, viewed through an open doorway. Illumination is subdued, likely from natural light diffused through window coverings. A sense of stillness is punctuated by subtle motion, possibly from objects or inhabitants. The room suggests a domestic setting.
+Formal Tags: ['soft_light', 'subdued_illumination', 'interior_view', 'open_door']
+Emotional Tags: ['tranquility', 'peacefulness']
+Semantic Tags: ['interior', 'bedroom', 'doorway', 'window', 'natural light', 'stillness', 'subtle motion', 'domestic']
+Dominant Colors: ['#262220', '#e4e2dd', '#767573']
+--------------------------------------------------------------------------------
+
+./scenes/2014-07-23 20.52.10_prores_scene_001.mov:
+Description: Softly lit outdoor scene featuring a solitary tree centered in a field.
+Formal Tags: ['centered_composition']
+Emotional Tags: ['calm', 'serene']
+Semantic Tags: ['tree', 'field', 'outdoor', 'soft_light']
+Dominant Colors: ['#6970b1', '#171b2a', '#9299e1']
+--------------------------------------------------------------------------------
+
+./scenes/2014-11-08 16.38.19_prores_scene_001.mov:
+Description: Boat perspective of sky and water, gentle movement, soft lighting
+Formal Tags: ['outdoor', 'daylight', 'natural_light']
+Emotional Tags: ['calm', 'serene', 'gentle']
+Semantic Tags: ['boat', 'sky', 'water', 'perspective']
+Dominant Colors: ['#a9afad', '#3a363c', '#647182']
+--------------------------------------------------------------------------------
+
+./scenes/VDMX5 - Main Output 2021-10-14 at 15.10.57_prores_scene_001.mov:
+Description: Indoor space with fabric and wood elements, moderate motion, soft light atmosphere.
+Formal Tags: ['interior', 'movement', 'lighting']
+Emotional Tags: ['calm', 'serene']
+Semantic Tags: ['indoor', 'fabric', 'wood', 'moderate_motion', 'soft_light']
+Dominant Colors: ['#3d6e70', '#9beae6', '#3fd7b0']
+--------------------------------------------------------------------------------
+
+./scenes/disco ball_prores_scene_001.mov:
+Description: A dimly lit scene illuminated by a blue light against a dark sky. Likely an evening or night setting with minimal visibility beyond the light source.
+Formal Tags: ['low visibility', 'illumination']
+Emotional Tags: ['quiet', 'mysterious']
+Semantic Tags: ['dim lighting', 'blue light', 'dark sky', 'evening', 'night']
+Dominant Colors: ['#080358', '#4518f9', '#1709ad']
+--------------------------------------------------------------------------------
+
+./scenes/2014-10-19 18.21.23_prores_scene_001.mov:
+Description: A group of trees with tall grass in the foreground occupy a softly lit landscape.
+Formal Tags: ['soft_light', 'stillness']
+Emotional Tags: ['calm', 'serene']
+Semantic Tags: ['landscape', 'outdoor', 'nature', 'trees', 'grass']
+Dominant Colors: ['#434239', '#f1f1f1', '#8e806d']
+--------------------------------------------------------------------------------
+
+./scenes/Drone_prores_scene_001.mov:
+Description: A city street at night, illuminated by traffic lights and sparse street lighting, showcasing a low level of activity with limited motion.
+Formal Tags: ['urban', 'nighttime']
+Emotional Tags: ['peaceful', 'quiet']
+Semantic Tags: ['city_street', 'night', 'traffic_lights', 'dim_lighting', 'low_activity']
+Dominant Colors: ['#aea6aa', '#08091a', '#3f454e']
+--------------------------------------------------------------------------------
+
+./scenes/TIM0_prores_scene_001.mov:
+Description: Dimly illuminated highway at night with moving cars and trucks.
+Formal Tags: ['dim_lighting', 'motion']
+Emotional Tags: ['quiet']
+Semantic Tags: ['traffic', 'highway', 'night', 'vehicles']
+Dominant Colors: ['#4c4138', '#b89f8b', '#0b0c0a']
+--------------------------------------------------------------------------------
+
+./scenes/video_d70eccc0dba248d3856bb5c483469c87_prores_scene_002.mov:
+Description: The video displays a brightly colored yellow dinosaur figure suspended in the air against a backdrop of diffuse illumination.
+Formal Tags: ['soft_light', 'suspended', 'daytime']
+Emotional Tags: ['whimsical', 'serene']
+Semantic Tags: ['dinosaur', 'flying', 'sky']
+Dominant Colors: ['#232429', '#accae5', '#6681aa']
+--------------------------------------------------------------------------------
+
+./scenes/TIM0_prores_scene_002.mov:
+Description: Two young men seated indoors at night. Soft light illuminates from a neon sign behind.
+Formal Tags: ['soft_light', 'night_time', 'human_figures']
+Emotional Tags: ['serene', 'quiet']
+Semantic Tags: ['indoor', 'sitting', 'neon_light']
+Dominant Colors: ['#f47954', '#110400', '#983312']
+--------------------------------------------------------------------------------
+
+./scenes/2014-10-18 17.07.33_prores_scene_001.mov:
+Description: Two individuals traverse a sandy beach, a large rock formation in the distance. The scene is enveloped in soft, diffused light, casting a tranquil atmosphere.
+Formal Tags: ['outdoor', 'daytime', 'natural lighting']
+Emotional Tags: ['peaceful', 'calm']
+Semantic Tags: ['beach', 'people', 'rock', 'soft light', 'tranquil']
+Dominant Colors: ['#a19e96', '#f1f6f8', '#736e64']
+--------------------------------------------------------------------------------
+
+./scenes/Brute Spring Fog_prores_scene_001.mov:
+Description: Dimly lit indoor garage with a parked car emitting smoke.
+Formal Tags: ['dim_lighting', 'stationary_object', 'motion_smoke']
+Emotional Tags: ['somber', 'quiet']
+Semantic Tags: ['garage', 'car', 'smoke']
+Dominant Colors: ['#121311', '#bcbfbb', '#4e5354']
+--------------------------------------------------------------------------------
+
+./scenes/IMG_0049_prores_scene_001.mov:
+Description: Cityscape beneath dark sky. Fireworks burst, emitting light. Buildings silhouette against illumination. No wood, fabric, or glass visible. Contrasts prior indoor, soft-lit scenes.
+Formal Tags: ['outdoor', 'dim_lighting', 'wide_shot', 'urban']
+Emotional Tags: ['celebratory', 'dramatic']
+Semantic Tags: ['cityscape', 'fireworks', 'night', 'illumination', 'building_silhouette']
+Dominant Colors: ['#396dc5', '#ef6e53', '#612627']
+--------------------------------------------------------------------------------
+
+./scenes/2014-11-08 16.34.48_prores_scene_001.mov:
+Description: Dimly illuminated scene, featuring a sunset over water with minimal movement.
+Formal Tags: ['soft_light', 'outdoor']
+Emotional Tags: ['calming', 'peaceful']
+Semantic Tags: ['sunset', 'water', 'low_light', 'dusk']
+Dominant Colors: ['#776b5a', '#1b1b1a', '#d8bf96']
+--------------------------------------------------------------------------------
+
+./scenes/Static 1_prores_scene_001.mov:
+Description: Softly illuminated scene, a black background with visible dirt particles.
+Formal Tags: ['static_frame', 'minimal_motion', 'thumbnail']
+Emotional Tags: ['serene', 'muted']
+Semantic Tags: ['soft_light', 'black_background', 'dirt']
+Dominant Colors: ['#080808', '#3c3c3c', '#797979']
+--------------------------------------------------------------------------------
+
+./scenes/GOOD_prores_scene_001.mov:
+Description: A dimly lit room with a single light source coming through a window. The scene appears to be set indoors at night, with shadows visible and possibly some wooden, glass, and fabric elements within the room.
+Formal Tags: ['light source', 'interior space', 'low visibility']
+Emotional Tags: ['tranquil', 'quiet']
+Semantic Tags: ['dim lighting', 'indoor', 'window light', 'night', 'shadows']
+Dominant Colors: ['#0d0805', '#dfc2a2', '#56402f']
+--------------------------------------------------------------------------------
+
+./scenes/2014-08-21 11.40.09_prores_scene_001.mov:
+Description: Interior. Softly lit room, visible through open door. Bed adjacent to window with daylight seeping through. Motion present.
+Formal Tags: ['soft_light', 'open_door', 'furnishing']
+Emotional Tags: ['serene', 'quiet']
+Semantic Tags: ['interior', 'room', 'bed', 'window', 'daylight']
+Dominant Colors: ['#262220', '#e4e2dd', '#767573']
+--------------------------------------------------------------------------------
+
+./scenes/2014-07-23 20.52.10_prores_scene_001.mov:
+Description: Frame depicts a solitary tree centered in an open field, under soft lighting conditions.
+Formal Tags: ['centered', 'still_life', 'natural_lighting']
+Emotional Tags: ['calm', 'serene']
+Semantic Tags: ['tree', 'field', 'soft_light', 'solitary', 'open_space']
+Dominant Colors: ['#6970b1', '#171b2a', '#9299e1']
+--------------------------------------------------------------------------------
+
+./scenes/2014-11-08 16.38.19_prores_scene_001.mov:
+Description: A view from a boat displaying sky and water, with gentle illumination. The boat's movement suggests calmness. The lighting is diffuse, contributing to a serene ambiance.
+Formal Tags: ['outdoor', 'natural_light', 'tranquil_motion']
+Emotional Tags: ['calm', 'peaceful']
+Semantic Tags: ['boat', 'sky', 'water', 'serenity']
+Dominant Colors: ['#a9afad', '#3a363c', '#647182']
+--------------------------------------------------------------------------------
+
+./scenes/VDMX5 - Main Output 2021-10-14 at 15.10.57_prores_scene_001.mov:
+Description: Indoor space with wood and glass elements, fabric textures, under soft light, suggestive of nighttime atmosphere. Movement is evident, moderate intensity.
+Formal Tags: ['interior_design', 'materials', 'lighting']
+Emotional Tags: ['calm', 'serene', 'quiet']
+Semantic Tags: ['indoor', 'wood', 'glass', 'fabric', 'soft_light', 'night', 'movement']
+Dominant Colors: ['#3d6e70', '#9beae6', '#3fd7b0']
+--------------------------------------------------------------------------------
+
+./scenes/disco ball_prores_scene_001.mov:
+Description: Dimly lit indoor space with a blue light shining through darkness, suggesting nighttime atmosphere. Low motion.
+Formal Tags: ['low motion', 'darkness']
+Emotional Tags: ['quiet', 'still']
+Semantic Tags: ['indoor', 'night', 'blue light', 'dim lighting']
+Dominant Colors: ['#080358', '#4518f9', '#1709ad']
+--------------------------------------------------------------------------------
+
+./scenes/2014-10-19 18.21.23_prores_scene_001.mov:
+Description: Softly lit outdoor scene, trees grouped in field of tall grass, tranquil ambiance.
+Formal Tags: ['soft_light', 'natural_setting']
+Emotional Tags: ['serene', 'calm']
+Semantic Tags: ['outdoor', 'trees', 'field', 'tall grass', 'tranquil']
+Dominant Colors: ['#434239', '#f1f1f1', '#8e806d']
+--------------------------------------------------------------------------------
+
+./scenes/Drone_prores_scene_001.mov:
+Description: A city street at night with traffic lights under dim lighting conditions.
+Formal Tags: ['urban', 'outdoor', 'illumination']
+Emotional Tags: ['stillness']
+Semantic Tags: ['city', 'street', 'night', 'traffic', 'lights']
+Dominant Colors: ['#aea6aa', '#08091a', '#3f454e']
+--------------------------------------------------------------------------------
+
+./scenes/TIM0_prores_scene_001.mov:
+Description: Dimly illuminated highway at night, showcasing moving cars and trucks.
+Formal Tags: ['dim_lighting', 'long_exposure', 'outdoor']
+Emotional Tags: ['quiet', 'still']
+Semantic Tags: ['traffic', 'night', 'highway', 'vehicles', 'movement']
+Dominant Colors: ['#4c4138', '#b89f8b', '#0b0c0a']
+--------------------------------------------------------------------------------
+
+./scenes/2014-06-05 20.09.56_prores_scene_001.mov:
+Description: Interior scene with a band consisting of musicians with instruments. Ambient illumination accentuated by a window in the background. Movement likely corresponds to musical performance. Time suggests late afternoon or evening.
+Formal Tags: ['indoor', 'soft_lighting', 'window', 'movement_score_45']
+Emotional Tags: ['soothing', 'engaging', 'artistic']
+Semantic Tags: ['interior', 'music_performance', 'ambient_light', 'instrumental']
+Dominant Colors: ['#181611', '#756d59', '#e6e2d5']
+--------------------------------------------------------------------------------
+
+./scenes/video_d70eccc0dba248d3856bb5c483469c87_prores_scene_001.mov:
+Description: A sunlit playground with a blue and yellow slide under clear skies.
+Formal Tags: ['exterior', 'daylight', 'static_frame']
+Emotional Tags: ['bright', 'cheerful', 'calm']
+Semantic Tags: ['playground', 'slide', 'sunny', 'blue', 'yellow', 'clear_skies']
+Dominant Colors: ['#93acc7', '#151318', '#495b7b']
+--------------------------------------------------------------------------------
+
