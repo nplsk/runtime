@@ -1,85 +1,56 @@
+# visualize_clusters.py
 import os
 import json
-import numpy as np
-import umap
-import matplotlib.pyplot as plt
-import pandas as pd
+import random
+import csv
+from collections import defaultdict
 
-CLUSTER_LABELS = {
-    0: "elemental stillness",
-    1: "first perception",
-    2: "human proximity",
-    3: "residual interference",
-    4: "luminous threshold"
-}
+INPUT_DIR = "/Volumes/RUNTIME/PROCESSED_DESCRIPTIONS"
+SAMPLES_PER_CLUSTER = 5
+OUTPUT_CSV = "cluster_samples.csv"
 
-INPUT_DIR = "./output"
+cluster_groups = defaultdict(list)
 
-# Load data
-vectors = []
-labels = []
-filenames = []
-
-for fname in os.listdir(INPUT_DIR):
-    if fname.endswith(".json"):
-        with open(os.path.join(INPUT_DIR, fname)) as f:
+for filename in os.listdir(INPUT_DIR):
+    if not filename.endswith(".json") or filename.startswith("._"):
+        continue
+    filepath = os.path.join(INPUT_DIR, filename)
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
-            embedding = data.get("semantic_embedding", [])
-            if not embedding or "cluster" not in data:
-                continue
-            # Append motion and brightness if present
-            segments = data.get("segments", [])
-            avg_motion = np.mean([s["motion_score"] for s in segments]) / 100 if segments else 0.0
-            brightness = 0.5
-            try:
-                from PIL import Image
-                img = Image.open(segments[0]["thumbnail"]).convert("RGB")
-                colors = img.getcolors(maxcolors=256000)
-                brightness = sum([sum(c[1]) for c in colors]) / (len(colors) * 3) / 255.0
-            except:
-                pass
-            vectors.append(embedding + [avg_motion, brightness])
-            labels.append(data["cluster"])
-            filenames.append(fname)
 
-# UMAP
-X = np.array(vectors)
-reducer = umap.UMAP(random_state=42)
-embedding = reducer.fit_transform(X)
+        cluster_label = data.get("cluster_label", None)
+        if cluster_label is not None:
+            video_filename = os.path.basename(data.get("file_path", ""))
+            cluster_groups[cluster_label].append({
+                "filename": filename,
+                "video_filename": video_filename,
+                "ai_description": data.get("ai_description", ""),
+                "semantic_tags": data.get("semantic_tags", []),
+                "mood_tag": data.get("mood_tag", ""),
+                "motion_tag": data.get("motion_tag", ""),
+            })
 
-import plotly.express as px
+    except Exception as e:
+        print(f"Failed reading {filename}: {e}")
 
-df = pd.DataFrame(embedding, columns=["x", "y"])
-df["cluster"] = labels
-df["filename"] = filenames
-df["cluster_name"] = df["cluster"].map(CLUSTER_LABELS)
+with open(OUTPUT_CSV, "w", newline='', encoding="utf-8") as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(["cluster_label", "json_filename", "video_filename", "mood_tag", "motion_tag", "sample_tags", "short_description"])
 
-# Compute centroids
-centroids = df.groupby("cluster_name")[["x", "y"]].mean().reset_index()
-centroids["filename"] = "CENTROID"
-centroids["hover"] = centroids["cluster_name"]
+    for cluster_label, entries in sorted(cluster_groups.items()):
+        samples = random.sample(entries, min(SAMPLES_PER_CLUSTER, len(entries)))
+        for entry in samples:
+            sample_tags = ", ".join(entry["semantic_tags"][:5])
+            short_description = entry["ai_description"][:100] + "..." if len(entry["ai_description"]) > 100 else entry["ai_description"]
+            writer.writerow([
+                cluster_label,
+                entry["filename"],
+                entry["video_filename"],
+                entry["mood_tag"],
+                entry["motion_tag"],
+                sample_tags,
+                short_description
+            ])
 
-# Add hover info
-df["hover"] = df["filename"] + " — " + df["cluster_name"]
-
-# Combine points and centroids
-combined_df = pd.concat([df, centroids], ignore_index=True)
-
-fig = px.scatter(
-    combined_df,
-    x="x", y="y",
-    color="cluster_name",
-    hover_name="hover",
-    title="Clustered Archive UMAP (Interactive)",
-    labels={
-        "x": "UMAP Dimension 1 (semantic + visual similarity)",
-        "y": "UMAP Dimension 2 (semantic + visual similarity)",
-        "cluster_name": "Cluster"
-    },
-    width=1000, height=800
-)
-
-fig.update_traces(marker=dict(size=8))
-fig.show()
-
-df.to_csv("clustered_umap_output.csv", index=False)
+print(f"✅ Updated cluster samples saved to {OUTPUT_CSV}.")
