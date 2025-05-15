@@ -23,6 +23,10 @@ import re
 import nltk
 import random
 import argparse
+import clip
+from PIL import Image
+import csv
+model_clip, preprocess_clip = clip.load("ViT-B/32", device="cuda" if torch.cuda.is_available() else "cpu")
 
 # === NLTK Data Check and Preload ===
 def ensure_nltk_data():
@@ -58,6 +62,7 @@ logger = logging.getLogger(__name__)
 
 # === Configuration ===
 VIDEO_DIR = "/Volumes/RUNTIME/SCENES"
+# VIDEO_DIR = "/Volumes/LaCie/CONVERTED/_SOURCE PRO RES"
 OUTPUT_DIR = "/Volumes/RUNTIME/PROCESSED"
 THUMBNAIL_DIR = os.path.join(OUTPUT_DIR, "thumbnails")
 SEGMENT_DURATION = 5  # seconds
@@ -132,7 +137,37 @@ def process_video(video_path):
     video_id = os.path.splitext(video_filename)[0]
     logger.info(f"Processing: {video_filename}")
 
-    clip = VideoFileClip(video_path)
+    # Check for unreadable or empty video file before processing
+    skip_reason = None
+    try:
+        clip = VideoFileClip(video_path)
+        video_reader = clip.reader
+        try:
+            nframes = video_reader.nframes
+        except AttributeError:
+            # Estimate frame count if nframes is not available
+            nframes = int(video_reader.duration * video_reader.fps)
+            skip_reason = "Missing nframes metadata, estimated frame count used"
+        if clip.duration == 0 or nframes == 0:
+            raise ValueError("Unreadable or empty video file.")
+    except Exception as e:
+        import traceback
+        tb_str = traceback.format_exc()
+        reason = str(e).split('\n')[0].strip()
+        if "Error passing `ffmpeg -i` command output" in reason:
+            reason = "ffmpeg probe failed – check for corrupt encoding or moov atom issues"
+        logger.error(f"Unreadable video file {video_path}: {e}\n{tb_str}")
+        with open(os.path.join(OUTPUT_DIR, "skipped_videos.log"), "a") as skipped_log:
+            skipped_log.write(f"{video_path}, reason: {reason}\n")
+        try:
+            quarantine_dir = os.path.join(os.path.dirname(VIDEO_DIR), "QUARANTINE")
+            os.makedirs(quarantine_dir, exist_ok=True)
+            quarantine_path = os.path.join(quarantine_dir, os.path.basename(video_path))
+            os.rename(video_path, quarantine_path)
+            logger.warning(f"Moved corrupt file to quarantine: {quarantine_path}")
+        except Exception as move_err:
+            logger.error(f"Failed to move corrupt file {video_path} to quarantine: {move_err}")
+        return
     duration = clip.duration
     resolution = clip.size
     frame_rate = clip.fps
@@ -153,6 +188,9 @@ def process_video(video_path):
 
                 # Save thumbnails
                 thumb_img = Image.fromarray(frame)
+                thumb_img = thumb_img.convert("RGB")
+                thumb_img = transforms.functional.center_crop(thumb_img, min(thumb_img.size))
+                thumb_img = thumb_img.resize((364, 364), resample=Image.BICUBIC)
                 thumb_path = os.path.join(THUMBNAIL_DIR, f"{video_id}_{int(start)}.jpg")
                 thumb_img.save(thumb_path)
                 segment_thumbnails.append(thumb_img)
@@ -195,9 +233,11 @@ def process_video(video_path):
             if frame is None:
                 continue
 
+            # Prepare thumbnail for BLIP
+            thumb_img = frame
             # === Raw caption ===
             try:
-                inputs_raw = blip_processor(images=frame, return_tensors="pt").to(blip_model.device, torch.float16)
+                inputs_raw = blip_processor(images=thumb_img, return_tensors="pt").to(blip_model.device, torch.float16)
                 out_raw = blip_model.generate(
                     **inputs_raw,
                     do_sample=True,
@@ -225,7 +265,7 @@ def process_video(video_path):
             for prompt in prompts:
                 try:
                     inputs = blip_processor(
-                        images=frame,
+                        images=thumb_img,
                         text=prompt,
                         return_tensors="pt"
                     ).to(blip_model.device, torch.float16)
@@ -302,30 +342,36 @@ def process_video(video_path):
                 return "mood"
             return "description"
 
-        if raw_captions or all_captions:
-            combined_phrases = raw_captions + all_captions
-            normalized_phrases = [(src, normalize_phrase(text)) for src, text in combined_phrases if len(text.split()) >= 4]
+        # CLIP similarity logging and semantic_caption generation (accept all valid captions)
+        # Log CLIP similarity scores for each caption (but do not filter based on score)
+        for src, text in raw_captions + all_captions:
+            if not text or not selected_middle:
+                continue
+            try:
+                image_input = preprocess_clip(selected_middle).unsqueeze(0).to(model_clip.device)
+                text_input = clip.tokenize([text]).to(model_clip.device)
+                with torch.no_grad():
+                    image_features = model_clip.encode_image(image_input)
+                    text_features = model_clip.encode_text(text_input)
+                    similarity = (image_features @ text_features.T).item()
+                logger.info(f"CLIP similarity for caption ({src}): {similarity:.2f} | {text}")
+            except Exception as e:
+                logger.warning(f"CLIP error on caption '{text}': {e}")
 
-            # Remove captions that start with "the time of day" or are too generic
-            filtered_phrases = [
-                (src, text) for src, text in normalized_phrases
-                if not text.lower().startswith("the time of day") and not text.lower().startswith("it is the")
-            ]
+        # Accept all non-empty, valid, and non-duplicate captions
+        accepted_phrases = [
+            (src, normalize_phrase(text)) for src, text in raw_captions + all_captions
+            if is_valid_caption(text) and not contains_unwanted_place(text) and len(text.split()) >= 4
+        ]
 
-            grouped_phrases = group_similar_phrases_weighted(filtered_phrases)
-
-            descriptions = [p for p in grouped_phrases if classify_phrase(p) == "description"]
-            times = [p for p in grouped_phrases if classify_phrase(p) == "time"]
-            moods = [p for p in grouped_phrases if classify_phrase(p) == "mood"]
-
-            # Only allow time descriptors if at least 2 frames agree on time
-            if len(times) > 1:
-                times = times[:1]
-
-            final_order = descriptions + times + moods
-            semantic_caption = " | ".join(final_order)
-        else:
-            semantic_caption = "No caption could be generated"
+        grouped_phrases = group_similar_phrases_weighted(accepted_phrases)
+        descriptions = [p for p in grouped_phrases if classify_phrase(p) == "description"]
+        times = [p for p in grouped_phrases if classify_phrase(p) == "time"]
+        moods = [p for p in grouped_phrases if classify_phrase(p) == "mood"]
+        if len(times) > 1:
+            times = times[:1]
+        final_order = descriptions + times + moods
+        semantic_caption = " | ".join(final_order) if final_order else "No valid caption generated"
 
         frames_for_colors = [np.array(f) for f in selected_frames if f is not None]
         if frames_for_colors:
@@ -387,15 +433,38 @@ def process_video(video_path):
         logger.info(f"Finished processing: {video_filename}")
 
     except Exception as e:
-        logger.error(f"Critical error while processing {video_filename}: {e}")
+        import traceback
+        tb_str = traceback.format_exc()
+        logger.error(f"Critical error while processing {video_filename}: {e}\n{tb_str}")
+        with open(os.path.join(OUTPUT_DIR, "skipped_videos.log"), "a") as skipped_log:
+            skipped_log.write(f"{video_path}, reason: CRITICAL ERROR: {e}\n")
 
 # === Run Processing ===
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
 def process_all_videos(video_list):
-    with ProcessPoolExecutor(max_workers=12) as executor:
+    import signal
+
+    executor = None  # placeholder to allow reference in shutdown handler
+
+    def shutdown(signum, frame):
+        print("Received shutdown signal, terminating workers...")
+        if executor:
+            executor.shutdown(wait=False, cancel_futures=True)
+        sys.exit(0)
+
+    signal.signal(signal.SIGINT, shutdown)
+    signal.signal(signal.SIGTERM, shutdown)
+
+    executor = ProcessPoolExecutor(max_workers=4)
+    with executor:
         futures = []
         for filename in video_list:
+            output_json_path = os.path.join(OUTPUT_DIR, f"{os.path.splitext(filename)[0]}.json")
+            # Only skip existing JSONs if not running in --only-flagged mode
+            if not args.only_flagged and os.path.exists(output_json_path):
+                logger.info(f"Skipping {filename}, already processed.")
+                continue
             video_path = os.path.join(VIDEO_DIR, filename)
             futures.append(executor.submit(process_video, video_path))
 
@@ -410,34 +479,117 @@ if __name__ == "__main__":
     ensure_nltk_data()
     parser = argparse.ArgumentParser()
     parser.add_argument("--test", action="store_true", help="Process only a random subset of videos for testing.")
+    parser.add_argument("--from-file", type=str, help="Path to a JSON file containing list of video filenames to process.")
+    parser.add_argument("--missing-json", action="store_true", help="Find videos in SCENES without corresponding JSON files in PROCESSED.")
+    parser.add_argument("--sync", action="store_true", help="Process all videos in SCENES that do not have matching JSONs in PROCESSED.")
+    parser.add_argument("--recover-from-originals", action="store_true", help="Attempt to reprocess original versions of quarantined ProRes files from another source directory.")
+    parser.add_argument("--only-flagged", type=str, help="Path to a CSV file with video IDs to reprocess.")
     args, unknown = parser.parse_known_args()
 
-    if len(sys.argv) > 1 and not args.test:
+    # --missing-json logic
+    if args.missing_json:
+        all_scene_videos = [
+            f for f in os.listdir(VIDEO_DIR)
+            if f.lower().endswith(VIDEO_EXTENSIONS) and not f.startswith("._")
+        ]
+        processed_jsons = {
+            os.path.splitext(f)[0] for f in os.listdir(OUTPUT_DIR) if f.endswith(".json")
+        }
+        missing_json_videos = [
+            f for f in all_scene_videos if os.path.splitext(f)[0] not in processed_jsons
+        ]
+        output_path = os.path.join(OUTPUT_DIR, "missing_json_videos.json")
+        with open(output_path, "w") as f:
+            json.dump(missing_json_videos, f, indent=2)
+        print(f"Wrote {len(missing_json_videos)} entries to {output_path}")
+        sys.exit(0)
+
+    all_videos = [
+        filename for filename in os.listdir(VIDEO_DIR)
+        if filename.lower().endswith(VIDEO_EXTENSIONS) and not filename.startswith("._")
+    ]
+
+    # Improved logic to avoid misinterpreting argument flags as a video path
+    if args.from_file:
+        from_file_path = args.from_file
+        if os.path.exists(from_file_path):
+            logger.info(f"Using video list from file: {from_file_path}")
+            with open(from_file_path, "r") as f:
+                videos_to_process = json.load(f)
+        else:
+            logger.error(f"File not found: {from_file_path}")
+            sys.exit(1)
+    elif args.only_flagged:
+        print("🧪 Running in ONLY-FLAGGED mode")
+        flagged_path = args.only_flagged
+        print("🧪 Path:", flagged_path)
+        if os.path.exists(flagged_path):
+            logger.info(f"Using flagged video list from CSV: {flagged_path}")
+            with open(flagged_path, "r") as f:
+                reader = csv.DictReader(f)
+                videos_to_process = [row["video_id"] + ".mov" for row in reader if "video_id" in row]
+        else:
+            logger.error(f"File not found: {flagged_path}")
+            sys.exit(1)
+    elif args.test:
+        test_file_path = os.path.join(os.path.dirname(OUTPUT_DIR), "test_videos.json")
+        if os.path.exists(test_file_path):
+            logger.info(f"Found existing test video list at {test_file_path}. Re-using it.")
+            with open(test_file_path, "r") as f:
+                test_videos = json.load(f)
+        else:
+            test_videos = random.sample(all_videos, min(100, len(all_videos)))
+            logger.info(f"No existing test video list found. Selected {len(test_videos)} random videos.")
+            with open(test_file_path, "w") as f:
+                json.dump(test_videos, f, indent=2)
+            logger.info(f"Saved selected test videos to {test_file_path}.")
+        videos_to_process = test_videos
+    elif args.sync:
+        all_scene_videos = [
+            f for f in os.listdir(VIDEO_DIR)
+            if f.lower().endswith(VIDEO_EXTENSIONS) and not f.startswith("._")
+        ]
+        processed_jsons = {
+            os.path.splitext(f)[0] for f in os.listdir(OUTPUT_DIR) if f.endswith(".json")
+        }
+        videos_to_process = [
+            f for f in all_scene_videos if os.path.splitext(f)[0] not in processed_jsons
+        ]
+        logger.info(f"Sync mode: {len(videos_to_process)} videos need processing.")
+    elif args.recover_from_originals:
+        QUARANTINE_DIR = os.path.join(os.path.dirname(VIDEO_DIR), "QUARANTINE")
+        ORIGINALS_DIR = "/Volumes/LaCie/RUNTIMEVIDEOS"
+        all_quarantined = [
+            f for f in os.listdir(QUARANTINE_DIR)
+            if f.lower().endswith(VIDEO_EXTENSIONS)
+        ]
+        base_ids = set()
+        for qf in all_quarantined:
+            base = qf.split("_")[0]
+            if base:
+                base_ids.add(base)
+        original_candidates = []
+        for f in os.listdir(ORIGINALS_DIR):
+            if f.lower().endswith(VIDEO_EXTENSIONS):
+                for base in base_ids:
+                    if f.startswith(base):
+                        original_candidates.append(f)
+                        break
+        logger.info(f"Found {len(original_candidates)} original files to reprocess.")
+        videos_to_process = original_candidates
+        VIDEO_DIR = ORIGINALS_DIR
+    elif len(sys.argv) > 1 and not args.test and not (sys.argv[1].startswith('--')):
+        # If a positional argument is given and it's not a flag, treat as video path
         video_path = sys.argv[1]
         if os.path.isfile(video_path):
             process_video(video_path)
+            sys.exit(0)
         else:
             logger.error(f"File not found: {video_path}")
+            sys.exit(1)
     else:
-        all_videos = [
-            filename for filename in os.listdir(VIDEO_DIR)
-            if filename.lower().endswith(VIDEO_EXTENSIONS) and not filename.startswith("._")
-        ]
+        videos_to_process = all_videos
 
-        if args.test:
-            test_file_path = os.path.join(os.path.dirname(OUTPUT_DIR), "test_videos.json")
-            if os.path.exists(test_file_path):
-                logger.info(f"Found existing test video list at {test_file_path}. Re-using it.")
-                with open(test_file_path, "r") as f:
-                    test_videos = json.load(f)
-            else:
-                test_videos = random.sample(all_videos, min(100, len(all_videos)))
-                logger.info(f"No existing test video list found. Selected {len(test_videos)} random videos.")
-                with open(test_file_path, "w") as f:
-                    json.dump(test_videos, f, indent=2)
-                logger.info(f"Saved selected test videos to {test_file_path}.")
-            videos_to_process = test_videos
-        else:
-            videos_to_process = all_videos
-
-        process_all_videos(videos_to_process)
+    print("🧪 Number of videos to process:", len(videos_to_process))
+    print("🧪 First few videos:", videos_to_process[:5])
+    process_all_videos(videos_to_process)

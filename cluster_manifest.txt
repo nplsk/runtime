@@ -1,9 +1,0 @@
-Cluster 0:
-  Top Tags: dynamic (9), monochrome (7), aerial_view (6), ambient_light (6), warm (4), airplane (4), contrast (4), serene (3), cool (3), neutral (3)
-
-Cluster 1:
-  Top Tags: snow (8), monochrome (5), dynamic (4), trees (4), active (4), ice (4), neutral (3), cold (3), wood (3), cool (3)
-
-Cluster 2:
-  Top Tags: warm (13), ambient_light (9), active (8), group (7), audience (6), dynamic (6), neutral (6), interior (5), warmth (5), music (4)
-

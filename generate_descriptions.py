@@ -102,7 +102,7 @@ def generate_poetic_metadata(prompt, shared_tags=None):
     if shared_tags:
         common_snippet += f"\n\nEchoes of previous footage: {', '.join(shared_tags)}."
 
-    full_prompt = prompt + common_snippet
+    full_prompt = prompt + "\n\nUse minimal language. Limit ai_description to 300 characters max." + common_snippet
 
     messages = [{"type": "text", "text": full_prompt}]
 
@@ -144,6 +144,11 @@ def clean_tags(tag_list):
 
 
 def enrich_json(json_path):
+    output_path = os.path.join(OUTPUT_DIR, os.path.basename(json_path))
+    if os.path.exists(output_path):
+        print(f"🔁 Skipping already processed: {output_path}")
+        return
+
     if os.path.basename(json_path).startswith("._"):
         return  # Skip macOS metadata files
 
