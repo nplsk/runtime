@@ -1,3 +1,6 @@
+# Track root usage counts per movement
+root_usage_counts = {}
+ROOT_CLIP_CAP = 2  # max number of clips allowed per root per movement
 import os
 import json
 import csv
@@ -67,6 +70,13 @@ for file in INPUT_DIR.glob("*.json"):
         }
 
         if movement != "orientation":
+            # --- Insert root usage limiting logic here ---
+            root_id = data.get("video_id", "").split("_scene_")[0]
+            root_usage_counts.setdefault(movement, {})
+            count = root_usage_counts[movement].get(root_id, 0)
+            if count >= ROOT_CLIP_CAP and movement != "orientation":
+                continue
+            root_usage_counts[movement][root_id] = count + 1
             writers[movement].writerow(row)
 
     except Exception as e:
@@ -94,13 +104,30 @@ for r in candidates:
     base = r["video_id"].split("_scene_")[0]
     grouped[base].append(r)
 
+
+# Deduplicate video_ids for diversity and reduce repeated scenes
+used_video_ids = set()
 selected_orientation = []
 for group in grouped.values():
     medium = [r for r in group if 8 <= float(r.get("duration", 0)) <= 20]
     selection = medium if medium else group
     if selection:
-        selected_orientation.append(random.choice(selection))
+        candidates = [r for r in selection if r["video_id"] not in used_video_ids]
+        if candidates:
+            pick = random.choice(candidates)
+            selected_orientation.append(pick)
+            used_video_ids.add(pick["video_id"])
 
+    # Reduce overrepresentation: limit number of clips per root_id
+    seen_roots = {}
+    filtered_orientation = []
+    for row in selected_orientation:
+        root = row["video_id"].split("_scene_")[0]
+        # Lower threshold to 1: allow at most one scene per base root
+        if seen_roots.get(root, 0) < 1:
+            filtered_orientation.append(row)
+            seen_roots[root] = seen_roots.get(root, 0) + 1
+    selected_orientation = filtered_orientation
 selected_orientation = selected_orientation[:150]
 for row in selected_orientation:
     writers["orientation"].writerow(row)

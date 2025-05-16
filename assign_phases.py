@@ -28,7 +28,11 @@ built_tags = {
     "bathroom", "books", "domestic", "indoor", "interior_design", "curtains",
     "light_fixture", "mirror", "ceiling", "walls", "floor", "television", "lamp", "window",
     "warm_lighting", "artificial_light", "ambient", "helicopter", "airplane", "airport",
-    "abandoned_building", "asphalt", "concrete", "metal", "toilet", "grate", "projection"
+    "abandoned_building", "asphalt", "concrete", "metal", "toilet", "grate", "projection",
+    # --- New tags for improved built/people separation ---
+    "locker_room", "hotel_room", "waiting_room", "hallway", "office", "bedroom", "bathroom_sink",
+    "closet", "garage", "workshop", "elevator", "escalator", "school", "hall", "bench", "urban_alley",
+    "hallway_corner", "lecture_hall", "booth", "gym", "bar", "restaurant", "studio_apartment", "laundromat"
 }
 BUILT_DISQUALIFY_IF_PRESENT = set()
 PEOPLE_DISQUALIFY_IF_PRESENT = set()
@@ -72,7 +76,11 @@ people_tags = {
     "couple", "together", "social", "togetherness", "companionship", "gesture",
     "waving", "wedding", "portrait", "observation", "warm_lighting", "playful",
     "relaxed", "poise", "expression", "dancing", "event",
-    "human_presence", "posing"
+    "human_presence", "posing",
+    # --- New tags for improved built/people separation ---
+    "face", "eyes", "expression", "talking", "crying", "laughing", "screaming", "clapping",
+    "cheering", "walking_together", "handshake", "farewell", "welcome", "speaking", "headshot",
+    "interview", "interaction_emotional", "body_language", "hugging_family", "looking_into_camera"
 }
 
 blur_tags = {
@@ -104,6 +112,33 @@ def score_phase(tags, mood, motion, motion_score):
     scores["built"] += len(built_tags & tags)
     scores["people"] += len(people_tags & tags)
     scores["blur"] += len(blur_tags & tags)
+
+    # --- Refinement: additional rules to distinguish built vs people ---
+    refined_people_tags = {
+        "human", "people", "hug", "kiss", "family", "portrait", "smiling", "laughing",
+        "emotion", "face", "eye_contact", "group", "interaction", "gesture", "talking", "touch"
+    }
+
+    refined_built_tags = {
+        "interior", "hallway", "kitchen", "apartment", "bedroom", "architecture", "wall",
+        "ceiling", "door", "window", "urban", "corridor", "enclosed_space", "structure", "bathroom"
+    }
+
+    # Refined tag multipliers
+    scores["people"] += len(refined_people_tags & tags)
+    scores["built"] += len(refined_built_tags & tags)
+
+    # Co-occurrence boosting
+    if "people" in tags and "interaction" in emotional_tags:
+        scores["people"] += 2
+    if "interior" in tags and "structure" in material_tags:
+        scores["built"] += 2
+
+    # Motion/mood influence
+    if motion == "moderate" and "human" in tags:
+        scores["people"] += 1
+    if motion == "still" and "room" in tags:
+        scores["built"] += 1
 
     # Mood and motion modifiers for built, people, blur only
     if mood in {"warm", "joyful", "intimate", "relaxed"}:
@@ -170,6 +205,9 @@ for filename in os.listdir(INPUT_DIR):
         filename_to_data[filename] = data
 
         top_phase, score_dict = score_phase(all_tags, mood_tag, motion_tag, motion_score)
+        # Debug print statements for scoring
+        print(f"🧮 Score breakdown for {filename}: {score_dict}")
+        print(f"🏷️ Assigned top phase: {top_phase}")
         # Disqualify specific video IDs from elemental phase
         video_id = data.get("video_id", "")
         if video_id in ELEMENTAL_DISQUALIFY_IDS:

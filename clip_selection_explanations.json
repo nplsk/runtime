@@ -1,0 +1,2690 @@
+[
+  {
+    "movement": "blur_part2",
+    "time_start": 150.0,
+    "video_id": "IMG_2706_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_2706_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 18.852,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 150.0,
+    "video_id": "Halloween 1998_prores_scene_006",
+    "path": "/Volumes/CORSAIR/SCENES/Halloween 1998_prores_scene_006_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 30.797,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 150.0,
+    "video_id": "00_0043_2013-12-28_013531_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0043_2013-12-28_013531_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 327.424,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 150.0,
+    "video_id": "IMG_4598_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_4598_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 1285.473,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 150.0,
+    "video_id": "Couch 1_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/Couch 1_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 78.997,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 150.0,
+    "video_id": "00175H_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00175H_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 67.613,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 151.4,
+    "video_id": "IMG_0074_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_0074_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 38.889,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 151.5,
+    "video_id": "RJ6A0021_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/RJ6A0021_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 1026.465,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 151.6,
+    "video_id": "pre-ascent-waves_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/pre-ascent-waves_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 64.919,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 151.9,
+    "video_id": "00_0030_2013-12-28_010701_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00_0030_2013-12-28_010701_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 31.387,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 151.9,
+    "video_id": "MVI_0157_prores_scene_006",
+    "path": "/Volumes/CORSAIR/SCENES/MVI_0157_prores_scene_006_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 100.24,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 152.0,
+    "video_id": "IMG_1122_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1122_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 18.276,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 153.1,
+    "video_id": "00_0062_2013-12-28_032345_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0062_2013-12-28_032345_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 915.698,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 153.1,
+    "video_id": "00_0029_2013-12-28_010442_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0029_2013-12-28_010442_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 219.984,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 153.3,
+    "video_id": "0001QS_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/0001QS_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 1985.193,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 153.3,
+    "video_id": "IMG_7513_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7513_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 72.069,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 153.3,
+    "video_id": "Frank's Shows June 18 1999_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Frank's Shows June 18 1999_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 348.084,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 153.4,
+    "video_id": "2014-08-17 18.53.50_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2014-08-17 18.53.50_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 40.131,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 154.4,
+    "video_id": "Arthur Russell a\u0302\u0080\u0094 Soon-To-Be Innocent Fun (1985)_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Arthur Russell a\u0302\u0080\u0094 Soon-To-Be Innocent Fun (1985)_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 30.431,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 154.7,
+    "video_id": "IMG_0334_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_0334_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 274.548,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 154.7,
+    "video_id": "00_0051_2013-12-28_020754_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0051_2013-12-28_020754_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 33.114,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 154.7,
+    "video_id": "IMG_3910_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_3910_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 59.036,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 154.8,
+    "video_id": "MOV_5300_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/MOV_5300_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 93.964,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 155.4,
+    "video_id": "00_0045_2013-12-28_013944_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00_0045_2013-12-28_013944_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 338.824,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 155.9,
+    "video_id": "IMG_8677",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_8677_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 55.433,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 156.1,
+    "video_id": "Planar Pavillions_prores_scene_004",
+    "path": "/Volumes/CORSAIR/SCENES/Planar Pavillions_prores_scene_004_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 114.116,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 156.2,
+    "video_id": "DUDEBROS_prores_scene_007",
+    "path": "/Volumes/CORSAIR/SCENES/DUDEBROS_prores_scene_007_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 119.519,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 156.7,
+    "video_id": "IMG_1578_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1578_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 15.124,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 156.8,
+    "video_id": "Untitled4_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled4_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 30.476,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 157.2,
+    "video_id": "Untitled8 copy_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled8 copy_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 140.803,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 157.3,
+    "video_id": "00_0047_2013-12-28_014512_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00_0047_2013-12-28_014512_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 50.919,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 157.8,
+    "video_id": "Arthur Russell a\u0302\u0080\u0094 Soon-To-Be Innocent Fun (1985)_prores_scene_004",
+    "path": "/Volumes/CORSAIR/SCENES/Arthur Russell a\u0302\u0080\u0094 Soon-To-Be Innocent Fun (1985)_prores_scene_004_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 165.005,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 158.0,
+    "video_id": "00_0036_2013-12-28_012125_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0036_2013-12-28_012125_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 95.189,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 158.0,
+    "video_id": "IMG_0021_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_0021_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 34.232,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 158.2,
+    "video_id": "2015-04-30 12.08.13_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2015-04-30 12.08.13_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 68.888,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 158.6,
+    "video_id": "20220904_045111_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/20220904_045111_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 19.713,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 158.9,
+    "video_id": "MOV_0865_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/MOV_0865_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 22.746,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 159.1,
+    "video_id": "Static 1_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Static 1_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 166.856,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 159.4,
+    "video_id": "Christmas Singalong_prores_scene_037",
+    "path": "/Volumes/CORSAIR/SCENES/Christmas Singalong_prores_scene_037_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 286.93,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 159.5,
+    "video_id": "00_0040_2013-12-28_012945_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/00_0040_2013-12-28_012945_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 109.977,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 159.9,
+    "video_id": "Robotic Jay_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Robotic Jay_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 32.999,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 160.1,
+    "video_id": "IMG_7485_prores_scene_002_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7485_prores_scene_002_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 160.312,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 160.2,
+    "video_id": "2a5fd492f935b6fc1979779ea4e20201109T081509-0500_16-33-020-597_28246.mj2.p7s_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2a5fd492f935b6fc1979779ea4e20201109T081509-0500_16-33-020-597_28246.mj2.p7s_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 22.891,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 160.4,
+    "video_id": "00_0047_2013-12-28_014512_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0047_2013-12-28_014512_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 46.618,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 160.8,
+    "video_id": "Jay as Crack-Bot_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Jay as Crack-Bot_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 32.999,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 161.2,
+    "video_id": "GOPR0505_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/GOPR0505_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 20.149,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 161.3,
+    "video_id": "Skateboarding Michigan Dad Friends Frank_prores_scene_019",
+    "path": "/Volumes/CORSAIR/SCENES/Skateboarding Michigan Dad Friends Frank_prores_scene_019_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 37.131,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 161.4,
+    "video_id": "IMG_1385_prores_scene_001_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1385_prores_scene_001_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 46.961,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 161.8,
+    "video_id": "MVI_0354_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/MVI_0354_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 84.035,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 162.0,
+    "video_id": "2015-03-22 14.01.05_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2015-03-22 14.01.05_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 102.739,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 162.1,
+    "video_id": "Untitled7_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled7_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 40.076,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 162.4,
+    "video_id": "00_0012_2013-12-28_003619_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0012_2013-12-28_003619_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 21.577,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 163.3,
+    "video_id": "Untitled8 copy_prores_scene_018",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled8 copy_prores_scene_018_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 124.399,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 163.4,
+    "video_id": "00_0051_2013-12-28_020754_prores_scene_007",
+    "path": "/Volumes/CORSAIR/SCENES/00_0051_2013-12-28_020754_prores_scene_007_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 258.507,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 163.4,
+    "video_id": "MVI_0293_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/MVI_0293_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 77.366,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 163.7,
+    "video_id": "00_0049_2013-12-28_014637_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0049_2013-12-28_014637_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 426.673,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 164.0,
+    "video_id": "2014-07-10 23.18.44_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2014-07-10 23.18.44_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 50.388,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 164.0,
+    "video_id": "IMG_7658_prores_scene_001_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7658_prores_scene_001_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 36.228,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 164.7,
+    "video_id": "Jazz Band 2000_prores_scene_056",
+    "path": "/Volumes/CORSAIR/SCENES/Jazz Band 2000_prores_scene_056_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 171.715,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 164.9,
+    "video_id": "pre-ascent-waves_scene_007",
+    "path": "/Volumes/CORSAIR/SCENES/pre-ascent-waves_scene_007_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 59.991,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 165.0,
+    "video_id": "IMG_3165_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_3165_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 30.077,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 165.2,
+    "video_id": "american_acid_by_flatsitter_||_10.14.2015_||_sugar_city_||_buffalo,_ny (Original)_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/american_acid_by_flatsitter_||_10.14.2015_||_sugar_city_||_buffalo,_ny (Original)_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 46.08,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 165.2,
+    "video_id": "00_0031_2013-12-28_011001_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00_0031_2013-12-28_011001_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 89.835,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 165.3,
+    "video_id": "2014-06-02 19.06.42_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2014-06-02 19.06.42_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 45.8,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 165.8,
+    "video_id": "FullSizeRender_7_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/FullSizeRender_7_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 54.364,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 166.5,
+    "video_id": "Planar Pavillions_prores_scene_009",
+    "path": "/Volumes/CORSAIR/SCENES/Planar Pavillions_prores_scene_009_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 25.296,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 166.7,
+    "video_id": "IMG_2856_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_2856_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 4.195,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 166.8,
+    "video_id": "Untitled7_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled7_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 220.406,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 166.9,
+    "video_id": "Brute Spring Fog_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Brute Spring Fog_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 67.829,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 167.0,
+    "video_id": "Cession June 18 1999_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Cession June 18 1999_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 109.007,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 167.3,
+    "video_id": "00_0016_2013-12-28_004056_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0016_2013-12-28_004056_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 177.005,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 168.2,
+    "video_id": "IMG_1876_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1876_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 1.769,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 168.5,
+    "video_id": "IMG_7901_prores_scene_002_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7901_prores_scene_002_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 56.588,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 168.6,
+    "video_id": "IMG_0696_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_0696_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 63.434,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 168.7,
+    "video_id": "2015-07-16 21.37.03_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2015-07-16 21.37.03_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 26.843,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 168.8,
+    "video_id": "IMG_4354_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_4354_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 20.467,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 168.9,
+    "video_id": "Fog Flying - Buffalo, NY - DJI Phantom 3 - February 2017_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Fog Flying - Buffalo, NY - DJI Phantom 3 - February 2017_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 61.913,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 169.8,
+    "video_id": "00_0022_2013-12-28_005447_prores_scene_004",
+    "path": "/Volumes/CORSAIR/SCENES/00_0022_2013-12-28_005447_prores_scene_004_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 93.625,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 170.0,
+    "video_id": "2014-07-23 20.40.11_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2014-07-23 20.40.11_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 32.037,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 170.2,
+    "video_id": "Concert Band 1998_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Concert Band 1998_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 146.919,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 170.4,
+    "video_id": "Cloud_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Cloud_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 16.687,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 170.4,
+    "video_id": "00_0069_2013-12-28_213818_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/00_0069_2013-12-28_213818_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 131.263,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 170.6,
+    "video_id": "00_0055_2013-12-28_025842_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0055_2013-12-28_025842_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 115.301,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 171.4,
+    "video_id": "Statics_2_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Statics_2_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 169.768,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 171.6,
+    "video_id": "IMG_7482_prores_scene_002_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7482_prores_scene_002_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 162.741,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 171.8,
+    "video_id": "IMG_7901_prores_scene_001_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7901_prores_scene_001_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 116.861,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 171.8,
+    "video_id": "20110901_0595_prores_scene_020",
+    "path": "/Volumes/CORSAIR/SCENES/20110901_0595_prores_scene_020_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 16.162,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 171.9,
+    "video_id": "Skateboarding Michigan Dad Friends Frank_prores_scene_023",
+    "path": "/Volumes/CORSAIR/SCENES/Skateboarding Michigan Dad Friends Frank_prores_scene_023_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 888.308,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 172.3,
+    "video_id": "IMG_1232_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1232_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 63.73,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 172.9,
+    "video_id": "00_0030_2013-12-28_010701_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0030_2013-12-28_010701_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 42.928,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 173.1,
+    "video_id": "IMG_7904_prores_scene_008_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7904_prores_scene_008_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 143.615,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 173.1,
+    "video_id": "IMG_3055_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_3055_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 67.766,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 173.4,
+    "video_id": "Couch 2_prores_scene_013",
+    "path": "/Volumes/CORSAIR/SCENES/Couch 2_prores_scene_013_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 150.05,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 173.6,
+    "video_id": "Jay as Crack-Bot_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/Jay as Crack-Bot_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 62.893,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 173.8,
+    "video_id": "Birthday 2003_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Birthday 2003_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 34.598,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 174.2,
+    "video_id": "Jazz Band 2001_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/Jazz Band 2001_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 0.0,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 174.5,
+    "video_id": "IMG_6383_prores copy_scene_002_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_6383_prores copy_scene_002_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 527.736,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 174.9,
+    "video_id": "Nicole Sara Grandpa and Max_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Nicole Sara Grandpa and Max_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 119.003,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 175.0,
+    "video_id": "Christmas at First Lutheran 1998_prores_scene_004",
+    "path": "/Volumes/CORSAIR/SCENES/Christmas at First Lutheran 1998_prores_scene_004_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 115.434,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 175.4,
+    "video_id": "GOPR0208_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/GOPR0208_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 274.782,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 175.8,
+    "video_id": "Frank's Shows June 18 1999_prores_scene_009",
+    "path": "/Volumes/CORSAIR/SCENES/Frank's Shows June 18 1999_prores_scene_009_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 90.132,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 175.9,
+    "video_id": "Untitled8_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled8_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 36.968,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 176.4,
+    "video_id": "IMG_1578",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1578_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 40.253,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 176.6,
+    "video_id": "00_0045_2013-12-28_013944_prores_scene_007",
+    "path": "/Volumes/CORSAIR/SCENES/00_0045_2013-12-28_013944_prores_scene_007_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 187.971,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 176.7,
+    "video_id": "00_0040_2013-12-28_012945_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/00_0040_2013-12-28_012945_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 314.193,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 176.9,
+    "video_id": "00_0046_2013-12-28_014443_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0046_2013-12-28_014443_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 78.068,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 177.2,
+    "video_id": "IMG_5778_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_5778_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 36.042,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 177.3,
+    "video_id": "C0029_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/C0029_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 19.62,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 178.0,
+    "video_id": "57570068841__98551F3C-F2AF-4EF8-BC23-A7B8ACB06088_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/57570068841__98551F3C-F2AF-4EF8-BC23-A7B8ACB06088_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 199.368,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 178.3,
+    "video_id": "00_0013_2013-12-28_003755_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00_0013_2013-12-28_003755_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 429.904,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 178.3,
+    "video_id": "IMG_1308_prores_scene_001_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1308_prores_scene_001_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 121.798,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 178.5,
+    "video_id": "IMG_0083_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_0083_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.001,
+      "semantic_match": true,
+      "motion_variance": 26.384,
+      "final_weight": 0.001
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 250.1,
+    "video_id": "IMG_2706_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_2706_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985992891053901,
+      "semantic_match": true,
+      "motion_variance": 18.852,
+      "final_weight": 0.00985992891053901
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 250.1,
+    "video_id": "00175H_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00175H_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985992891053901,
+      "semantic_match": true,
+      "motion_variance": 67.613,
+      "final_weight": 0.00985992891053901
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 250.1,
+    "video_id": "Couch 1_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/Couch 1_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985992891053901,
+      "semantic_match": true,
+      "motion_variance": 78.997,
+      "final_weight": 0.00985992891053901
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 250.1,
+    "video_id": "IMG_4598_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_4598_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985992891053901,
+      "semantic_match": true,
+      "motion_variance": 1285.473,
+      "final_weight": 0.00985992891053901
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 250.1,
+    "video_id": "00_0043_2013-12-28_013531_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0043_2013-12-28_013531_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985992891053901,
+      "semantic_match": true,
+      "motion_variance": 327.424,
+      "final_weight": 0.00985992891053901
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 250.1,
+    "video_id": "Halloween 1998_prores_scene_006",
+    "path": "/Volumes/CORSAIR/SCENES/Halloween 1998_prores_scene_006_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985992891053901,
+      "semantic_match": true,
+      "motion_variance": 30.797,
+      "final_weight": 0.00985992891053901
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 251.5,
+    "video_id": "IMG_0074_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_0074_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539018,
+      "semantic_match": true,
+      "motion_variance": 38.889,
+      "final_weight": 0.009859928910539018
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 251.6,
+    "video_id": "RJ6A0021_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/RJ6A0021_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539018,
+      "semantic_match": true,
+      "motion_variance": 1026.465,
+      "final_weight": 0.009859928910539018
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 251.7,
+    "video_id": "pre-ascent-waves_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/pre-ascent-waves_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009804826879099985,
+      "semantic_match": true,
+      "motion_variance": 64.919,
+      "final_weight": 0.009804826879099985
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 252.0,
+    "video_id": "00_0030_2013-12-28_010701_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00_0030_2013-12-28_010701_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009762393689815697,
+      "semantic_match": true,
+      "motion_variance": 31.387,
+      "final_weight": 0.009762393689815697
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 252.0,
+    "video_id": "MVI_0157_prores_scene_006",
+    "path": "/Volumes/CORSAIR/SCENES/MVI_0157_prores_scene_006_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539021,
+      "semantic_match": true,
+      "motion_variance": 100.24,
+      "final_weight": 0.009859928910539021
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 252.1,
+    "video_id": "IMG_1122_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1122_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539021,
+      "semantic_match": true,
+      "motion_variance": 18.276,
+      "final_weight": 0.009859928910539021
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 253.2,
+    "video_id": "00_0029_2013-12-28_010442_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0029_2013-12-28_010442_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539028,
+      "semantic_match": true,
+      "motion_variance": 219.984,
+      "final_weight": 0.009859928910539028
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 253.2,
+    "video_id": "00_0062_2013-12-28_032345_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0062_2013-12-28_032345_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539028,
+      "semantic_match": true,
+      "motion_variance": 915.698,
+      "final_weight": 0.009859928910539028
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 253.4,
+    "video_id": "Frank's Shows June 18 1999_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Frank's Shows June 18 1999_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009730309351988547,
+      "semantic_match": true,
+      "motion_variance": 348.084,
+      "final_weight": 0.009730309351988547
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 253.5,
+    "video_id": "2014-08-17 18.53.50_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2014-08-17 18.53.50_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539028,
+      "semantic_match": true,
+      "motion_variance": 40.131,
+      "final_weight": 0.009859928910539028
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 253.9,
+    "video_id": "0001QS_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/0001QS_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009811405638341495,
+      "semantic_match": true,
+      "motion_variance": 1985.193,
+      "final_weight": 0.009811405638341495
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 254.0,
+    "video_id": "IMG_7513_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7513_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009801758238500451,
+      "semantic_match": true,
+      "motion_variance": 72.069,
+      "final_weight": 0.009801758238500451
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 254.5,
+    "video_id": "Arthur Russell a\u0302\u0080\u0094 Soon-To-Be Innocent Fun (1985)_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Arthur Russell a\u0302\u0080\u0094 Soon-To-Be Innocent Fun (1985)_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009818544568050477,
+      "semantic_match": true,
+      "motion_variance": 30.431,
+      "final_weight": 0.009818544568050477
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 254.8,
+    "video_id": "IMG_3910_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_3910_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539035,
+      "semantic_match": true,
+      "motion_variance": 59.036,
+      "final_weight": 0.009859928910539035
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 254.8,
+    "video_id": "00_0051_2013-12-28_020754_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0051_2013-12-28_020754_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009804826879100002,
+      "semantic_match": true,
+      "motion_variance": 33.114,
+      "final_weight": 0.009804826879100002
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 254.9,
+    "video_id": "IMG_0334_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_0334_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781586,
+      "semantic_match": true,
+      "motion_variance": 274.548,
+      "final_weight": 0.009850185897781586
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 255.0,
+    "video_id": "MOV_5300_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/MOV_5300_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781586,
+      "semantic_match": true,
+      "motion_variance": 93.964,
+      "final_weight": 0.009850185897781586
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 255.6,
+    "video_id": "00_0045_2013-12-28_013944_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00_0045_2013-12-28_013944_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009752747055734869,
+      "semantic_match": true,
+      "motion_variance": 338.824,
+      "final_weight": 0.009752747055734869
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 256.0,
+    "video_id": "IMG_8677",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_8677_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539042,
+      "semantic_match": true,
+      "motion_variance": 55.433,
+      "final_weight": 0.009859928910539042
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 256.2,
+    "video_id": "Planar Pavillions_prores_scene_004",
+    "path": "/Volumes/CORSAIR/SCENES/Planar Pavillions_prores_scene_004_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009804826879100009,
+      "semantic_match": true,
+      "motion_variance": 114.116,
+      "final_weight": 0.009804826879100009
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 256.3,
+    "video_id": "DUDEBROS_prores_scene_007",
+    "path": "/Volumes/CORSAIR/SCENES/DUDEBROS_prores_scene_007_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539042,
+      "semantic_match": true,
+      "motion_variance": 119.519,
+      "final_weight": 0.009859928910539042
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 256.8,
+    "video_id": "IMG_1578_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1578_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539046,
+      "semantic_match": true,
+      "motion_variance": 15.124,
+      "final_weight": 0.009859928910539046
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 256.9,
+    "video_id": "Untitled4_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled4_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539047,
+      "semantic_match": true,
+      "motion_variance": 30.476,
+      "final_weight": 0.009859928910539047
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 257.3,
+    "video_id": "Untitled8 copy_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled8 copy_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00981854456805049,
+      "semantic_match": true,
+      "motion_variance": 140.803,
+      "final_weight": 0.00981854456805049
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 257.4,
+    "video_id": "00_0047_2013-12-28_014512_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00_0047_2013-12-28_014512_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00981854456805049,
+      "semantic_match": true,
+      "motion_variance": 50.919,
+      "final_weight": 0.00981854456805049
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 257.9,
+    "video_id": "Arthur Russell a\u0302\u0080\u0094 Soon-To-Be Innocent Fun (1985)_prores_scene_004",
+    "path": "/Volumes/CORSAIR/SCENES/Arthur Russell a\u0302\u0080\u0094 Soon-To-Be Innocent Fun (1985)_prores_scene_004_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.0056342450917366,
+      "semantic_match": true,
+      "motion_variance": 165.005,
+      "final_weight": 0.0056342450917366
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 258.1,
+    "video_id": "IMG_0021_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_0021_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539053,
+      "semantic_match": true,
+      "motion_variance": 34.232,
+      "final_weight": 0.009859928910539053
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 258.4,
+    "video_id": "2015-04-30 12.08.13_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2015-04-30 12.08.13_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781603,
+      "semantic_match": true,
+      "motion_variance": 68.888,
+      "final_weight": 0.009850185897781603
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 258.4,
+    "video_id": "00_0036_2013-12-28_012125_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0036_2013-12-28_012125_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009830757523229768,
+      "semantic_match": true,
+      "motion_variance": 95.189,
+      "final_weight": 0.009830757523229768
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 258.8,
+    "video_id": "20220904_045111_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/20220904_045111_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781605,
+      "semantic_match": true,
+      "motion_variance": 19.713,
+      "final_weight": 0.009850185897781605
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 259.1,
+    "video_id": "MOV_0865_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/MOV_0865_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781609,
+      "semantic_match": true,
+      "motion_variance": 22.746,
+      "final_weight": 0.009850185897781609
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 259.6,
+    "video_id": "00_0040_2013-12-28_012945_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/00_0040_2013-12-28_012945_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009762393689815735,
+      "semantic_match": true,
+      "motion_variance": 109.977,
+      "final_weight": 0.009762393689815735
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 259.8,
+    "video_id": "Static 1_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Static 1_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009801758238500482,
+      "semantic_match": true,
+      "motion_variance": 166.856,
+      "final_weight": 0.009801758238500482
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 260.3,
+    "video_id": "IMG_7485_prores_scene_002_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7485_prores_scene_002_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781614,
+      "semantic_match": true,
+      "motion_variance": 160.312,
+      "final_weight": 0.009850185897781614
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 260.3,
+    "video_id": "2a5fd492f935b6fc1979779ea4e20201109T081509-0500_16-33-020-597_28246.mj2.p7s_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2a5fd492f935b6fc1979779ea4e20201109T081509-0500_16-33-020-597_28246.mj2.p7s_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539063,
+      "semantic_match": true,
+      "motion_variance": 22.891,
+      "final_weight": 0.009859928910539063
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 260.4,
+    "video_id": "Robotic Jay_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Robotic Jay_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.0098288397483019,
+      "semantic_match": true,
+      "motion_variance": 32.999,
+      "final_weight": 0.0098288397483019
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 260.4,
+    "video_id": "Christmas Singalong_prores_scene_037",
+    "path": "/Volumes/CORSAIR/SCENES/Christmas Singalong_prores_scene_037_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009780659161300422,
+      "semantic_match": true,
+      "motion_variance": 286.93,
+      "final_weight": 0.009780659161300422
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 261.0,
+    "video_id": "Jay as Crack-Bot_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Jay as Crack-Bot_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009795138314990251,
+      "semantic_match": true,
+      "motion_variance": 32.999,
+      "final_weight": 0.009795138314990251
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 261.4,
+    "video_id": "GOPR0505_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/GOPR0505_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781619,
+      "semantic_match": true,
+      "motion_variance": 20.149,
+      "final_weight": 0.009850185897781619
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 261.4,
+    "video_id": "00_0047_2013-12-28_014512_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0047_2013-12-28_014512_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.005584531164456581,
+      "semantic_match": true,
+      "motion_variance": 46.618,
+      "final_weight": 0.005584531164456581
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 261.5,
+    "video_id": "IMG_1385_prores_scene_001_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1385_prores_scene_001_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985992891053907,
+      "semantic_match": true,
+      "motion_variance": 46.961,
+      "final_weight": 0.00985992891053907
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 261.8,
+    "video_id": "Skateboarding Michigan Dad Friends Frank_prores_scene_019",
+    "path": "/Volumes/CORSAIR/SCENES/Skateboarding Michigan Dad Friends Frank_prores_scene_019_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009766187167261218,
+      "semantic_match": true,
+      "motion_variance": 37.131,
+      "final_weight": 0.009766187167261218
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 262.1,
+    "video_id": "MVI_0354_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/MVI_0354_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009840462120982232,
+      "semantic_match": true,
+      "motion_variance": 84.035,
+      "final_weight": 0.009840462120982232
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 262.3,
+    "video_id": "Untitled7_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled7_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009808842448912126,
+      "semantic_match": true,
+      "motion_variance": 40.076,
+      "final_weight": 0.009808842448912126
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 262.6,
+    "video_id": "00_0012_2013-12-28_003619_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0012_2013-12-28_003619_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781626,
+      "semantic_match": true,
+      "motion_variance": 21.577,
+      "final_weight": 0.009850185897781626
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 262.6,
+    "video_id": "2015-03-22 14.01.05_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2015-03-22 14.01.05_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00981140563834154,
+      "semantic_match": true,
+      "motion_variance": 102.739,
+      "final_weight": 0.00981140563834154
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 263.4,
+    "video_id": "Untitled8 copy_prores_scene_018",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled8 copy_prores_scene_018_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.005634245091736617,
+      "semantic_match": true,
+      "motion_variance": 124.399,
+      "final_weight": 0.005634245091736617
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 263.5,
+    "video_id": "00_0051_2013-12-28_020754_prores_scene_007",
+    "path": "/Volumes/CORSAIR/SCENES/00_0051_2013-12-28_020754_prores_scene_007_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.006310354502745011,
+      "semantic_match": true,
+      "motion_variance": 258.507,
+      "final_weight": 0.006310354502745011
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 263.5,
+    "video_id": "MVI_0293_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/MVI_0293_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985992891053908,
+      "semantic_match": true,
+      "motion_variance": 77.366,
+      "final_weight": 0.00985992891053908
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 263.8,
+    "video_id": "00_0049_2013-12-28_014637_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0049_2013-12-28_014637_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539084,
+      "semantic_match": true,
+      "motion_variance": 426.673,
+      "final_weight": 0.009859928910539084
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 264.1,
+    "video_id": "IMG_7658_prores_scene_001_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7658_prores_scene_001_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539084,
+      "semantic_match": true,
+      "motion_variance": 36.228,
+      "final_weight": 0.009859928910539084
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 264.1,
+    "video_id": "2014-07-10 23.18.44_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2014-07-10 23.18.44_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539084,
+      "semantic_match": true,
+      "motion_variance": 50.388,
+      "final_weight": 0.009859928910539084
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 265.1,
+    "video_id": "pre-ascent-waves_scene_007",
+    "path": "/Volumes/CORSAIR/SCENES/pre-ascent-waves_scene_007_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.006931455862908692,
+      "semantic_match": true,
+      "motion_variance": 59.991,
+      "final_weight": 0.006931455862908692
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 265.3,
+    "video_id": "IMG_3165_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_3165_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009848245157479226,
+      "semantic_match": true,
+      "motion_variance": 30.077,
+      "final_weight": 0.009848245157479226
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 265.4,
+    "video_id": "00_0031_2013-12-28_011001_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00_0031_2013-12-28_011001_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985018589778164,
+      "semantic_match": true,
+      "motion_variance": 89.835,
+      "final_weight": 0.00985018589778164
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 265.5,
+    "video_id": "american_acid_by_flatsitter_||_10.14.2015_||_sugar_city_||_buffalo,_ny (Original)_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/american_acid_by_flatsitter_||_10.14.2015_||_sugar_city_||_buffalo,_ny (Original)_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00984046212098225,
+      "semantic_match": true,
+      "motion_variance": 46.08,
+      "final_weight": 0.00984046212098225
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 265.7,
+    "video_id": "2014-06-02 19.06.42_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2014-06-02 19.06.42_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009830757523229804,
+      "semantic_match": true,
+      "motion_variance": 45.8,
+      "final_weight": 0.009830757523229804
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 265.7,
+    "video_id": "Jazz Band 2000_prores_scene_056",
+    "path": "/Volumes/CORSAIR/SCENES/Jazz Band 2000_prores_scene_056_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009780659161300448,
+      "semantic_match": true,
+      "motion_variance": 171.715,
+      "final_weight": 0.009780659161300448
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 266.5,
+    "video_id": "FullSizeRender_7_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/FullSizeRender_7_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009801758238500517,
+      "semantic_match": true,
+      "motion_variance": 54.364,
+      "final_weight": 0.009801758238500517
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 266.8,
+    "video_id": "IMG_2856_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_2856_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.0098599289105391,
+      "semantic_match": true,
+      "motion_variance": 4.195,
+      "final_weight": 0.0098599289105391
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 267.0,
+    "video_id": "Brute Spring Fog_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Brute Spring Fog_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.0098599289105391,
+      "semantic_match": true,
+      "motion_variance": 67.829,
+      "final_weight": 0.0098599289105391
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 267.1,
+    "video_id": "Untitled7_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled7_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.005623121211989862,
+      "semantic_match": true,
+      "motion_variance": 220.406,
+      "final_weight": 0.005623121211989862
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 267.4,
+    "video_id": "Planar Pavillions_prores_scene_009",
+    "path": "/Volumes/CORSAIR/SCENES/Planar Pavillions_prores_scene_009_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.006260812956109144,
+      "semantic_match": true,
+      "motion_variance": 25.296,
+      "final_weight": 0.006260812956109144
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 267.4,
+    "video_id": "00_0016_2013-12-28_004056_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0016_2013-12-28_004056_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539103,
+      "semantic_match": true,
+      "motion_variance": 177.005,
+      "final_weight": 0.009859928910539103
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 268.1,
+    "video_id": "Cession June 18 1999_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Cession June 18 1999_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009763357618565166,
+      "semantic_match": true,
+      "motion_variance": 109.007,
+      "final_weight": 0.009763357618565166
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 268.4,
+    "video_id": "IMG_1876_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1876_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781659,
+      "semantic_match": true,
+      "motion_variance": 1.769,
+      "final_weight": 0.009850185897781659
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 268.6,
+    "video_id": "IMG_7901_prores_scene_002_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7901_prores_scene_002_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009818544568050553,
+      "semantic_match": true,
+      "motion_variance": 56.588,
+      "final_weight": 0.009818544568050553
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 268.7,
+    "video_id": "IMG_0696_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_0696_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539112,
+      "semantic_match": true,
+      "motion_variance": 63.434,
+      "final_weight": 0.009859928910539112
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 268.8,
+    "video_id": "2015-07-16 21.37.03_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2015-07-16 21.37.03_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539113,
+      "semantic_match": true,
+      "motion_variance": 26.843,
+      "final_weight": 0.009859928910539113
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 268.9,
+    "video_id": "IMG_4354_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_4354_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539113,
+      "semantic_match": true,
+      "motion_variance": 20.467,
+      "final_weight": 0.009859928910539113
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 269.7,
+    "video_id": "Fog Flying - Buffalo, NY - DJI Phantom 3 - February 2017_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Fog Flying - Buffalo, NY - DJI Phantom 3 - February 2017_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009792129792293758,
+      "semantic_match": true,
+      "motion_variance": 61.913,
+      "final_weight": 0.009792129792293758
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 269.9,
+    "video_id": "00_0022_2013-12-28_005447_prores_scene_004",
+    "path": "/Volumes/CORSAIR/SCENES/00_0022_2013-12-28_005447_prores_scene_004_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985992891053912,
+      "semantic_match": true,
+      "motion_variance": 93.625,
+      "final_weight": 0.00985992891053912
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 270.1,
+    "video_id": "2014-07-23 20.40.11_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/2014-07-23 20.40.11_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539122,
+      "semantic_match": true,
+      "motion_variance": 32.037,
+      "final_weight": 0.009859928910539122
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 270.3,
+    "video_id": "Concert Band 1998_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Concert Band 1998_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539124,
+      "semantic_match": true,
+      "motion_variance": 146.919,
+      "final_weight": 0.009859928910539124
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 270.5,
+    "video_id": "00_0069_2013-12-28_213818_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/00_0069_2013-12-28_213818_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539125,
+      "semantic_match": true,
+      "motion_variance": 131.263,
+      "final_weight": 0.009859928910539125
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 270.5,
+    "video_id": "Cloud_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Cloud_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539125,
+      "semantic_match": true,
+      "motion_variance": 16.687,
+      "final_weight": 0.009859928910539125
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 270.8,
+    "video_id": "00_0055_2013-12-28_025842_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0055_2013-12-28_025842_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781676,
+      "semantic_match": true,
+      "motion_variance": 115.301,
+      "final_weight": 0.009850185897781676
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 271.5,
+    "video_id": "Statics_2_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Statics_2_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539132,
+      "semantic_match": true,
+      "motion_variance": 169.768,
+      "final_weight": 0.009859928910539132
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 271.7,
+    "video_id": "IMG_7482_prores_scene_002_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7482_prores_scene_002_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539132,
+      "semantic_match": true,
+      "motion_variance": 162.741,
+      "final_weight": 0.009859928910539132
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 271.9,
+    "video_id": "20110901_0595_prores_scene_020",
+    "path": "/Volumes/CORSAIR/SCENES/20110901_0595_prores_scene_020_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539134,
+      "semantic_match": true,
+      "motion_variance": 16.162,
+      "final_weight": 0.009859928910539134
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 271.9,
+    "video_id": "IMG_7901_prores_scene_001_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7901_prores_scene_001_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.005634245091736647,
+      "semantic_match": true,
+      "motion_variance": 116.861,
+      "final_weight": 0.005634245091736647
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 272.0,
+    "video_id": "Skateboarding Michigan Dad Friends Frank_prores_scene_023",
+    "path": "/Volumes/CORSAIR/SCENES/Skateboarding Michigan Dad Friends Frank_prores_scene_023_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.006310354502745046,
+      "semantic_match": true,
+      "motion_variance": 888.308,
+      "final_weight": 0.006310354502745046
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 272.5,
+    "video_id": "IMG_1232_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1232_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781688,
+      "semantic_match": true,
+      "motion_variance": 63.73,
+      "final_weight": 0.009850185897781688
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 273.0,
+    "video_id": "00_0030_2013-12-28_010701_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0030_2013-12-28_010701_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.007490035018095015,
+      "semantic_match": true,
+      "motion_variance": 42.928,
+      "final_weight": 0.007490035018095015
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 273.2,
+    "video_id": "IMG_7904_prores_scene_008_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_7904_prores_scene_008_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539145,
+      "semantic_match": true,
+      "motion_variance": 143.615,
+      "final_weight": 0.009859928910539145
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 273.3,
+    "video_id": "IMG_3055_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_3055_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781694,
+      "semantic_match": true,
+      "motion_variance": 67.766,
+      "final_weight": 0.009850185897781694
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 273.5,
+    "video_id": "Couch 2_prores_scene_013",
+    "path": "/Volumes/CORSAIR/SCENES/Couch 2_prores_scene_013_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539146,
+      "semantic_match": true,
+      "motion_variance": 150.05,
+      "final_weight": 0.009859928910539146
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 273.8,
+    "video_id": "Jay as Crack-Bot_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/Jay as Crack-Bot_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.006304118974580286,
+      "semantic_match": true,
+      "motion_variance": 62.893,
+      "final_weight": 0.006304118974580286
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 274.3,
+    "video_id": "Birthday 2003_prores_scene_005",
+    "path": "/Volumes/CORSAIR/SCENES/Birthday 2003_prores_scene_005_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009821072047837517,
+      "semantic_match": true,
+      "motion_variance": 34.598,
+      "final_weight": 0.009821072047837517
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 274.4,
+    "video_id": "Jazz Band 2001_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/Jazz Band 2001_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.0098501858977817,
+      "semantic_match": true,
+      "motion_variance": 0.0,
+      "final_weight": 0.0098501858977817
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 274.7,
+    "video_id": "IMG_6383_prores copy_scene_002_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_6383_prores copy_scene_002_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781702,
+      "semantic_match": true,
+      "motion_variance": 527.736,
+      "final_weight": 0.009850185897781702
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 275.0,
+    "video_id": "Nicole Sara Grandpa and Max_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/Nicole Sara Grandpa and Max_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539155,
+      "semantic_match": true,
+      "motion_variance": 119.003,
+      "final_weight": 0.009859928910539155
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 275.1,
+    "video_id": "Christmas at First Lutheran 1998_prores_scene_004",
+    "path": "/Volumes/CORSAIR/SCENES/Christmas at First Lutheran 1998_prores_scene_004_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539157,
+      "semantic_match": true,
+      "motion_variance": 115.434,
+      "final_weight": 0.009859928910539157
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 275.5,
+    "video_id": "GOPR0208_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/GOPR0208_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00985992891053916,
+      "semantic_match": true,
+      "motion_variance": 274.782,
+      "final_weight": 0.00985992891053916
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 275.9,
+    "video_id": "Frank's Shows June 18 1999_prores_scene_009",
+    "path": "/Volumes/CORSAIR/SCENES/Frank's Shows June 18 1999_prores_scene_009_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.007968877035826442,
+      "semantic_match": true,
+      "motion_variance": 90.132,
+      "final_weight": 0.007968877035826442
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 276.0,
+    "video_id": "Untitled8_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/Untitled8_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539164,
+      "semantic_match": true,
+      "motion_variance": 36.968,
+      "final_weight": 0.009859928910539164
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 276.5,
+    "video_id": "IMG_1578",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1578_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539167,
+      "semantic_match": true,
+      "motion_variance": 40.253,
+      "final_weight": 0.009859928910539167
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 276.7,
+    "video_id": "00_0045_2013-12-28_013944_prores_scene_007",
+    "path": "/Volumes/CORSAIR/SCENES/00_0045_2013-12-28_013944_prores_scene_007_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.007490035018095034,
+      "semantic_match": true,
+      "motion_variance": 187.971,
+      "final_weight": 0.007490035018095034
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 276.8,
+    "video_id": "00_0040_2013-12-28_012945_prores_scene_003",
+    "path": "/Volumes/CORSAIR/SCENES/00_0040_2013-12-28_012945_prores_scene_003_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.007490035018095036,
+      "semantic_match": true,
+      "motion_variance": 314.193,
+      "final_weight": 0.007490035018095036
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 277.0,
+    "video_id": "00_0046_2013-12-28_014443_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/00_0046_2013-12-28_014443_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539169,
+      "semantic_match": true,
+      "motion_variance": 78.068,
+      "final_weight": 0.009859928910539169
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 277.4,
+    "video_id": "C0029_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/C0029_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539172,
+      "semantic_match": true,
+      "motion_variance": 19.62,
+      "final_weight": 0.009859928910539172
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 277.7,
+    "video_id": "IMG_5778_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_5778_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00982107204783754,
+      "semantic_match": true,
+      "motion_variance": 36.042,
+      "final_weight": 0.00982107204783754
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 278.1,
+    "video_id": "57570068841__98551F3C-F2AF-4EF8-BC23-A7B8ACB06088_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/57570068841__98551F3C-F2AF-4EF8-BC23-A7B8ACB06088_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539176,
+      "semantic_match": true,
+      "motion_variance": 199.368,
+      "final_weight": 0.009859928910539176
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 278.4,
+    "video_id": "00_0013_2013-12-28_003755_prores_scene_002",
+    "path": "/Volumes/CORSAIR/SCENES/00_0013_2013-12-28_003755_prores_scene_002_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009859928910539177,
+      "semantic_match": true,
+      "motion_variance": 429.904,
+      "final_weight": 0.009859928910539177
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 278.5,
+    "video_id": "IMG_1308_prores_scene_001_1",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_1308_prores_scene_001_1_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.009850185897781728,
+      "semantic_match": true,
+      "motion_variance": 121.798,
+      "final_weight": 0.009850185897781728
+    }
+  },
+  {
+    "movement": "blur_part2",
+    "time_start": 278.8,
+    "video_id": "IMG_0083_prores_scene_001",
+    "path": "/Volumes/CORSAIR/SCENES/IMG_0083_prores_scene_001_hap.mov",
+    "score_breakdown": {
+      "decay_weight": 0.00984046212098234,
+      "semantic_match": true,
+      "motion_variance": 26.384,
+      "final_weight": 0.00984046212098234
+    }
+  }
+]
