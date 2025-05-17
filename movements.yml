@@ -13,7 +13,7 @@ elemental:
   csv: movement_csvs/elemental.csv
   total_duration: 300
   simultaneous: 3
-  duration_range: [10, 20]
+  duration_range: [5, 20]
   allow_loop: False
   transition_strategy: high_similarity
   use_color_harmony: true
@@ -23,7 +23,7 @@ built:
   csv: movement_csvs/built.csv
   total_duration: 300
   simultaneous: 2
-  duration_range: [5, 20]
+  duration_range: [5, 15]
   allow_loop: True
   transition_strategy: high_similarity
   use_color_harmony: true
@@ -33,7 +33,7 @@ people_part1:
   csv: movement_csvs/people.csv
   total_duration: 150
   simultaneous: 1
-  duration_range: [5, 15]
+  duration_range: [2, 8]
   allow_loop: False
   transition_strategy: high_similarity
   use_color_harmony: true
@@ -43,7 +43,7 @@ people_part2:
   csv: movement_csvs/people.csv
   total_duration: 150
   simultaneous: 3
-  duration_range: [2, 5]
+  duration_range: [1, 5]
   allow_loop: True
   transition_strategy: high_similarity
   use_color_harmony: true
@@ -53,7 +53,7 @@ blur_part1:
   csv: movement_csvs/blur.csv
   total_duration: 150
   simultaneous: 6
-  duration_range: [2, 3]
+  duration_range: [2, 6]
   allow_loop: True
   transition_strategy: high_similarity
   use_color_harmony: true
@@ -63,7 +63,7 @@ blur_part2:
   csv: movement_csvs/blur.csv
   total_duration: 150
   simultaneous: 6
-  duration_range: [1, 2]
+  duration_range: [1, 3]
   allow_loop: True
   transition_strategy: low_similarity
   use_color_harmony: false
