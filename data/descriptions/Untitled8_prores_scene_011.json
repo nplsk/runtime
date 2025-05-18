@@ -1,0 +1,101 @@
+{
+  "video_id": "Untitled8_prores_scene_011",
+  "filename": "Untitled8_prores_scene_011.mov",
+  "duration": 22.4,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:09.060286",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 68.25048658893985,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_011_0.jpg",
+      "captions": [
+        "in which the sun is shining through the trees",
+        "a sunbeam reflects off a tree in a forest",
+        "the sun shining through a forest"
+      ],
+      "dominant_colors": [
+        "#1e2420",
+        "#6f7875",
+        "#e2e9e7"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 34.820232065494395,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_011_5.jpg",
+      "captions": [
+        "a light shining through a window"
+      ],
+      "dominant_colors": [
+        "#717874",
+        "#e3e7e6",
+        "#222823"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 15.0,
+      "motion_score": 37.533356428389396,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_011_10.jpg",
+      "captions": [
+        "a light reflected through a window",
+        "a blurred image of a tree in a forest"
+      ],
+      "dominant_colors": [
+        "#2b312d",
+        "#7d827e",
+        "#dee2df"
+      ]
+    },
+    {
+      "start": 15.0,
+      "end": 20.0,
+      "motion_score": 57.421517424821616,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_011_15.jpg",
+      "captions": [
+        "a smoky sky with clouds and a cloudy sky",
+        "a smoky sky with a cloudy sky",
+        "a textured background is a background that is textured",
+        "a white background with a black and white sky"
+      ],
+      "dominant_colors": [
+        "#7e847f",
+        "#c4cac6",
+        "#9ea49f"
+      ]
+    },
+    {
+      "start": 20.0,
+      "end": 22.4,
+      "motion_score": 66.63996320718654,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_011_20.jpg",
+      "captions": [
+        "a black screen background with a black screen background",
+        "a black screen with a white screen"
+      ],
+      "dominant_colors": [
+        "#111713",
+        "#242924",
+        "#060c08"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "the rays of light shining through a tree | the sun shining through a forest | a skateboarder slaloms in the snow | twilight in the woods | image of a skateboarder in the woods | a black and white image of trees in the foreground | the sun shines through a window in the sky | the sun shines through a cloudy sky | of a scene by describing the lighting and atmosphere",
+    "motion_score": 52.933,
+    "motion_variance": 201.575,
+    "dominant_colors": [
+      "#222924",
+      "#e0e6e4",
+      "#727a77"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

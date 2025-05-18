@@ -1,0 +1,41 @@
+{
+  "video_id": "Untitled8_prores_scene_018",
+  "filename": "Untitled8_prores_scene_018.mov",
+  "duration": 4.42,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.88,
+  "creation_time": "2025-05-18T14:44:09.427049",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.42,
+      "motion_score": 54.49008266437309,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_018_0.jpg",
+      "captions": [
+        "a white screen with a blue background",
+        "a tv screen is a screen that is a screen that is a screen that is a screen that is a screen that is a screen that is a screen that is a screen that is a",
+        "a white background with a blue sky",
+        "a white tv screen with a blue screen"
+      ],
+      "dominant_colors": [
+        "#98a8bd",
+        "#b0c0d9",
+        "#a5b4cd"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a plane flying in the sky | an airplane flying over a blue sky | a black and white image of an airplane flying in the sky | twilight time of day is shown | a blue sky with white clouds in the sky",
+    "motion_score": 54.49,
+    "motion_variance": 0.0,
+    "dominant_colors": [
+      "#b1c2db",
+      "#818e9a",
+      "#9fafc4"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

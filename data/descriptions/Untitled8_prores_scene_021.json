@@ -1,0 +1,75 @@
+{
+  "video_id": "Untitled8_prores_scene_021",
+  "filename": "Untitled8_prores_scene_021.mov",
+  "duration": 12.55,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:09.561637",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 80.47525563837921,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_021_0.jpg",
+      "captions": [
+        "a cloudy sky with a cloudy sky",
+        "a shady sky with clouds",
+        "a cloudy sky with a blue sky",
+        "a plane flying over a cloudy sky"
+      ],
+      "dominant_colors": [
+        "#656964",
+        "#8b8579",
+        "#747670"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 38.217583301478086,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_021_5.jpg",
+      "captions": [
+        "a sand beach with a cloudy sky",
+        "a cloudy sky with a blue sky",
+        "a cloudy sky with a cloudy sky",
+        "a sand dune in the sky"
+      ],
+      "dominant_colors": [
+        "#686e6a",
+        "#868e90",
+        "#777e7c"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 12.55,
+      "motion_score": 37.73909116972477,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_021_10.jpg",
+      "captions": [
+        "a blurry image of a bird flying in the sky",
+        "a smoky sky with a hazy sky",
+        "a symphony of light and shadows",
+        "a sand sand sand sand sand sand sand sand sand sand sand sand sand sand sand s"
+      ],
+      "dominant_colors": [
+        "#9a8f84",
+        "#dfe6eb",
+        "#b9bab9"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a cloudy sky with clouds in the background | a plane flying in the sky with clouds | a blurred image of an airplane flying in the sky | twilight is shown in the sky | sydney, new south wales | the overall visual impression is that of a cloudy sky | in this image of a blue sky with white clouds | a time of day or night is shown",
+    "motion_score": 52.144,
+    "motion_variance": 401.369,
+    "dominant_colors": [
+      "#868f8a",
+      "#a8b4b3",
+      "#727a74"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

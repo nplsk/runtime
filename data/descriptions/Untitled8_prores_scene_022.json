@@ -1,0 +1,87 @@
+{
+  "video_id": "Untitled8_prores_scene_022",
+  "filename": "Untitled8_prores_scene_022.mov",
+  "duration": 16.94,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:09.670716",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 62.329331517584095,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_022_0.jpg",
+      "captions": [
+        "a bird is flying in the sky",
+        "a symphony of birds singing in the sky"
+      ],
+      "dominant_colors": [
+        "#828fb3",
+        "#293132",
+        "#616c83"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 47.63328793960245,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_022_5.jpg",
+      "captions": [
+        "in which the subject is a bird flying in the air",
+        "a symphony of a bird in flight",
+        "a close up of a bird in flight"
+      ],
+      "dominant_colors": [
+        "#9c836e",
+        "#d4bea8",
+        "#4f4e49"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 15.0,
+      "motion_score": 33.94165472094801,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_022_10.jpg",
+      "captions": [
+        "a leaf on a tree",
+        "a leaf on a tree branch"
+      ],
+      "dominant_colors": [
+        "#a69985",
+        "#73695c",
+        "#5b4d3a"
+      ]
+    },
+    {
+      "start": 15.0,
+      "end": 16.94,
+      "motion_score": 15.880421763506627,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_022_15.jpg",
+      "captions": [
+        "a tree with leaves and a leaf shaped pattern",
+        "a pixelated image of a leaf in a forest",
+        "a pixelated image of a leaf",
+        "a leaf in the forest"
+      ],
+      "dominant_colors": [
+        "#ab9e8e",
+        "#5a4e40",
+        "#7a726b"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a picture of an umbrella | a bird is flying in the sky | a close up of the leaves on the tree | in a dark room with lots of shadows | twilight is seen through a window | a close-up of an object that is in motion | a black and white image of an airplane flying in the sky | a time of day is shown in this image",
+    "motion_score": 39.946,
+    "motion_variance": 293.828,
+    "dominant_colors": [
+      "#494239",
+      "#8e898b",
+      "#705f4f"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

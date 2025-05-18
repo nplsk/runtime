@@ -22,12 +22,12 @@ def get_safe_thread_count():
     return 4
 import os
 import subprocess
-import argparse
 from scenedetect import VideoManager, SceneManager
 from scenedetect.detectors import ContentDetector, ThresholdDetector, AdaptiveDetector
 import cv2
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from scenedetect.video_stream import VideoOpenFailure
+import config
 
 # Configuration parameters
 DEFAULT_THRESHOLD = 30.0  # Default threshold for content detection
@@ -177,15 +177,17 @@ def detect_scenes(video_path, threshold=DEFAULT_THRESHOLD):
     video_manager.release()
     return filter_short_scenes(scene_list, video_path)
 
-def split_video_by_scenes(video_path, scene_list, output_dir="scenes"):
+def split_video_by_scenes(video_path, scene_list, output_dir=None):
     """
     Split a video into individual scene files.
     
     Args:
         video_path: Path to input video
         scene_list: List of detected scenes
-        output_dir: Directory for output files
+        output_dir: Directory for output files (defaults to config.SCENES_DIR)
     """
+    if output_dir is None:
+        output_dir = config.SCENES_DIR
     os.makedirs(output_dir, exist_ok=True)
     base_name = os.path.splitext(os.path.basename(video_path))[0]
 
@@ -213,14 +215,8 @@ def split_video_by_scenes(video_path, scene_list, output_dir="scenes"):
 def main():
     """
     Main entry point for video scene splitting.
-    Handles command line arguments and orchestrates the processing pipeline.
+    Processes all ProRes videos in the configured directory.
     """
-    parser = argparse.ArgumentParser(description="Split videos into scenes.")
-    parser.add_argument("--threshold", type=float, default=DEFAULT_THRESHOLD, help="ContentDetector threshold.")
-    parser.add_argument("--input_dir", type=str, default="./converted", help="Directory with input videos.")
-    parser.add_argument("--output_dir", type=str, default="scenes", help="Directory to save output scenes.")
-    args = parser.parse_args()
-
     def is_already_split(video_file, output_dir):
         """Check if a video has already been processed."""
         base_name = os.path.splitext(video_file)[0]
@@ -229,13 +225,14 @@ def main():
 
     # Find videos to process
     video_files = [
-        f for f in os.listdir(args.input_dir)
-        if f.lower().endswith((".mp4", ".mov", ".mkv", ".dv", ".avi", ".3gp", ".m4v", ".mxf"))
+        f for f in os.listdir(config.PRORES_DIR)
+        if f.lower().endswith(tuple(ext.lower() for ext in config.VIDEO_EXTENSIONS))
         and not f.startswith("._")
+        and "_prores" in f.lower()  # Only process ProRes files
     ]
 
     # Filter out already processed videos
-    video_files = [f for f in video_files if not is_already_split(f, args.output_dir)]
+    video_files = [f for f in video_files if not is_already_split(f, config.SCENES_DIR)]
 
     total_files = len(video_files)
     print(f"\nFound {total_files} videos to process.\n")
@@ -245,78 +242,64 @@ def main():
     def process_video(video_file):
         """Process a single video file."""
         file_start_time = time.time()
-        video_path = os.path.join(args.input_dir, video_file)
+        video_path = os.path.join(config.PRORES_DIR, video_file)
         print(f"\nProcessing: {video_file}")
         heartbeat_interval = 30  # seconds
-        last_heartbeat = time.time()
-        
+
         try:
             # Detect scenes
-            detect_start_time = time.time()
-            scene_list = detect_scenes(video_path, threshold=args.threshold)
-            detect_end_time = time.time()
-            detect_elapsed = detect_end_time - detect_start_time
-            print(f"  Scene detection for '{video_file}' took {detect_elapsed:.2f} seconds.")
-            now = time.time()
-            if now - last_heartbeat > heartbeat_interval:
-                print(f"...still working on '{video_file}' (scene detection in progress)")
-                last_heartbeat = now
-        except VideoOpenFailure:
-            print(f"  Skipping corrupt or unreadable file: {video_file}")
-            return
+            scene_list = detect_scenes(video_path)
+            
+            if not scene_list:
+                print(f"No scenes detected in {video_file}, creating single scene file...")
+                # Create output directory if it doesn't exist
+                os.makedirs(config.SCENES_DIR, exist_ok=True)
+                
+                # Get video duration using ffprobe
+                duration_cmd = [
+                    "ffprobe", "-v", "error", "-show_entries", "format=duration",
+                    "-of", "default=noprint_wrappers=1:nokey=1", video_path
+                ]
+                duration = float(subprocess.check_output(duration_cmd).decode().strip())
+                
+                # Create a single scene file
+                output_file = os.path.join(config.SCENES_DIR, f"{os.path.splitext(video_file)[0]}_scene_001.mov")
+                subprocess.run([
+                    "ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+                    "-i", video_path,
+                    "-c", "copy",
+                    output_file
+                ])
+                print(f"Created single scene file: {output_file}")
+            else:
+                # Split video into scenes
+                split_video_by_scenes(video_path, scene_list)
+            
+            # Print processing time
+            processing_time = time.time() - file_start_time
+            print(f"Completed {video_file} in {processing_time:.1f} seconds")
+            
+        except VideoOpenFailure as e:
+            print(f"Error opening {video_file}: {str(e)}")
+        except Exception as e:
+            print(f"Error processing {video_file}: {str(e)}")
 
-        # Handle case where no scenes are detected
-        if not scene_list:
-            output_dir = args.output_dir
-            base_name = os.path.splitext(os.path.basename(video_path))[0]
-            os.makedirs(output_dir, exist_ok=True)
-            output_file = os.path.join(output_dir, f"{base_name}_scene_001.mov")
-            subprocess.run([
-                "ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
-                "-i", video_path,
-                "-c:v", "prores_ks", "-profile:v", "3",
-                "-c:a", "aac",
-                output_file
-            ])
-            print(f"  No scenes detected. Copied full video to: {output_file}")
-            file_end_time = time.time()
-            total_elapsed = file_end_time - file_start_time
-            print(f"✅ Finished '{video_file}' in {total_elapsed:.2f} seconds.\n")
-            return
-
-        # Print scene information
-        print(f"  Detected {len(scene_list)} scene(s) in '{video_file}' (after filtering):")
-        for i, (start, end) in enumerate(scene_list):
-            print(f"    {video_file} - Scene {i+1}: {start.get_timecode()} → {end.get_timecode()} ({end.get_seconds() - start.get_seconds():.2f} sec)")
-
-        # Split video into scenes
-        split_start_time = time.time()
-        split_video_by_scenes(video_path, scene_list, output_dir=args.output_dir)
-        split_end_time = time.time()
-        split_elapsed = split_end_time - split_start_time
-        print(f"  Scene splitting for '{video_file}' took {split_elapsed:.2f} seconds.")
-        now = time.time()
-        if now - last_heartbeat > heartbeat_interval:
-            print(f"...still working on '{video_file}' (scene splitting in progress)")
-            last_heartbeat = now
-
-        file_end_time = time.time()
-        total_elapsed = file_end_time - file_start_time
-        print(f"✅ Finished '{video_file}' in {total_elapsed:.2f} seconds.\n")
-
-    # Process videos in parallel with progress tracking
+    # Process videos in parallel
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = [executor.submit(process_video, f) for f in video_files]
-        start_time = time.time()
-        for idx, future in enumerate(as_completed(futures), 1):
-            future.result()
-            elapsed = time.time() - start_time
-            avg_time_per_file = elapsed / idx
-            remaining_files = total_files - idx
-            eta_seconds = avg_time_per_file * remaining_files
-            eta_minutes = int(eta_seconds // 60)
-            eta_seconds_remainder = int(eta_seconds % 60)
-            print(f"[{idx}/{total_files}] video(s) processed. ETA: {eta_minutes}m {eta_seconds_remainder}s remaining.")
+        futures = [executor.submit(process_video, video_file) for video_file in video_files]
+        for future in as_completed(futures):
+            try:
+                future.result()
+            except Exception as e:
+                print(f"Error in worker thread: {str(e)}")
+
+    print("\nScene splitting complete!")
+    print(f"Processed {total_files} videos")
+    print(f"Output scenes saved to: {config.SCENES_DIR}")
+    print("\nNext Steps:")
+    print("1. Review the generated scenes in the scenes directory")
+    print("2. Run the next step in the pipeline:")
+    print("   python scripts/process_videos.py")
 
 if __name__ == "__main__":
     main()

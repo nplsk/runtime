@@ -1,0 +1,60 @@
+{
+  "video_id": "Untitled8_prores_scene_016",
+  "filename": "Untitled8_prores_scene_016.mov",
+  "duration": 7.57,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:09.326781",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 84.70553007135575,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_016_0.jpg",
+      "captions": [
+        "a sand beach with a cloudy sky",
+        "a white light is reflected off of a white background",
+        "a symphony of light and shadows",
+        "a white sand beach with a blue sky and a white cloud",
+        "a white sand beach with a blue sky"
+      ],
+      "dominant_colors": [
+        "#e3ecf0",
+        "#fafcfc",
+        "#ccd2d4"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 7.57,
+      "motion_score": 46.044230217889904,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_016_5.jpg",
+      "captions": [
+        "a green field with a blue sky",
+        "a green sky with a blue sky",
+        "a symphony of a symphony of a song",
+        "a green shady forest scene with a tree in the background",
+        "a tee shirt with a tee shirt and a tee shirt"
+      ],
+      "dominant_colors": [
+        "#5e6845",
+        "#586143",
+        "#636e47"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a plane flying in the sky | a bird flying in the sky | a black and white image of an airplane flying in the sky | a blue sky with white clouds in the sky | twilight time of day is shown | the overall visual impression of a scene is based on the composition of the objects in the scene | a close up of an elephant in the grass | the overall visual impression of a piece of artwork",
+    "motion_score": 65.375,
+    "motion_variance": 373.674,
+    "dominant_colors": [
+      "#adc2e9",
+      "#96a5c3",
+      "#a1b2d4"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

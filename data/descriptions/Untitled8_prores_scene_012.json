@@ -1,0 +1,40 @@
+{
+  "video_id": "Untitled8_prores_scene_012",
+  "filename": "Untitled8_prores_scene_012.mov",
+  "duration": 4.69,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:09.025536",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.69,
+      "motion_score": 59.16724802497451,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_012_0.jpg",
+      "captions": [
+        "a tv screen with a black screen",
+        "a tv tv tv tv tv tv tv tv tv tv tv tv tv tv tv t",
+        "a tv screen is a screen that is a screen that is a screen that is a screen that is a screen that is a screen that is a screen that is a screen that is a"
+      ],
+      "dominant_colors": [
+        "#797676",
+        "#484340",
+        "#645d58"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a black and white image of an airplane flying in the sky | a black and white image of an object in space | in a dark room with light and shadows | twilight time of day is shown",
+    "motion_score": 59.167,
+    "motion_variance": 0.0,
+    "dominant_colors": [
+      "#d9e7f0",
+      "#39403c",
+      "#79858b"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

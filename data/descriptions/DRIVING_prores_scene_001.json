@@ -1,0 +1,41 @@
+{
+  "video_id": "DRIVING_prores_scene_001",
+  "filename": "DRIVING_prores_scene_001.mov",
+  "duration": 4.27,
+  "resolution": [
+    490,
+    360
+  ],
+  "frame_rate": 29.96,
+  "creation_time": "2025-05-18T14:43:51.005207",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.27,
+      "motion_score": 78.70102465986395,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/DRIVING_prores_scene_001_0.jpg",
+      "captions": [
+        "a car driving down a street",
+        "a car crash in a city",
+        "a car is driving down the street",
+        "a car sat in the back seat of a car"
+      ],
+      "dominant_colors": [
+        "#d1d5de",
+        "#292c28",
+        "#7d8082"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a car driving down the street | a woman is seen riding in the back seat of her car | view of the scene from the driver's seat | in a scene from the movie 'the twilight zone' | a car is driving down the street at night",
+    "motion_score": 78.701,
+    "motion_variance": 0.0,
+    "dominant_colors": [
+      "#242824",
+      "#cdd2dc",
+      "#787d7f"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

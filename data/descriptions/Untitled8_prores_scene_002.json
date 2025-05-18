@@ -1,0 +1,246 @@
+{
+  "video_id": "Untitled8_prores_scene_002",
+  "filename": "Untitled8_prores_scene_002.mov",
+  "duration": 72.1,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:09.058201",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 60.21857161060143,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_0.jpg",
+      "captions": [
+        "in the sky through a window",
+        "a sunbeam through a window",
+        "a view of the sun through a window"
+      ],
+      "dominant_colors": [
+        "#2a3133",
+        "#e0e6e6",
+        "#757e7f"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 33.31225630733945,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_5.jpg",
+      "captions": [
+        "in the sky through a window",
+        "a light shining through a window"
+      ],
+      "dominant_colors": [
+        "#2b312e",
+        "#818a88",
+        "#ebf0f0"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 15.0,
+      "motion_score": 40.42249219546382,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_10.jpg",
+      "captions": [
+        "a snowy scene with a light shining through a window",
+        "a light beam reflected from a window",
+        "a view of a forest through a window"
+      ],
+      "dominant_colors": [
+        "#565f62",
+        "#8c95a0",
+        "#cbd6e6"
+      ]
+    },
+    {
+      "start": 15.0,
+      "end": 20.0,
+      "motion_score": 39.391176892201834,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_15.jpg",
+      "captions": [
+        "a light shining through a window"
+      ],
+      "dominant_colors": [
+        "#7f8b8b",
+        "#ecf1f2",
+        "#2e3635"
+      ]
+    },
+    {
+      "start": 20.0,
+      "end": 25.0,
+      "motion_score": 39.66790503950051,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_20.jpg",
+      "captions": [
+        "a light shining through a window",
+        "a view of the sky through a window"
+      ],
+      "dominant_colors": [
+        "#384145",
+        "#6e7c88",
+        "#c6d4e1"
+      ]
+    },
+    {
+      "start": 25.0,
+      "end": 30.0,
+      "motion_score": 58.637030135066254,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_25.jpg",
+      "captions": [
+        "a bird in the forest",
+        "a tree in the forest"
+      ],
+      "dominant_colors": [
+        "#4a4e4f",
+        "#cbdef3",
+        "#7b879b"
+      ]
+    },
+    {
+      "start": 30.0,
+      "end": 35.0,
+      "motion_score": 63.9255678198267,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_30.jpg",
+      "captions": [
+        "a tree in the forest"
+      ],
+      "dominant_colors": [
+        "#657288",
+        "#9aaed8",
+        "#32393d"
+      ]
+    },
+    {
+      "start": 35.0,
+      "end": 40.0,
+      "motion_score": 60.1406560588685,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_35.jpg",
+      "captions": [
+        "a tree in the forest"
+      ],
+      "dominant_colors": [
+        "#758293",
+        "#404647",
+        "#c8dff1"
+      ]
+    },
+    {
+      "start": 40.0,
+      "end": 45.0,
+      "motion_score": 60.38822231778797,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_40.jpg",
+      "captions": [
+        "a ray of light through a tree",
+        "a tree in the forest"
+      ],
+      "dominant_colors": [
+        "#667489",
+        "#313738",
+        "#a5bbe3"
+      ]
+    },
+    {
+      "start": 45.0,
+      "end": 50.0,
+      "motion_score": 63.90124155835882,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_45.jpg",
+      "captions": [
+        "a bird in a tree"
+      ],
+      "dominant_colors": [
+        "#7c8993",
+        "#40473c",
+        "#d8e8f3"
+      ]
+    },
+    {
+      "start": 50.0,
+      "end": 55.0,
+      "motion_score": 65.62881944444445,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_50.jpg",
+      "captions": [
+        "in which the tree is reflected in the water",
+        "blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blurry blur"
+      ],
+      "dominant_colors": [
+        "#40473c",
+        "#c0d1e2",
+        "#6d777f"
+      ]
+    },
+    {
+      "start": 55.0,
+      "end": 60.0,
+      "motion_score": 70.3132573585627,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_55.jpg",
+      "captions": [
+        "in which the trees are reflected in the water",
+        "a blurred image of trees in a forest"
+      ],
+      "dominant_colors": [
+        "#2f3533",
+        "#bcd3eb",
+        "#6f7a8b"
+      ]
+    },
+    {
+      "start": 60.0,
+      "end": 65.0,
+      "motion_score": 74.19352143858308,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_60.jpg",
+      "captions": [
+        "a blurred image of a tree in the forest"
+      ],
+      "dominant_colors": [
+        "#6d7781",
+        "#c0d1e3",
+        "#3c423e"
+      ]
+    },
+    {
+      "start": 65.0,
+      "end": 70.0,
+      "motion_score": 77.65836518858308,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_65.jpg",
+      "captions": [
+        "in which the tree is reflected in the water",
+        "a blurred image of a tree in a forest"
+      ],
+      "dominant_colors": [
+        "#3f433f",
+        "#e2ecf1",
+        "#7e8b91"
+      ]
+    },
+    {
+      "start": 70.0,
+      "end": 72.1,
+      "motion_score": 52.67569683358818,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_002_70.jpg",
+      "captions": [
+        "in which the image was taken",
+        "a blurry image of trees in a forest"
+      ],
+      "dominant_colors": [
+        "#808b94",
+        "#4c514b",
+        "#d0e0ee"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a group of pine trees in the forest | a blurred image of trees in the forest | the sun shining through a window | a black and white image of trees in the foreground | twilight is shown in the sky | in this image of a tree in the forest | a ray of light from the sun shining through the clouds",
+    "motion_score": 57.365,
+    "motion_variance": 171.144,
+    "dominant_colors": [
+      "#97acd4",
+      "#2c3333",
+      "#5e6a7c"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

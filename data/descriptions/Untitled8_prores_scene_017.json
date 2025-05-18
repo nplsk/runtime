@@ -1,0 +1,74 @@
+{
+  "video_id": "Untitled8_prores_scene_017",
+  "filename": "Untitled8_prores_scene_017.mov",
+  "duration": 10.55,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:09.409481",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 47.20689347604485,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_017_0.jpg",
+      "captions": [
+        "a sandstorm is blowing through a city",
+        "a tv screen with a blue screen",
+        "a tv identifies the time of day",
+        "a swivel chair with a swivel seat and a swivel chair",
+        "a plane flying in the sky"
+      ],
+      "dominant_colors": [
+        "#74839f",
+        "#7988a6",
+        "#6d7b95"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 37.058912302497454,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_017_5.jpg",
+      "captions": [
+        "a blue sky with clouds and a blue sky",
+        "a blue sky with a cloudy sky"
+      ],
+      "dominant_colors": [
+        "#8594b0",
+        "#74839b",
+        "#808faa"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 10.55,
+      "motion_score": 15.636268794597349,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_017_10.jpg",
+      "captions": [
+        "a tv screen with a white background",
+        "a tv screen with a white screen",
+        "a tv screen with a clock",
+        "a white tee shirt with a black shirt and a white shirt"
+      ],
+      "dominant_colors": [
+        "#9ca8bb",
+        "#b0bdd3",
+        "#838f9e"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a blue sky with clouds in the background | an airplane flying over a blue sky | a black and white image of an airplane flying in the sky | twilight time of day is shown | twilight, sunrise or sunset",
+    "motion_score": 33.301,
+    "motion_variance": 173.18,
+    "dominant_colors": [
+      "#7c8ca7",
+      "#8393b3",
+      "#8090af"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

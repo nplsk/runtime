@@ -1,0 +1,126 @@
+{
+  "video_id": "IMG_0049_prores_scene_001",
+  "filename": "IMG_0049_prores_scene_001.mov",
+  "duration": 25.8,
+  "resolution": [
+    720,
+    1280
+  ],
+  "frame_rate": 29.97002997002997,
+  "creation_time": "2025-05-18T14:49:37.087995",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 13.482868109809028,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_0049_prores_scene_001_0.jpg",
+      "captions": [
+        "a firework display at the st john's fireworks display at the st john's fireworks display at the st john's fireworks display at the st john'",
+        "a firework display at the st johns borough fireworks display",
+        "a firework display at the st ludlow fireworks display at the st ludlow fireworks display at the st ludlow fireworks display at the st lu",
+        "a fire in the city"
+      ],
+      "dominant_colors": [
+        "#d76555",
+        "#3d6bb7",
+        "#b18ac2"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 14.892936197916665,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_0049_prores_scene_001_5.jpg",
+      "captions": [
+        "a firework display at the st johns st johns st johns st johns st johns st johns st johns",
+        "symphony of the symphony of the symphony of the symphony of the symphony of the symphony of the ",
+        "a firework display at the st ludlow fireworks display at the st ludlow fireworks display at the st ludlow fireworks display at the st lu",
+        "a firework explodes in the sky"
+      ],
+      "dominant_colors": [
+        "#ed6f61",
+        "#3966af",
+        "#542833"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 15.0,
+      "motion_score": 12.578150770399306,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_0049_prores_scene_001_10.jpg",
+      "captions": [
+        "a firework display at the st johns fireworks display at the st johns fireworks display at the st johns fireworks display at the st johns fireworks display",
+        "a firework display at the st john's firework display",
+        "a fire in a city",
+        "a firework display at the st johns st johns st johns st johns st johns st johns st johns",
+        "a fire in the city"
+      ],
+      "dominant_colors": [
+        "#3164b1",
+        "#ec7758",
+        "#602c3a"
+      ]
+    },
+    {
+      "start": 15.0,
+      "end": 20.0,
+      "motion_score": 13.790486382378473,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_0049_prores_scene_001_15.jpg",
+      "captions": [
+        "a firework display at the st johns st johns st johns st johns st johns st johns st johns",
+        "a firework display at the st john's firework display",
+        "a fire in a factory"
+      ],
+      "dominant_colors": [
+        "#468dd0",
+        "#4c3743",
+        "#da6856"
+      ]
+    },
+    {
+      "start": 20.0,
+      "end": 25.0,
+      "motion_score": 15.100802951388888,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_0049_prores_scene_001_20.jpg",
+      "captions": [
+        "a fire in the city of san francisco",
+        "fires that engulf the city of san francisco",
+        "a fire in a city",
+        "a firework display at the st johns fireworks display at the st johns fireworks display at the st johns fireworks display at the st johns fireworks display",
+        "a fire in a factory"
+      ],
+      "dominant_colors": [
+        "#377dc6",
+        "#363040",
+        "#e36f57"
+      ]
+    },
+    {
+      "start": 25.0,
+      "end": 25.8,
+      "motion_score": 4.643250054253472,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_0049_prores_scene_001_25.jpg",
+      "captions": [
+        "a firework display at the st johns st johns st johns st johns st johns st johns st johns",
+        "of the firework display at the st john's firework display",
+        "a firework explodes in the sky"
+      ],
+      "dominant_colors": [
+        "#2f6aab",
+        "#f28757",
+        "#422933"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a fire erupts in the middle of the city at dusk | a fire burns in the middle of the night sky at dusk | lighting and atmosphere of a fire in an industrial factory | lighting and atmosphere for a firework display at the olympics",
+    "motion_score": 12.415,
+    "motion_variance": 12.802,
+    "dominant_colors": [
+      "#ec7255",
+      "#2f62b4",
+      "#552328"
+    ],
+    "motion_tag": "moderate"
+  }
+}

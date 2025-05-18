@@ -1,0 +1,56 @@
+{
+  "video_id": "DRIVING_prores_scene_002",
+  "filename": "DRIVING_prores_scene_002.mov",
+  "duration": 8.86,
+  "resolution": [
+    490,
+    360
+  ],
+  "frame_rate": 29.97002997002997,
+  "creation_time": "2025-05-18T14:43:51.029632",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 67.41262188208617,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/DRIVING_prores_scene_002_0.jpg",
+      "captions": [
+        "a car in a parking lot",
+        "a car in the night",
+        "a car is a vehicle that is driven by a person",
+        "a car in the film 'the car'"
+      ],
+      "dominant_colors": [
+        "#6e7375",
+        "#0f1312",
+        "#dce8ec"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 8.86,
+      "motion_score": 56.101625566893425,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/DRIVING_prores_scene_002_5.jpg",
+      "captions": [
+        "a car is driving down a street",
+        "a car is a vehicle that is driven by a person"
+      ],
+      "dominant_colors": [
+        "#626869",
+        "#1d1f1a",
+        "#bac8d0"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a man sits in the driver's seat of his car | a man is driving his car down the street | in the interior of a car as seen from the passenger seat | twilight, a city at dusk | in the interior of a car or truck | a day in the life of an old man | a person sitting in the driver's seat of an automobile | a car driving down the street at night",
+    "motion_score": 61.757,
+    "motion_variance": 31.985,
+    "dominant_colors": [
+      "#636561",
+      "#d9e6ea",
+      "#1e211c"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

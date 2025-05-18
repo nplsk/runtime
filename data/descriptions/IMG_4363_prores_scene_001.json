@@ -1,0 +1,40 @@
+{
+  "video_id": "IMG_4363_prores_scene_001",
+  "filename": "IMG_4363_prores_scene_001.mov",
+  "duration": 3.97,
+  "resolution": [
+    640,
+    1136
+  ],
+  "frame_rate": 30.0,
+  "creation_time": "2025-05-18T14:49:30.374351",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.97,
+      "motion_score": 34.82144173635564,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4363_prores_scene_001_0.jpg",
+      "captions": [
+        "a train traveling through a forest",
+        "a train in the forest",
+        "a blurred image of a tree in a forest"
+      ],
+      "dominant_colors": [
+        "#2e3a29",
+        "#586744",
+        "#7d8a62"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a blurred image of trees and trees in the forest | a train traveling through the forest | a blurred image of an airplane flying in the sky | twilight is shown through a window",
+    "motion_score": 34.821,
+    "motion_variance": 0.0,
+    "dominant_colors": [
+      "#5b6946",
+      "#313e2d",
+      "#7f8c5f"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

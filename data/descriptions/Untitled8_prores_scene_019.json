@@ -1,0 +1,42 @@
+{
+  "video_id": "Untitled8_prores_scene_019",
+  "filename": "Untitled8_prores_scene_019.mov",
+  "duration": 4.96,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:09.462075",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.96,
+      "motion_score": 73.10181415647298,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_019_0.jpg",
+      "captions": [
+        "a sand beach in a sand dunes",
+        "reflected in a window",
+        "a symphony identifies the time of day",
+        "a smudge on a glass window",
+        "a sand sand sand sand sand sand sand sand sand sand sand sand sand sand sand s"
+      ],
+      "dominant_colors": [
+        "#8c909b",
+        "#9da5b5",
+        "#797b7e"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a blurry image of an airplane flying in the sky | an airplane flying over a cloudy sky | twilight time of day is shown | a blue sky with white clouds in the distance | a view of the sun rising over the horizon | a blue sky is shown in the background",
+    "motion_score": 73.102,
+    "motion_variance": 0.0,
+    "dominant_colors": [
+      "#c8d6eb",
+      "#7e8283",
+      "#9ea4b3"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

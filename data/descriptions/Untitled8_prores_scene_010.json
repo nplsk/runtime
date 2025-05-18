@@ -1,0 +1,75 @@
+{
+  "video_id": "Untitled8_prores_scene_010",
+  "filename": "Untitled8_prores_scene_010.mov",
+  "duration": 10.95,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:08.937025",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 79.15929934378185,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_010_0.jpg",
+      "captions": [
+        "a tree in the forest",
+        "in the forest with a flashlight",
+        "a sunbeam through a tree",
+        "a tree trunk in the forest"
+      ],
+      "dominant_colors": [
+        "#282b27",
+        "#ebece9",
+        "#787872"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 79.52232017711518,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_010_5.jpg",
+      "captions": [
+        "a sunbeam reflected through the trees",
+        "rays through the trees",
+        "a sunbeam through a tree",
+        "a light shining through a tree",
+        "a sun shining through a tree"
+      ],
+      "dominant_colors": [
+        "#8e938b",
+        "#f0f2ee",
+        "#3b423c"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 10.95,
+      "motion_score": 46.75124952217126,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_010_10.jpg",
+      "captions": [
+        "a light shining through a tree",
+        "rays of light through a tree",
+        "a tree in the forest"
+      ],
+      "dominant_colors": [
+        "#393e3b",
+        "#edefec",
+        "#8d928b"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a bird perched on the branches of an oak tree | the sun shining through a tree | the sun shines through a window in the sky | a black and white image of the sun shining through the clouds | image of a sunbeam in the sky",
+    "motion_score": 68.478,
+    "motion_variance": 236.04,
+    "dominant_colors": [
+      "#212520",
+      "#eff1ef",
+      "#706f6b"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

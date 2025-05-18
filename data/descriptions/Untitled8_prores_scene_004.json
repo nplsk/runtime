@@ -1,0 +1,73 @@
+{
+  "video_id": "Untitled8_prores_scene_004",
+  "filename": "Untitled8_prores_scene_004.mov",
+  "duration": 13.89,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:08.632738",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 94.88052529306829,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_004_0.jpg",
+      "captions": [
+        "a white background with a black screen",
+        "a white screen with a black background",
+        "a clock on a wall clock",
+        "a tv screen background",
+        "a white background with a black and white striped pattern"
+      ],
+      "dominant_colors": [
+        "#e6f4fa",
+        "#7b8188",
+        "#afb8ca"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 85.31168530198777,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_004_5.jpg",
+      "captions": [
+        "a black and white image of a person in a black and white background",
+        "a twilight sky with a twilight sky",
+        "a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of"
+      ],
+      "dominant_colors": [
+        "#6e7276",
+        "#413f3e",
+        "#525453"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 13.89,
+      "motion_score": 54.80879762359837,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_004_10.jpg",
+      "captions": [
+        "a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of",
+        "a twilight sky with a twilight sky"
+      ],
+      "dominant_colors": [
+        "#4f4e4b",
+        "#737678",
+        "#5f5f5f"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a black and white image of an abstract painting | an airplane flying over a white background | a black and white image of an airplane flying in the sky | twilight time of day is shown | the overall visual impression is that of a black and white image",
+    "motion_score": 78.334,
+    "motion_variance": 291.97,
+    "dominant_colors": [
+      "#353534",
+      "#868d97",
+      "#5a5f61"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

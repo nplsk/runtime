@@ -1,0 +1,139 @@
+{
+  "video_id": "Untitled8_prores_scene_006",
+  "filename": "Untitled8_prores_scene_006.mov",
+  "duration": 34.41,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:08.955495",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 85.79007470056065,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_006_0.jpg",
+      "captions": [
+        "a symphony of light and shadows",
+        "a symphony of a song"
+      ],
+      "dominant_colors": [
+        "#686f6b",
+        "#434a43",
+        "#8c9490"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 33.72742179536188,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_006_5.jpg",
+      "captions": [
+        "a symphony of sound and light",
+        "a symphony of light and shadows",
+        "a smudge of dust on a window"
+      ],
+      "dominant_colors": [
+        "#454b42",
+        "#7a817b",
+        "#abb4b0"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 15.0,
+      "motion_score": 38.375219801223245,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_006_10.jpg",
+      "captions": [
+        "a symphony of light and shadows",
+        "a smudge of light on a glass surface",
+        "a sand sand sand sand sand sand sand sand sand sand sand sand sand sand sand s"
+      ],
+      "dominant_colors": [
+        "#717872",
+        "#959e9b",
+        "#495142"
+      ]
+    },
+    {
+      "start": 15.0,
+      "end": 20.0,
+      "motion_score": 62.71767647808359,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_006_15.jpg",
+      "captions": [
+        "a blurred background with a blurred background",
+        "a blurred image of a tree in a forest",
+        "a blurred image of a moving object",
+        "a splatter effect is a blurry effect that creates a blurry image"
+      ],
+      "dominant_colors": [
+        "#444a47",
+        "#6e7372",
+        "#acb1b5"
+      ]
+    },
+    {
+      "start": 20.0,
+      "end": 25.0,
+      "motion_score": 38.78016612512742,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_006_20.jpg",
+      "captions": [
+        "a sandcastle in the sky",
+        "a sand dune in the sand dunes of a sand dune"
+      ],
+      "dominant_colors": [
+        "#262d26",
+        "#5f6562",
+        "#a0a6a6"
+      ]
+    },
+    {
+      "start": 25.0,
+      "end": 30.0,
+      "motion_score": 49.162192596839965,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_006_25.jpg",
+      "captions": [
+        "a sand beach with a sand beach and a sand beach",
+        "a smudge of light on a black background",
+        "a black and white image of a tree with a white background",
+        "a blurry image of a tree in a forest",
+        "a tree in the forest"
+      ],
+      "dominant_colors": [
+        "#8f9692",
+        "#d3dad8",
+        "#474e49"
+      ]
+    },
+    {
+      "start": 30.0,
+      "end": 34.41,
+      "motion_score": 64.75102096075433,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_006_30.jpg",
+      "captions": [
+        "a dark background with a black and white image of a tree",
+        "a smudge of light on a black background",
+        "a black and white image of a tree in a forest",
+        "a black and white image of a tree with a tree trunk in the background",
+        "a tree in the forest"
+      ],
+      "dominant_colors": [
+        "#dce2df",
+        "#484f4a",
+        "#8b928e"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a black and white image of an airplane flying in the sky | a black and white photograph of clouds in the sky | a plane flying in the sky with clouds | the sun shines through a cloudy sky | a sunrise or sunset is shown in this image",
+    "motion_score": 53.329,
+    "motion_variance": 301.314,
+    "dominant_colors": [
+      "#969f9a",
+      "#ecf2f2",
+      "#4a5046"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

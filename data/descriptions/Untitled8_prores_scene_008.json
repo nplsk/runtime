@@ -1,0 +1,60 @@
+{
+  "video_id": "Untitled8_prores_scene_008",
+  "filename": "Untitled8_prores_scene_008.mov",
+  "duration": 7.1,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:08.846196",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 87.84932227956168,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_008_0.jpg",
+      "captions": [
+        "a tree with branches and leaves in the sunlight",
+        "reflected in the tree branches",
+        "a tree in the forest with sunlight shining through the leaves",
+        "a tree trunk in the sunlight",
+        "a tree trunk in the forest"
+      ],
+      "dominant_colors": [
+        "#323733",
+        "#eff2f0",
+        "#858b86"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 7.1,
+      "motion_score": 63.41738898445463,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_008_5.jpg",
+      "captions": [
+        "a tree trunk is seen through a window",
+        "reflected in the tree branches",
+        "a shadow of a tree in the dark",
+        "a tree trunk is reflected in the light",
+        "a tree trunk in the shadow of a tree"
+      ],
+      "dominant_colors": [
+        "#535b56",
+        "#19201b",
+        "#a6ada8"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a close up of trees and leaves in the forest | a bird perched on the branches of trees stock video footage | the reflection of a tree trunk in the light | reflected in the glass of a window | of a tree with leaves and branches in the foreground | a bird perched on the branches of an oak tree | in this image of a tree silhouetted against the sun | the sun shines through a window in the sky | a black and white image of trees with shadows and reflections | of a dark forest scene with shadows and reflections | a time lapse of light and shadows",
+    "motion_score": 75.633,
+    "motion_variance": 149.23,
+    "dominant_colors": [
+      "#343b33",
+      "#f1f4f0",
+      "#81877e"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

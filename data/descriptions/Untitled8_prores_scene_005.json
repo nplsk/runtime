@@ -1,0 +1,126 @@
+{
+  "video_id": "Untitled8_prores_scene_005",
+  "filename": "Untitled8_prores_scene_005.mov",
+  "duration": 27.25,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:08.851321",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 37.942295807849135,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_005_0.jpg",
+      "captions": [
+        "a symphony of light and shadows in the sky",
+        "a symphony of light and shadows"
+      ],
+      "dominant_colors": [
+        "#b3b9b6",
+        "#343931",
+        "#6c726e"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 70.20788417431193,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_005_5.jpg",
+      "captions": [
+        "a sandstorm in the sky",
+        "a smoky sky with a smoky sky",
+        "a symphony of light and shadows",
+        "a textured surface, such as a textured surface, a textured surface, a textured surface, a textured surface, a textured surface, a textured surface, a textured surface",
+        "a sandpaper sheet with a sandpaper sheet"
+      ],
+      "dominant_colors": [
+        "#c7cecc",
+        "#676d68",
+        "#969c98"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 15.0,
+      "motion_score": 73.42134461009175,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_005_10.jpg",
+      "captions": [
+        "a symphony of a song",
+        "a symphony of light and shadows",
+        "a smudge of dust on a surface",
+        "a sand dune in the sand dunes"
+      ],
+      "dominant_colors": [
+        "#656968",
+        "#959a9c",
+        "#414743"
+      ]
+    },
+    {
+      "start": 15.0,
+      "end": 20.0,
+      "motion_score": 29.956289819062178,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_005_15.jpg",
+      "captions": [
+        "a room with a window and a light",
+        "a light reflected off a wall",
+        "a twilight sky with a twilight sky",
+        "a sandstone wall in a room",
+        "a white teddy bear with a teddy bear on a blue background"
+      ],
+      "dominant_colors": [
+        "#7f8277",
+        "#76786d",
+        "#8e9187"
+      ]
+    },
+    {
+      "start": 20.0,
+      "end": 25.0,
+      "motion_score": 58.35545282237513,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_005_20.jpg",
+      "captions": [
+        "a black and white image of a bird flying in the sky",
+        "a blurry image of a bird flying in the sky",
+        "a sand dune in the sand dunes"
+      ],
+      "dominant_colors": [
+        "#6f7470",
+        "#262b27",
+        "#464b47"
+      ]
+    },
+    {
+      "start": 25.0,
+      "end": 27.25,
+      "motion_score": 52.33494600535168,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_005_25.jpg",
+      "captions": [
+        "a white background with a white cloud",
+        "a white background with a white splatter effect",
+        "a white background with a blue sky",
+        "a smudge of dust on a white background",
+        "a white striped background with a white striped background"
+      ],
+      "dominant_colors": [
+        "#d2d7d5",
+        "#f0f4f2",
+        "#a8afac"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a black and white image of an airplane flying in the sky | an airplane flying over a cloudy sky | a close up of the white wall in the bathroom | sydney, new south wales | a cloudy sky is shown in the background | a blue sky with clouds and mist | in a room with light and dark tones | twilight time of day is shown | the overall visual impression of a room in terms of color and texture",
+    "motion_score": 53.703,
+    "motion_variance": 249.508,
+    "dominant_colors": [
+      "#ecf1f0",
+      "#70746a",
+      "#a6ada8"
+    ],
+    "motion_tag": "dynamic"
+  }
+}
