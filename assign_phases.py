@@ -114,17 +114,11 @@ def score_phase(tags, mood, motion, motion_score):
     scores["blur"] += len(blur_tags & tags)
 
     # --- Refinement: additional rules to distinguish built vs people ---
-    refined_people_tags = {
-        "human", "people", "hug", "kiss", "family", "portrait", "smiling", "laughing",
-        "emotion", "face", "eye_contact", "group", "interaction", "gesture", "talking", "touch"
-    }
-
-    refined_built_tags = {
-        "interior", "hallway", "kitchen", "apartment", "bedroom", "architecture", "wall",
-        "ceiling", "door", "window", "urban", "corridor", "enclosed_space", "structure", "bathroom"
-    }
-
-    # Refined tag multipliers
+    refined_people_tags = {"human", "people", "hug", "kiss", "family", "portrait", "smiling", "laughing",
+                           "emotion", "face", "eye_contact", "group", "interaction", "gesture", "talking", "touch"}
+    refined_built_tags = {"interior", "hallway", "kitchen", "apartment", "bedroom", "architecture", "wall",
+                          "ceiling", "door", "window", "urban", "corridor", "enclosed_space", "structure", "bathroom"}
+    # Refined tag multipliers (ensure present)
     scores["people"] += len(refined_people_tags & tags)
     scores["built"] += len(refined_built_tags & tags)
 

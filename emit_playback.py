@@ -212,13 +212,16 @@ def build_schedule(cfg, all_cfgs):
             ]
             if DEBUG_MODE:
                 print(f"→ Phase '{phase_base}' post-filter movelist size: {len(filtered_movelist)}")
+            # Sort filtered_movelist by increasing motion_variance
+            filtered_movelist.sort(key=lambda c: float(c.get('motion_variance', 0)))
         elif phase_base == "built":
-            # Loosen filtering: allow fallback for mood_tag in {"neutral", "dim"}
+            # Loosen filtering: allow fallback for mood_tag in {"neutral", "dim"}, or allow high motion_variance
             filtered_movelist = [
                 c for c in filtered_movelist
                 if (
                     any(tag in [t.strip() for t in c['semantic_tags'].split(',')] for tag in phase_tag_filters["built"]["semantic_tags"])
                     or (str(c.get("mood_tag", "")).strip() in {"neutral", "dim"})
+                    or float(c.get("motion_variance", 0)) > 10
                 )
             ]
             if DEBUG_MODE:
@@ -302,9 +305,16 @@ def build_schedule(cfg, all_cfgs):
                         root_id_dbg = c['video_id'].split('_scene_')[0]
                         print(f"🎯 Candidate: {c['video_id']} | Weight: {c['_weight']:.3f} | Last played: {last_played_time.get(c['video_id'], 'never')} | Root usage: {recent_root_usage[root_id_dbg]}")
 
-                # Apply phase tag filters
+                # Apply phase tag filters and phase-specific logic
                 phase_choices = sorted_choices
-                if phase_base in phase_tag_filters:
+                # --- PHASE-SPECIFIC LOGIC: people_part1/people_part2 ---
+                if phase_base.startswith("people"):
+                    if cfg_name.endswith("part1"):
+                        phase_choices = [c for c in phase_choices if str(c.get("motion_tag", "")).strip() in {"still", "moderate"}]
+                    elif cfg_name.endswith("part2"):
+                        # Allow both still and dynamic, no extra filtering
+                        pass
+                elif phase_base in phase_tag_filters:
                     if phase_base == "people":
                         # Loosen filtering: allow fallback for motion_tag "moderate" or mood_tag in {"warm", "joyful"}
                         phase_choices = [c for c in phase_choices if (
@@ -315,17 +325,52 @@ def build_schedule(cfg, all_cfgs):
                             or (str(c.get("mood_tag", "")).strip() in {"warm", "joyful"})
                         )]
                     elif phase_base == "built":
-                        # Loosen filtering: allow fallback for mood_tag in {"neutral", "dim"}
+                        # Loosen filtering: allow fallback for mood_tag in {"neutral", "dim"}, or high motion_variance
                         phase_choices = [c for c in phase_choices if (
                             any(tag in [t.strip() for t in c['semantic_tags'].split(',')] for tag in phase_tag_filters["built"]["semantic_tags"])
                             or (str(c.get("mood_tag", "")).strip() in {"neutral", "dim"})
+                            or float(c.get("motion_variance", 0)) > 10
                         )]
                     elif phase_base == "blur":
-                        phase_choices = [c for c in phase_choices if (
-                            float(c.get('motion_variance', 0)) > phase_tag_filters["blur"]["motion_variance"]
-                            or
-                            any(tag in [t.strip() for t in c['semantic_tags'].split(',')] for tag in phase_tag_filters["blur"]["semantic_tags"])
-                        )]
+                        # --- Add face-closeups from people movement CSV ---
+                        people_csv = all_cfgs.get("people", {}).get("csv")
+                        if people_csv:
+                            try:
+                                people_movelist = load_movelist(people_csv)
+                                face_clips = [
+                                    c for c in people_movelist
+                                    if "face" in [t.strip() for t in c['semantic_tags'].split(',')]
+                                    and any(t in [t.strip() for t in c['semantic_tags'].split(',')] for t in ["closeup", "face_closeup", "portrait"])
+                                ]
+                                # Only add if not already present (avoid duplicates by video_id)
+                                existing_ids = set(c['video_id'] for c in phase_choices)
+                                for fc in face_clips:
+                                    if fc['video_id'] not in existing_ids:
+                                        phase_choices.append(fc)
+                            except Exception as e:
+                                if DEBUG_MODE:
+                                    print(f"⚠️ Could not load people_movelist for face clips: {e}")
+                        # Filtering: Exclude "robot" and "band", but allow face closeups from people
+                        phase_choices = [
+                            c for c in phase_choices if (
+                                (
+                                    float(c.get('motion_variance', 0)) > phase_tag_filters["blur"]["motion_variance"]
+                                    or
+                                    any(tag in [t.strip() for t in c['semantic_tags'].split(',')] for tag in phase_tag_filters["blur"]["semantic_tags"])
+                                    or (
+                                        "face" in [t.strip() for t in c['semantic_tags'].split(',')]
+                                        and any(t in [t.strip() for t in c['semantic_tags'].split(',')] for t in ["closeup", "face_closeup", "portrait"])
+                                    )
+                                )
+                                and not any(tag in [t.strip() for t in c['semantic_tags'].split(',')] for tag in ["robot", "band", "performance","helicopter"])
+                            )
+                        ]
+                        # --- Bias face clips toward later placement in the timeline ---
+                        def has_face_tags(clip):
+                            tags = [t.strip() for t in clip['semantic_tags'].split(',')]
+                            return "face" in tags or "human" in tags
+                        # Rank clips so that face-tagged ones are chosen last in time
+                        phase_choices.sort(key=lambda c: has_face_tags(c))
 
                 # --- Filter phase_choices by root count (max scenes per root) ---
                 filtered_phase_choices = []
@@ -378,6 +423,9 @@ def build_schedule(cfg, all_cfgs):
                     e['video_id'] == clip['video_id'] and abs(e['time_start'] - (master_time + offset)) < 0.1
                     for e in schedule
                 )
+                # --- GUARD AGAINST OVERUSE OF HELICOPTER ---
+                if 'helicopter' in entry['semantic_tags'] and recent_root_usage.get('helicopter', 0) > 1:
+                    continue
                 if overlapping:
                     continue
                 schedule.append(entry)
