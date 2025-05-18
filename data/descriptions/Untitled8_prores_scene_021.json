@@ -15,15 +15,16 @@
       "motion_score": 80.47525563837921,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_021_0.jpg",
       "captions": [
-        "a cloudy sky with a cloudy sky",
-        "a shady sky with clouds",
-        "a cloudy sky with a blue sky",
-        "a plane flying over a cloudy sky"
+        "a sand beach in a sand dunes",
+        "a light reflected off a cloud",
+        "a symphony of a symphony of a symphony of a symphony of a symphony of a s",
+        "a grey sky with a cloudy sky",
+        "a white teddy bear with a blue hat"
       ],
       "dominant_colors": [
-        "#656964",
-        "#8b8579",
-        "#747670"
+        "#7d837d",
+        "#8d938f",
+        "#848a85"
       ]
     },
     {
@@ -32,15 +33,15 @@
       "motion_score": 38.217583301478086,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_021_5.jpg",
       "captions": [
-        "a sand beach with a cloudy sky",
-        "a cloudy sky with a blue sky",
         "a cloudy sky with a cloudy sky",
+        "reflected in the water",
+        "a smudge on a window",
         "a sand dune in the sky"
       ],
       "dominant_colors": [
-        "#686e6a",
-        "#868e90",
-        "#777e7c"
+        "#424c43",
+        "#687370",
+        "#98a6ad"
       ]
     },
     {
@@ -49,26 +50,26 @@
       "motion_score": 37.73909116972477,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_021_10.jpg",
       "captions": [
-        "a blurry image of a bird flying in the sky",
-        "a smoky sky with a hazy sky",
-        "a symphony of light and shadows",
-        "a sand sand sand sand sand sand sand sand sand sand sand sand sand sand sand s"
+        "a sand beach with a blue sky and a white cloud",
+        "a light blue sky with a cloudy sky",
+        "a grey coloured wall with a blue sky",
+        "a blue sky with clouds and a blue sky"
       ],
       "dominant_colors": [
-        "#9a8f84",
-        "#dfe6eb",
-        "#b9bab9"
+        "#949b97",
+        "#737975",
+        "#7e8480"
       ]
     }
   ],
   "metadata_payload": {
-    "semantic_caption": "a cloudy sky with clouds in the background | a plane flying in the sky with clouds | a blurred image of an airplane flying in the sky | twilight is shown in the sky | sydney, new south wales | the overall visual impression is that of a cloudy sky | in this image of a blue sky with white clouds | a time of day or night is shown",
+    "semantic_caption": "a cloudy sky with clouds in the background | a plane flying in the sky with clouds | a black and white image of an airplane flying in the sky | sydney, new south wales | twilight is shown in the sky | the composition of the image is based on the shape of a triangle | twilight time of day is shown | the overall visual impression of a piece of artwork | the lighting and atmosphere in a room or scene",
     "motion_score": 52.144,
     "motion_variance": 401.369,
     "dominant_colors": [
       "#868f8a",
-      "#a8b4b3",
-      "#727a74"
+      "#727a74",
+      "#a8b4b4"
     ],
     "motion_tag": "dynamic"
   }
