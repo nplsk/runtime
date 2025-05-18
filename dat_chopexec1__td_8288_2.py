@@ -1,4 +1,26 @@
-﻿# me - this DAT
+﻿"""
+This script is a TouchDesigner CHOP Execute DAT callback that manages the playback of video clips based on a timeline and movement phases.
+It is triggered whenever the timeline CHOP value changes and performs the following tasks:
+
+1. Determines the current movement phase (e.g., orientation, elemental, built, people, blur).
+2. Detects when the timeline wraps (resets from max back to 0) and advances the movement phase.
+3. For each active layer, it searches the schedule DAT for the next clip to play based on the current movement and layer.
+4. When the global time reaches the scheduled start time of a clip, it sets the file on the corresponding Movie TOP and advances the row index.
+
+Input:
+- A timeline CHOP that cycles from 0 to 300 seconds.
+- A Constant CHOP ('project') that holds row indices and the current movement state.
+- A schedule DAT ('scheduleDAT') that contains the clip schedule with columns for movement, start time, and file path.
+
+Output:
+- Updates the file parameter of Movie TOPs to play the scheduled clips.
+- Advances the movement phase and row indices as the timeline progresses.
+- Logs debugging information to the console.
+
+Note: This script is designed to be used within TouchDesigner and relies on specific operator names and structures.
+"""
+
+# me - this DAT
 # 
 # channel - the Channel object which has changed
 # sampleIndex - the index of the changed sample
@@ -33,13 +55,13 @@ def onValueChange(channel, sampleIndex, val, prev):
     project = op('project')  # Constant CHOP
     # DEBUG: print current rowIndex and movement channel values
     # dump key Constant CHOP channels
-    for ch_name in ['rowIndex0','rowIndex1','rowIndex2','movement']:
+    for ch_name in ['rowIndex0','rowIndex1','rowIndex2','rowIndex3','rowIndex4','rowIndex5','movement']:
         ch = project[ch_name]
         print(f"  CHOP channel {ch_name}: {ch}")
     sch     = op('scheduleDAT')
     
     # Determine current movement phase from 'movement' channel (0-based index)
-    # Determine which movement phase we’re in (0=orientation, 1=elemental, etc.)
+    # Determine which movement phase we're in (0=orientation, 1=elemental, etc.)
     try:
         movement = int(project['movement'])        
     except:
@@ -96,13 +118,6 @@ def onValueChange(channel, sampleIndex, val, prev):
         print("No valid movement name for current index; skipping scheduling")
         return
 
-    # ENFORCE TIME BOUNDARIES PER MOVEMENT PHASE
-    expected_start_time = movement * 300
-    expected_end_time = (movement + 1) * 300
-    if not (expected_start_time <= val < expected_end_time):
-        print(f"⛔ Skipping playback outside time range for movement '{current_move}'")
-        return
-
     # GATE: only run layer 0 during the orientation segment
     # During orientation (movement 0) only process layer 0, else process all layers
     if movement == 0:
@@ -115,16 +130,16 @@ def onValueChange(channel, sampleIndex, val, prev):
     # Iterate over each active layer to schedule its next clip
     # Iterate through each active layer and find its next clip
     for layer in layers_to_check:
-        print(f"  Layer {layer}: starting idx lookup")
+        # print(f"  Layer {layer}: starting idx lookup")
         # Get current rowIndex for this layer from the Constant CHOP
         try:
             p = project[f'rowIndex{layer}']  # CHOP channel
         except:
             p = None
         idx = int(p) if p else 0
-        print(f"Param rowIndex{layer} exists: {p is not None}, p object: {p}, starting idx: {idx}")
-        print(f"Checking layer {layer}, starting idx {idx}, current time {val}")
-        print(f"  Searching schedule DAT for layer {layer}, movement {current_move}")
+        # print(f"Param rowIndex{layer} exists: {p is not None}, p object: {p}, starting idx: {idx}")
+        # print(f"Checking layer {layer}, starting idx {idx}, current time {val}")
+        # print(f"  Searching schedule DAT for layer {layer}, movement {current_move}")
         # SEARCH SCHEDULE: find the next row matching current movement and layer
         # Search forward in the schedule for the next row matching this movement & layer
         while idx < sch.numRows:
@@ -137,7 +152,7 @@ def onValueChange(channel, sampleIndex, val, prev):
                 row_move  = str(raw_move)
                 row_layer = int(sch[idx, 4].val)
                 row_t     = float(sch[idx, 1].val)
-                print(f"Row {idx}: move={row_move}, layer={row_layer}, time_start={row_t}")
+                # print(f"Row {idx}: move={row_move}, layer={row_layer}, time_start={row_t}")
             except:
                 idx += 1
                 continue
@@ -150,12 +165,13 @@ def onValueChange(channel, sampleIndex, val, prev):
 
         if idx < sch.numRows:
             t = row_t
-            # TIME CHECK: launch clip when global time reaches row’s start time
-            # If it’s time to launch this clip, set the file on the Movie TOP
+            # TIME CHECK: launch clip when global time reaches row's start time
+            # If it's time to launch this clip, set the file on the Movie TOP
             if val >= t:
                 path = sch[idx, 3]
-                print(f"Launching clip on layer {layer}: {path} at {val}s (scheduled {t}s)")
-                print(f"    Advancing rowIndex{layer} to {idx+1}")
+                print(f"[✔] PLAYING: Movement='{current_move}' | Layer={layer} | Row={idx} | Time={val:.2f}s\n      ↳ Clip: {path}")
+                # print(f"Launching clip on layer {layer}: {path} at {val}s (scheduled {t}s)")
+                # print(f"    Advancing rowIndex{layer} to {idx+1}")
                 # set file on the proper Movie File In TOP and reload it
                 m = op(f'movie{layer}')
                 if m:
@@ -165,7 +181,7 @@ def onValueChange(channel, sampleIndex, val, prev):
                         m.par.reload.pulse()
                     except:
                         pass
-                # ADVANCE POINTER: update rowIndex channel so this row isn’t reused
-                # Advance this layer’s rowIndex so we don’t replay the same row
+                # ADVANCE POINTER: update rowIndex channel so this row isn't reused
+                # Advance this layer's rowIndex so we don't replay the same row
                 project.par[f'const{layer}value'] = idx + 1
     return

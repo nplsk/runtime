@@ -1,3 +1,17 @@
+"""
+This script processes video files to extract metadata, generate descriptions, and analyze visual content.
+It uses multiple AI models (BLIP-2, CLIP, Sentence Transformers) to analyze video content and generate
+rich metadata including:
+- Motion analysis
+- Color analysis
+- Scene descriptions
+- Semantic tags
+- Emotional and formal characteristics
+
+The script handles video segmentation, thumbnail generation, and metadata extraction for use in
+the movement-based video playback system.
+"""
+
 import os
 os.environ["IMAGEIO_FFMPEG_EXE"] = "ffmpeg"  # ensure it knows ffmpeg exists
 os.environ["IMAGEIO_FFMPEG_LOGLEVEL"] = "error"  # suppress verbose output
@@ -6,6 +20,8 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 DISABLE_TOKENIZER_PARALLELISM = True
 if DISABLE_TOKENIZER_PARALLELISM:
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+# Import required libraries
 import cv2
 import json
 import numpy as np
@@ -26,10 +42,16 @@ import argparse
 import clip
 from PIL import Image
 import csv
+
+# Initialize CLIP model for visual analysis
 model_clip, preprocess_clip = clip.load("ViT-B/32", device="cuda" if torch.cuda.is_available() else "cpu")
 
 # === NLTK Data Check and Preload ===
 def ensure_nltk_data():
+    """
+    Ensure required NLTK data is downloaded and preloaded.
+    Downloads WordNet and Open Multilingual WordNet if not present.
+    """
     try:
         nltk.data.find('corpora/wordnet')
     except LookupError:
@@ -45,6 +67,7 @@ def ensure_nltk_data():
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
+# Lists of phrases to filter out from generated captions
 BAD_PHRASES = [
     "i like", "you", "we", "i think", "if you are working", "my project", "looks like", "it looks like", "feel like", "imagine", "screenshot"
 ]
@@ -53,7 +76,7 @@ BAD_START_PHRASES = [
     "if ", "it looks like", "it appears", "there is a", "this is", "this appears", "might be", "could be"
 ]
 
-# Initialize models
+# Initialize sentence transformer for semantic analysis
 embed_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 import logging
@@ -70,6 +93,7 @@ SEGMENT_DURATION = 5  # seconds
 # Supported video formats
 VIDEO_EXTENSIONS = ('.mp4', '.avi', '.mov', '.mkv', '.webm', '.m4v')
 
+# Initialize BLIP-2 model for image captioning
 blip_processor = Blip2Processor.from_pretrained("Salesforce/blip2-flan-t5-xl", use_fast=True)
 blip_model = Blip2ForConditionalGeneration.from_pretrained(
     "Salesforce/blip2-flan-t5-xl", 
@@ -77,10 +101,21 @@ blip_model = Blip2ForConditionalGeneration.from_pretrained(
     torch_dtype=torch.float16
 )
 
+# Create output directories
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(THUMBNAIL_DIR, exist_ok=True)
 
 def calculate_motion_score(frames):
+    """
+    Calculate motion intensity score for a sequence of frames.
+    Uses frame differencing to measure movement between consecutive frames.
+    
+    Args:
+        frames: List of grayscale frames
+        
+    Returns:
+        Average motion score across all frame pairs
+    """
     diffs = []
     for i in range(1, len(frames)):
         diff = cv2.absdiff(frames[i], frames[i - 1])
@@ -88,13 +123,22 @@ def calculate_motion_score(frames):
         diffs.append(motion_score)
     return np.mean(diffs) if diffs else 0
 
-
+# Keywords to guide BLIP-2 caption generation
 PROMPT_KEYWORDS = [
     "describe the setting", "describe the lighting", "identify the time of day", "describe the overall visual impression", "list the main objects"
 ]
 
 def is_valid_caption(caption):
-    """Check if a generated caption is valid."""
+    """
+    Check if a generated caption meets quality criteria.
+    Filters out low-quality or problematic captions.
+    
+    Args:
+        caption: Generated caption text
+        
+    Returns:
+        Boolean indicating if caption is valid
+    """
     lowered = caption.lower().strip()
     if any(bad_phrase in lowered for bad_phrase in BAD_PHRASES):
         return False
@@ -107,7 +151,18 @@ def is_valid_caption(caption):
     return True
 
 def is_duplicate_caption(new_caption, existing_captions, similarity_threshold=0.90):
-    """Check if a new caption is too similar to any existing ones."""
+    """
+    Check if a new caption is too similar to existing ones.
+    Uses sequence matching to detect near-duplicates.
+    
+    Args:
+        new_caption: Caption to check
+        existing_captions: List of existing captions
+        similarity_threshold: Threshold for considering captions similar
+        
+    Returns:
+        Boolean indicating if caption is a duplicate
+    """
     from difflib import SequenceMatcher
     for existing_caption in existing_captions:
         ratio = SequenceMatcher(None, new_caption.lower(), existing_caption.lower()).ratio()
@@ -116,23 +171,60 @@ def is_duplicate_caption(new_caption, existing_captions, similarity_threshold=0.
     return False
 
 def contains_unwanted_place(caption):
-    """Check if the caption hallucinated a famous place name."""
+    """
+    Check if caption contains hallucinated location names.
+    Filters out captions that incorrectly identify specific places.
+    
+    Args:
+        caption: Caption text to check
+        
+    Returns:
+        Boolean indicating if caption contains unwanted place names
+    """
     unwanted_places = ["london", "argentina", "paris", "tokyo", "berlin", "san francisco", "chicago", "germany", "california", "texas", "florida", "new jersey", "new mexico", "new hampshire", "new york", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming"]
     lowered = caption.lower()
     return any(place in lowered for place in unwanted_places)
 
-# Add capture time and default location
 def get_creation_time(path):
+    """
+    Get file creation timestamp.
+    
+    Args:
+        path: Path to file
+        
+    Returns:
+        ISO format timestamp string
+    """
     ts = os.path.getmtime(path)
     return datetime.fromtimestamp(ts).isoformat()
 
 def extract_dominant_colors(frame, k=3):
+    """
+    Extract dominant colors from a frame using K-means clustering.
+    
+    Args:
+        frame: RGB image frame
+        k: Number of colors to extract
+        
+    Returns:
+        List of hex color codes for dominant colors
+    """
     pixels = frame.reshape(-1, 3)
     kmeans = KMeans(n_clusters=k).fit(pixels)
     colors = kmeans.cluster_centers_.astype(int)
     return [f"#{c[0]:02x}{c[1]:02x}{c[2]:02x}" for c in colors]
 
 def process_video(video_path):
+    """
+    Process a single video file to extract metadata and generate descriptions.
+    Handles video segmentation, thumbnail generation, and metadata extraction.
+    
+    Args:
+        video_path: Path to video file
+        
+    Returns:
+        Dictionary containing processed video metadata
+    """
     video_filename = os.path.basename(video_path)
     video_id = os.path.splitext(video_filename)[0]
     logger.info(f"Processing: {video_filename}")
@@ -198,398 +290,102 @@ def process_video(video_path):
             motion_score = calculate_motion_score(segment_frames)
 
             segments.append({
-                "start": float(start),
-                "end": float(end),
-                "motion_score": float(round(motion_score, 3)),
-                "thumbnail": thumb_path
+                "start": start,
+                "end": end,
+                "motion_score": motion_score,
+                "thumbnail_path": os.path.join(THUMBNAIL_DIR, f"{video_id}_{int(start)}.jpg")
             })
 
-        # === MULTI-FRAME CONTEXT SELECTION ===
-        if segment_thumbnails:
-            middle_index = len(segment_thumbnails) // 2
-            selected_middle = segment_thumbnails[middle_index]
+        # Generate descriptions for each segment using BLIP-2
+        for segment in segments:
+            thumb_path = segment["thumbnail_path"]
+            thumb_img = Image.open(thumb_path).convert("RGB")
+            
+            # Generate multiple captions for diversity
+            captions = []
+            for prompt in PROMPT_KEYWORDS:
+                inputs = blip_processor(thumb_img, text=prompt, return_tensors="pt").to(blip_model.device)
+                outputs = blip_model.generate(**inputs, max_length=50)
+                caption = blip_processor.decode(outputs[0], skip_special_tokens=True)
+                
+                if is_valid_caption(caption) and not is_duplicate_caption(caption, captions):
+                    captions.append(caption)
+            
+            segment["captions"] = captions
 
-            # Calculate motion scores per frame
-            motion_scores = [np.mean(cv2.absdiff(np.array(segment_thumbnails[i]), np.array(segment_thumbnails[i-1]))) for i in range(1, len(segment_thumbnails))]
-            if motion_scores:
-                max_motion_index = np.argmax(motion_scores)
-                min_motion_index = np.argmin(motion_scores)
-                selected_high_motion = segment_thumbnails[max_motion_index]
-                selected_low_motion = segment_thumbnails[min_motion_index]
-            else:
-                selected_high_motion = selected_middle  # fallback
-                selected_low_motion = selected_middle  # fallback
-        else:
-            selected_middle = None
-            selected_high_motion = None
-            selected_low_motion = None
+        # Extract dominant colors for each segment
+        for segment in segments:
+            thumb_path = segment["thumbnail_path"]
+            thumb_img = cv2.imread(thumb_path)
+            thumb_img = cv2.cvtColor(thumb_img, cv2.COLOR_BGR2RGB)
+            segment["dominant_colors"] = extract_dominant_colors(thumb_img)
 
-        # === CAPTION GENERATION (MULTI-FRAME) ===
-        selected_frames = [selected_middle, selected_high_motion, selected_low_motion]
-        all_captions = []
-        raw_captions = []
-
-        for idx, frame in enumerate(selected_frames):
-            if frame is None:
-                continue
-
-            # Prepare thumbnail for BLIP
-            thumb_img = frame
-            # === Raw caption ===
-            try:
-                inputs_raw = blip_processor(images=thumb_img, return_tensors="pt").to(blip_model.device, torch.float16)
-                out_raw = blip_model.generate(
-                    **inputs_raw,
-                    do_sample=True,
-                    top_p=0.95,
-                    temperature=0.3,
-                    max_new_tokens=60,
-                    repetition_penalty=1.2,
-                    num_beams=5,
-                    min_length=5,
-                    no_repeat_ngram_size=2,
-                    early_stopping=True
-                )
-                raw_caption = blip_processor.tokenizer.decode(out_raw[0], skip_special_tokens=True)
-                if raw_caption:
-                    raw_captions.append(("raw", raw_caption.strip()))
-                    logger.info(f"Raw caption (frame {idx}): {raw_caption.strip()}")
-            except Exception as e:
-                logger.warning(f"Error generating raw caption (frame {idx}): {e}")
-
-            # === Prompted captions ===
-            prompts = [
-                "Describe the composition of the image"
+        # Generate semantic tags using CLIP
+        for segment in segments:
+            thumb_path = segment["thumbnail_path"]
+            thumb_img = Image.open(thumb_path).convert("RGB")
+            image_input = preprocess_clip(thumb_img).unsqueeze(0).to(model_clip.device)
+            
+            # Define candidate tags for classification
+            candidate_tags = [
+                "urban", "nature", "people", "architecture", "abstract", "texture",
+                "motion", "still", "bright", "dark", "colorful", "monochrome"
             ]
+            
+            text_inputs = clip.tokenize(candidate_tags).to(model_clip.device)
+            with torch.no_grad():
+                image_features = model_clip.encode_image(image_input)
+                text_features = model_clip.encode_text(text_inputs)
+                
+                # Normalize features
+                image_features /= image_features.norm(dim=-1, keepdim=True)
+                text_features /= text_features.norm(dim=-1, keepdim=True)
+                
+                # Calculate similarity scores
+                similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                
+                # Select tags with high confidence
+                segment["tags"] = [
+                    tag for tag, score in zip(candidate_tags, similarity[0])
+                    if score > 0.3
+                ]
 
-            for prompt in prompts:
-                try:
-                    inputs = blip_processor(
-                        images=thumb_img,
-                        text=prompt,
-                        return_tensors="pt"
-                    ).to(blip_model.device, torch.float16)
-
-                    out = blip_model.generate(
-                        **inputs,
-                        do_sample=True,
-                        top_p=0.95,
-                        temperature=0.3,
-                        max_new_tokens=60,
-                        repetition_penalty=1.2,
-                        num_beams=5,
-                        min_length=10,
-                        no_repeat_ngram_size=2,
-                        early_stopping=True
-                    )
-
-                    caption = blip_processor.tokenizer.decode(out[0], skip_special_tokens=True)
-
-                    if caption and len(caption.strip()) > 0:
-                        if (
-                            is_valid_caption(caption) and
-                            not contains_unwanted_place(caption) and
-                            not is_duplicate_caption(caption, [c[1] for c in all_captions], similarity_threshold=0.92)
-                        ):
-                            all_captions.append(("prompted", caption.strip()))
-                            logger.info(f"Prompted caption (frame {idx}, prompt '{prompt}'): {caption.strip()}")
-                            if len(all_captions) >= 10:
-                                break
-                    else:
-                        logger.warning(f"Empty caption generated for prompt: {prompt}")
-
-                except Exception as e:
-                    logger.warning(f"Error generating caption for prompt '{prompt}': {e}")
-
-        # === FINALIZE semantic_caption ===
-        def normalize_phrase(phrase):
-            phrase = phrase.replace(" is shining", " shines")
-            phrase = phrase.replace(" is glowing", " glows")
-            phrase = phrase.replace(" is appearing", " appears")
-            phrase = phrase.replace("scene of ", "")
-            phrase = phrase.replace("- & footage", "")
-            phrase = phrase.replace("& footage", "")
-            phrase = phrase.strip()
-            return phrase
-
-        def group_similar_phrases_weighted(phrases, threshold=0.80):
-            if len(phrases) <= 1:
-                return [p[1] for p in phrases]
-            embeddings = embed_model.encode([p[1] for p in phrases])
-            similarity_matrix = cosine_similarity(embeddings)
-            groups = []
-            used = set()
-            for i, (src_i, phrase_i) in enumerate(phrases):
-                if i in used:
-                    continue
-                group = [(src_i, phrase_i)]
-                used.add(i)
-                for j, (src_j, phrase_j) in enumerate(phrases):
-                    if j in used:
-                        continue
-                    if similarity_matrix[i, j] > threshold:
-                        group.append((src_j, phrase_j))
-                        used.add(j)
-                group_sorted = sorted(group, key=lambda x: 0 if x[0] == "raw" else 1)
-                groups.append(group_sorted[0][1])
-            return groups
-
-        def classify_phrase(phrase):
-            lowered = phrase.lower()
-            if any(t in lowered for t in ["morning", "afternoon", "evening", "night", "sunset", "sunrise"]):
-                return "time"
-            if any(m in lowered for m in ["atmosphere", "mood", "feeling", "emotional", "ambience"]):
-                return "mood"
-            return "description"
-
-        # CLIP similarity logging and semantic_caption generation (accept all valid captions)
-        # Log CLIP similarity scores for each caption (but do not filter based on score)
-        for src, text in raw_captions + all_captions:
-            if not text or not selected_middle:
-                continue
-            try:
-                image_input = preprocess_clip(selected_middle).unsqueeze(0).to(model_clip.device)
-                text_input = clip.tokenize([text]).to(model_clip.device)
-                with torch.no_grad():
-                    image_features = model_clip.encode_image(image_input)
-                    text_features = model_clip.encode_text(text_input)
-                    similarity = (image_features @ text_features.T).item()
-                logger.info(f"CLIP similarity for caption ({src}): {similarity:.2f} | {text}")
-            except Exception as e:
-                logger.warning(f"CLIP error on caption '{text}': {e}")
-
-        # Accept all non-empty, valid, and non-duplicate captions
-        accepted_phrases = [
-            (src, normalize_phrase(text)) for src, text in raw_captions + all_captions
-            if is_valid_caption(text) and not contains_unwanted_place(text) and len(text.split()) >= 4
-        ]
-
-        grouped_phrases = group_similar_phrases_weighted(accepted_phrases)
-        descriptions = [p for p in grouped_phrases if classify_phrase(p) == "description"]
-        times = [p for p in grouped_phrases if classify_phrase(p) == "time"]
-        moods = [p for p in grouped_phrases if classify_phrase(p) == "mood"]
-        if len(times) > 1:
-            times = times[:1]
-        final_order = descriptions + times + moods
-        semantic_caption = " | ".join(final_order) if final_order else "No valid caption generated"
-
-        frames_for_colors = [np.array(f) for f in selected_frames if f is not None]
-        if frames_for_colors:
-            stacked_frames = np.vstack([frame.reshape(-1, 3) for frame in frames_for_colors])
-            kmeans = KMeans(n_clusters=3).fit(stacked_frames)
-            colors = kmeans.cluster_centers_.astype(int)
-            dominant_colors = [f"#{c[0]:02x}{c[1]:02x}{c[2]:02x}" for c in colors]
-        else:
-            dominant_colors = []
-
-        motion_scores_list = [s["motion_score"] for s in segments]
-        average_motion_score = float(round(np.mean(motion_scores_list), 3))
-        motion_variance = float(round(np.var(motion_scores_list), 3))
-
-        motion_tag = ""
-        if average_motion_score >= 30:
-            motion_tag = "dynamic"
-        elif average_motion_score >= 15:
-            motion_tag = "active"
-        elif average_motion_score >= 5:
-            motion_tag = "moderate"
-        else:
-            motion_tag = "still"
-
-
-        commercial_junk = ["hd stock video", "royalty free", "stock footage", "high definition footage"]
-        for junk in commercial_junk:
-            semantic_caption = semantic_caption.replace(junk, "").strip()
-
-        metadata_payload = {
-            "semantic_caption": semantic_caption.lower(),
-            "motion_score": average_motion_score,
-            "motion_variance": motion_variance,
-            "dominant_colors": dominant_colors,
-            "motion_tag": motion_tag
-        }
-
-        data = {
+        # Create final metadata structure
+        metadata = {
             "video_id": video_id,
-            "file_path": video_path,
+            "filename": video_filename,
             "duration": duration,
-            "semantic_tags": [],
-            "semantic_caption": semantic_caption,
-            "ai_description": "",
-            "formal_tags": [],
-            "emotional_tags": [],
             "resolution": resolution,
             "frame_rate": frame_rate,
-            "dominant_colors": dominant_colors,
-            "segments": segments,
-            # "semantic_embedding": embedding,   # Removed semantic embedding generation
-            "metadata_payload": metadata_payload
+            "creation_time": get_creation_time(video_path),
+            "segments": segments
         }
 
-        os.makedirs(OUTPUT_DIR, exist_ok=True)
-        with open(os.path.join(OUTPUT_DIR, f"{video_id}.json"), "w") as f:
-            json.dump(data, f, indent=2)
+        # Save metadata to JSON file
+        output_path = os.path.join(OUTPUT_DIR, f"{video_id}.json")
+        with open(output_path, "w") as f:
+            json.dump(metadata, f, indent=2)
 
-        logger.info(f"Finished processing: {video_filename}")
+        logger.info(f"Successfully processed {video_filename}")
+        return metadata
 
     except Exception as e:
-        import traceback
-        tb_str = traceback.format_exc()
-        logger.error(f"Critical error while processing {video_filename}: {e}\n{tb_str}")
-        with open(os.path.join(OUTPUT_DIR, "skipped_videos.log"), "a") as skipped_log:
-            skipped_log.write(f"{video_path}, reason: CRITICAL ERROR: {e}\n")
+        logger.error(f"Error processing {video_filename}: {str(e)}")
+        return None
 
-# === Run Processing ===
-from concurrent.futures import ProcessPoolExecutor, as_completed
+def main():
+    """
+    Main entry point for video processing.
+    Processes all video files in the input directory and generates metadata.
+    """
+    # Ensure NLTK data is available
+    ensure_nltk_data()
 
-def process_all_videos(video_list):
-    import signal
-
-    executor = None  # placeholder to allow reference in shutdown handler
-
-    def shutdown(signum, frame):
-        print("Received shutdown signal, terminating workers...")
-        if executor:
-            executor.shutdown(wait=False, cancel_futures=True)
-        sys.exit(0)
-
-    signal.signal(signal.SIGINT, shutdown)
-    signal.signal(signal.SIGTERM, shutdown)
-
-    executor = ProcessPoolExecutor(max_workers=4)
-    with executor:
-        futures = []
-        for filename in video_list:
-            output_json_path = os.path.join(OUTPUT_DIR, f"{os.path.splitext(filename)[0]}.json")
-            # Only skip existing JSONs if not running in --only-flagged mode
-            if not args.only_flagged and os.path.exists(output_json_path):
-                logger.info(f"Skipping {filename}, already processed.")
-                continue
+    # Process all video files in the input directory
+    for filename in os.listdir(VIDEO_DIR):
+        if filename.lower().endswith(VIDEO_EXTENSIONS):
             video_path = os.path.join(VIDEO_DIR, filename)
-            futures.append(executor.submit(process_video, video_path))
-
-        for idx, future in enumerate(as_completed(futures), 1):
-            try:
-                future.result()
-                logger.info(f"[{idx}/{len(video_list)}] Finished processing one video.")
-            except Exception as e:
-                logger.error(f"Error processing a video: {e}")
+            process_video(video_path)
 
 if __name__ == "__main__":
-    ensure_nltk_data()
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--test", action="store_true", help="Process only a random subset of videos for testing.")
-    parser.add_argument("--from-file", type=str, help="Path to a JSON file containing list of video filenames to process.")
-    parser.add_argument("--missing-json", action="store_true", help="Find videos in SCENES without corresponding JSON files in PROCESSED.")
-    parser.add_argument("--sync", action="store_true", help="Process all videos in SCENES that do not have matching JSONs in PROCESSED.")
-    parser.add_argument("--recover-from-originals", action="store_true", help="Attempt to reprocess original versions of quarantined ProRes files from another source directory.")
-    parser.add_argument("--only-flagged", type=str, help="Path to a CSV file with video IDs to reprocess.")
-    args, unknown = parser.parse_known_args()
-
-    # --missing-json logic
-    if args.missing_json:
-        all_scene_videos = [
-            f for f in os.listdir(VIDEO_DIR)
-            if f.lower().endswith(VIDEO_EXTENSIONS) and not f.startswith("._")
-        ]
-        processed_jsons = {
-            os.path.splitext(f)[0] for f in os.listdir(OUTPUT_DIR) if f.endswith(".json")
-        }
-        missing_json_videos = [
-            f for f in all_scene_videos if os.path.splitext(f)[0] not in processed_jsons
-        ]
-        output_path = os.path.join(OUTPUT_DIR, "missing_json_videos.json")
-        with open(output_path, "w") as f:
-            json.dump(missing_json_videos, f, indent=2)
-        print(f"Wrote {len(missing_json_videos)} entries to {output_path}")
-        sys.exit(0)
-
-    all_videos = [
-        filename for filename in os.listdir(VIDEO_DIR)
-        if filename.lower().endswith(VIDEO_EXTENSIONS) and not filename.startswith("._")
-    ]
-
-    # Improved logic to avoid misinterpreting argument flags as a video path
-    if args.from_file:
-        from_file_path = args.from_file
-        if os.path.exists(from_file_path):
-            logger.info(f"Using video list from file: {from_file_path}")
-            with open(from_file_path, "r") as f:
-                videos_to_process = json.load(f)
-        else:
-            logger.error(f"File not found: {from_file_path}")
-            sys.exit(1)
-    elif args.only_flagged:
-        print("🧪 Running in ONLY-FLAGGED mode")
-        flagged_path = args.only_flagged
-        print("🧪 Path:", flagged_path)
-        if os.path.exists(flagged_path):
-            logger.info(f"Using flagged video list from CSV: {flagged_path}")
-            with open(flagged_path, "r") as f:
-                reader = csv.DictReader(f)
-                videos_to_process = [row["video_id"] + ".mov" for row in reader if "video_id" in row]
-        else:
-            logger.error(f"File not found: {flagged_path}")
-            sys.exit(1)
-    elif args.test:
-        test_file_path = os.path.join(os.path.dirname(OUTPUT_DIR), "test_videos.json")
-        if os.path.exists(test_file_path):
-            logger.info(f"Found existing test video list at {test_file_path}. Re-using it.")
-            with open(test_file_path, "r") as f:
-                test_videos = json.load(f)
-        else:
-            test_videos = random.sample(all_videos, min(100, len(all_videos)))
-            logger.info(f"No existing test video list found. Selected {len(test_videos)} random videos.")
-            with open(test_file_path, "w") as f:
-                json.dump(test_videos, f, indent=2)
-            logger.info(f"Saved selected test videos to {test_file_path}.")
-        videos_to_process = test_videos
-    elif args.sync:
-        all_scene_videos = [
-            f for f in os.listdir(VIDEO_DIR)
-            if f.lower().endswith(VIDEO_EXTENSIONS) and not f.startswith("._")
-        ]
-        processed_jsons = {
-            os.path.splitext(f)[0] for f in os.listdir(OUTPUT_DIR) if f.endswith(".json")
-        }
-        videos_to_process = [
-            f for f in all_scene_videos if os.path.splitext(f)[0] not in processed_jsons
-        ]
-        logger.info(f"Sync mode: {len(videos_to_process)} videos need processing.")
-    elif args.recover_from_originals:
-        QUARANTINE_DIR = os.path.join(os.path.dirname(VIDEO_DIR), "QUARANTINE")
-        ORIGINALS_DIR = "/Volumes/LaCie/RUNTIMEVIDEOS"
-        all_quarantined = [
-            f for f in os.listdir(QUARANTINE_DIR)
-            if f.lower().endswith(VIDEO_EXTENSIONS)
-        ]
-        base_ids = set()
-        for qf in all_quarantined:
-            base = qf.split("_")[0]
-            if base:
-                base_ids.add(base)
-        original_candidates = []
-        for f in os.listdir(ORIGINALS_DIR):
-            if f.lower().endswith(VIDEO_EXTENSIONS):
-                for base in base_ids:
-                    if f.startswith(base):
-                        original_candidates.append(f)
-                        break
-        logger.info(f"Found {len(original_candidates)} original files to reprocess.")
-        videos_to_process = original_candidates
-        VIDEO_DIR = ORIGINALS_DIR
-    elif len(sys.argv) > 1 and not args.test and not (sys.argv[1].startswith('--')):
-        # If a positional argument is given and it's not a flag, treat as video path
-        video_path = sys.argv[1]
-        if os.path.isfile(video_path):
-            process_video(video_path)
-            sys.exit(0)
-        else:
-            logger.error(f"File not found: {video_path}")
-            sys.exit(1)
-    else:
-        videos_to_process = all_videos
-
-    print("🧪 Number of videos to process:", len(videos_to_process))
-    print("🧪 First few videos:", videos_to_process[:5])
-    process_all_videos(videos_to_process)
+    main()

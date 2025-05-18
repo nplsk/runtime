@@ -1,3 +1,16 @@
+"""
+This script generates a playback schedule for video clips based on various movement phases.
+It handles the orchestration of video clips across different movements (orientation, elemental, built, people, blur)
+with specific timing, layering, and transition strategies.
+
+Key features:
+- Supports multiple simultaneous video layers
+- Implements temporal decay for clip selection
+- Handles color harmony between clips
+- Manages clip transitions based on semantic similarity
+- Enforces minimum spacing between clips from the same source
+"""
+
 import argparse
 import csv, random, yaml, uuid
 from pathlib import Path
@@ -11,13 +24,26 @@ DEBUG_MODE = True  # Set to False to suppress debug logging
 from itertools import permutations
 
 def jaccard(tags1, tags2):
+    """
+    Calculate Jaccard similarity between two sets of tags.
+    Returns a value between 0 (no overlap) and 1 (identical sets).
+    Used to measure semantic similarity between clips.
+    """
     s1, s2 = set(tags1), set(tags2)
     return len(s1 & s2) / len(s1 | s2) if s1 | s2 else 0
 
 def reorder_group(entries, strategy, tags_key):
     """
-    Greedy reorder by Jaccard: high_similarity keeps similar clips together,
-    low_similarity spaces them apart.
+    Greedily reorder clips based on semantic similarity.
+    
+    Args:
+        entries: List of clip entries to reorder
+        strategy: Either 'high_similarity' to keep similar clips together,
+                 or 'low_similarity' to space them apart
+        tags_key: The key in the entry dict containing the tags to compare
+    
+    Returns:
+        Reordered list of entries
     """
     if not entries: return entries
     entries = entries.copy()
@@ -34,7 +60,14 @@ def reorder_group(entries, strategy, tags_key):
 
 def reorder_by_color(entries):
     """
-    Greedy reorder by Euclidean distance on first dominant color.
+    Greedily reorder clips based on color similarity using Euclidean distance
+    between dominant colors. This helps create smooth color transitions.
+    
+    Args:
+        entries: List of clip entries to reorder
+    
+    Returns:
+        Reordered list of entries
     """
     def parse(col): return tuple(int(col.lstrip('#')[i:i+2], 16) for i in (0,2,4))
     def dist(a, b): return sum((a[i]-b[i])**2 for i in range(3))**0.5
@@ -50,8 +83,16 @@ def reorder_by_color(entries):
 
 def ensure_spacing(schedule, min_sep=3):
     """
-    Enforce a minimum separation between clips from the same source file.
-    Uses the file_path prefix before '_scene' to identify siblings.
+    Enforce minimum separation between clips from the same source file
+    to prevent repetitive patterns. Uses the file_path prefix before '_scene'
+    to identify related clips.
+    
+    Args:
+        schedule: List of scheduled clip entries
+        min_sep: Minimum number of clips that should separate clips from same source
+    
+    Returns:
+        Modified schedule with enforced spacing
     """
     positions = {}
     for i, entry in enumerate(schedule):

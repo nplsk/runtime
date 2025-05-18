@@ -1,9 +1,26 @@
+"""
+This script converts various video formats to ProRes format, which is optimized for professional video editing.
+It processes videos from multiple source directories, handling different input formats and error cases.
+
+Key features:
+- Multi-directory source scanning
+- Parallel processing using CPU cores
+- Automatic error detection and handling
+- Progress tracking with tqdm
+- Color-coded console output
+- Error logging and file categorization
+- Support for various input formats (M4V, MP4, 3GP, MOV, MXF, AVI, DV)
+- Special handling for DV format with deinterlacing
+- Audio normalization and AAC encoding
+"""
+
 import os
 import subprocess
 from multiprocessing import Pool, cpu_count
 from tqdm import tqdm
 import shutil
 
+# List of source directories to scan for videos
 INPUT_DIRS = [
     "/Users/franknapolski/Movies/_____RUNTIME",
     "/Users/franknapolski/Library/CloudStorage/Dropbox/_MEMORIES VIDEOS",
@@ -32,22 +49,48 @@ INPUT_DIRS = [
     "/Volumes/4TB-DESKTOP/_VJ/Static and Dust"
 ]
 
+# Output directory for converted files
 OUTPUT_DIR = "/Volumes/LaCie/CONVERTED"
 ERROR_LOG = os.path.join(OUTPUT_DIR, "conversion_errors.txt")
 
+# Create output directory if it doesn't exist
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def is_convertible(filename):
+    """
+    Check if a file should be converted based on its extension.
+    Excludes files that are already in ProRes or HAP format.
+    
+    Args:
+        filename: Name of the file to check
+        
+    Returns:
+        Boolean indicating if the file should be converted
+    """
     ext = filename.lower()
     return (ext.endswith((".m4v", ".mp4", ".3gp", ".mov", ".mxf", ".avi", ".dv")) and
             "prores" not in ext and
             "hap" not in ext)
 
 def log_error(message):
+    """
+    Log error messages to the error log file.
+    
+    Args:
+        message: Error message to log
+    """
     with open(ERROR_LOG, "a") as f:
         f.write(message + "\n")
 
 def move_to_skipped(input_path, reason):
+    """
+    Copy a file to a skipped/corrupted directory with a specific reason.
+    Preserves the original file by copying instead of moving.
+    
+    Args:
+        input_path: Path to the input file
+        reason: Reason for skipping (e.g., "MOOV_MISSING", "BITSTREAM_ERROR")
+    """
     skip_dir = os.path.join(OUTPUT_DIR, "_SKIPPED_OR_CORRUPTED", reason)
     os.makedirs(skip_dir, exist_ok=True)
     basename = os.path.basename(input_path)
@@ -58,34 +101,55 @@ def move_to_skipped(input_path, reason):
         log_error(f"[COPY ERROR] Failed to copy {input_path} to {dest_path}: {e}")
 
 def color(text, c):
+    """
+    Add ANSI color codes to text for console output.
+    
+    Args:
+        text: Text to colorize
+        c: Color name ("green", "yellow", "red", "cyan")
+        
+    Returns:
+        Colorized text string
+    """
     colors = {"green":32, "yellow":33, "red":31, "cyan":36}
     return f"\033[{colors.get(c,37)}m{text}\033[0m"
 
 def convert_to_prores_task(args):
+    """
+    Convert a single video file to ProRes format.
+    Handles various error cases and retries with different settings.
+    
+    Args:
+        args: Tuple of (input_path, output_path)
+    """
     input_path, output_path = args
     ext = os.path.splitext(input_path)[1].lower()
 
+    # Skip if already converted
     if os.path.exists(output_path):
         print(color(f"Skipping already converted: {output_path}", "cyan"))
         return
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
+    # Base ffmpeg command with ProRes settings
     base_command = [
         "ffmpeg", "-hide_banner", "-i", input_path,
-        "-c:v", "prores_ks", "-profile:v", "3",
-        "-video_track_timescale", "600",
-        "-af", "loudnorm",
-        "-c:a", "aac",
+        "-c:v", "prores_ks", "-profile:v", "3",  # ProRes HQ profile
+        "-video_track_timescale", "600",  # Standard timescale for ProRes
+        "-af", "loudnorm",  # Normalize audio levels
+        "-c:a", "aac",  # Convert audio to AAC
         output_path
     ]
 
+    # Add deinterlacing for DV format
     if ext == ".dv":
         base_command.insert(4, "-vf")
         base_command.insert(5, "yadif=mode=send_frame,scale=720:480")
 
     print(color(f"Converting {input_path} → {output_path}", "green"))
 
+    # Retry logic with error detection
     MAX_RETRIES = 2
     for attempt in range(1, MAX_RETRIES + 1):
         command = base_command.copy()
@@ -98,7 +162,7 @@ def convert_to_prores_task(args):
         if result.returncode == 0:
             return
 
-        # Parse stderr for specific error types
+        # Handle specific error cases
         stderr_text = result.stderr.lower()
         if "moov atom not found" in stderr_text:
             log_error(f"[MOOV MISSING] {input_path}")
@@ -118,6 +182,11 @@ def convert_to_prores_task(args):
                 print(color(f"❌ Failed permanently: {input_path}", "red"))
 
 def main():
+    """
+    Main entry point for the conversion process.
+    Scans input directories, creates conversion tasks,
+    and processes them in parallel using CPU cores.
+    """
     tasks = []
     for input_dir in INPUT_DIRS:
         for root, _, files in os.walk(input_dir):

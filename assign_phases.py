@@ -1,10 +1,26 @@
-# assign_phases.py
+"""
+This script assigns video clips to different movement phases based on their semantic tags,
+mood, motion characteristics, and other attributes. It implements a sophisticated scoring
+system to categorize clips into one of five phases:
+
+1. orientation: Initial clips that set up the experience
+2. elemental: Nature and environmental clips
+3. built: Architectural and urban environment clips
+4. people: Human interaction and social clips
+5. blur: Abstract and motion-focused clips
+
+The script uses a combination of tag matching, mood analysis, and motion characteristics
+to determine the most appropriate phase for each clip.
+"""
+
 import os
 import json
 
+# Input/output configuration
 INPUT_DIR = "/Volumes/CORSAIR/DESCRIPTIONS"
 OUTPUT_FILE = "movement_archive.json"
 
+# Initialize phase assignment containers
 phase_assignments = {
     "orientation": [],
     "elemental": [],
@@ -13,6 +29,7 @@ phase_assignments = {
     "blur": []
 }
 
+# Define tag sets for each phase
 elemental_tags = {
     "nature", "forest", "water", "snow", "serene", "calm", "still", "ambient_light",
     "diffused_light", "natural_light", "grassy_field", "rocks", "earth_materials",
@@ -29,22 +46,23 @@ built_tags = {
     "light_fixture", "mirror", "ceiling", "walls", "floor", "television", "lamp", "window",
     "warm_lighting", "artificial_light", "ambient", "helicopter", "airplane", "airport",
     "abandoned_building", "asphalt", "concrete", "metal", "toilet", "grate", "projection",
-    # --- New tags for improved built/people separation ---
+    # Additional tags for improved built/people separation
     "locker_room", "hotel_room", "waiting_room", "hallway", "office", "bedroom", "bathroom_sink",
     "closet", "garage", "workshop", "elevator", "escalator", "school", "hall", "bench", "urban_alley",
     "hallway_corner", "lecture_hall", "booth", "gym", "bar", "restaurant", "studio_apartment", "laundromat"
 }
+
+# Tags that disqualify clips from specific phases
 BUILT_DISQUALIFY_IF_PRESENT = set()
 PEOPLE_DISQUALIFY_IF_PRESENT = set()
 BLUR_DISQUALIFY_IF_PRESENT = set()
 
+# Specific video IDs to exclude from elemental phase
 ELEMENTAL_DISQUALIFY_IDS = {"IMG_7769_prores_scene_002"}
-# Shared disqualifier tags for elemental phase
+
+# Tags that disqualify clips from elemental phase
 ELEMENTAL_DISQUALIFY_IF_PRESENT = {
-
-# Specific video IDs to disqualify from elemental
-
-    # copy all unique tags formerly listed in disqualify_if_present blocks
+    # Tags indicating human presence or artificial elements
     "people", "human", "crowd", "group", "event", "elevated_stage", "gathering", "audience", "portrait",
     "musicians", "hug", "kiss", "smile", "companionship", "interaction", "relationship", "guests", "bride",
     "groom", "individual", "dog", "buttons", "woman_walking", "jesus", "dj", "car_interior", "human_body",
@@ -77,7 +95,7 @@ people_tags = {
     "waving", "wedding", "portrait", "observation", "warm_lighting", "playful",
     "relaxed", "poise", "expression", "dancing", "event",
     "human_presence", "posing",
-    # --- New tags for improved built/people separation ---
+    # Additional tags for improved people detection
     "face", "eyes", "expression", "talking", "crying", "laughing", "screaming", "clapping",
     "cheering", "walking_together", "handshake", "farewell", "welcome", "speaking", "headshot",
     "interview", "interaction_emotional", "body_language", "hugging_family", "looking_into_camera"
@@ -91,6 +109,23 @@ blur_tags = {
 }
 
 def score_phase(tags, mood, motion, motion_score):
+    """
+    Score a clip for each phase based on its tags, mood, and motion characteristics.
+    Uses a sophisticated scoring system that considers:
+    - Tag matches with phase-specific tag sets
+    - Disqualifying tags
+    - Mood and motion characteristics
+    - Special cases and refinements
+    
+    Args:
+        tags: Set of tags associated with the clip
+        mood: Mood tag of the clip
+        motion: Motion tag of the clip
+        motion_score: Numerical score indicating motion intensity
+    
+    Returns:
+        Tuple of (best_phase, scores_dict) where scores_dict contains scores for each phase
+    """
     scores = {
         "orientation": 1,  # baseline
         "elemental": 0,
@@ -99,7 +134,7 @@ def score_phase(tags, mood, motion, motion_score):
         "blur": 0,
     }
 
-    # Tag matches
+    # Tag matching scoring
     scores["elemental"] += len(elemental_tags & tags)
     if any(t in tags for t in ELEMENTAL_DISQUALIFY_IF_PRESENT):
         scores["elemental"] = 0
@@ -113,12 +148,11 @@ def score_phase(tags, mood, motion, motion_score):
     scores["people"] += len(people_tags & tags)
     scores["blur"] += len(blur_tags & tags)
 
-    # --- Refinement: additional rules to distinguish built vs people ---
+    # Refined tag scoring for better phase distinction
     refined_people_tags = {"human", "people", "hug", "kiss", "family", "portrait", "smiling", "laughing",
                            "emotion", "face", "eye_contact", "group", "interaction", "gesture", "talking", "touch"}
     refined_built_tags = {"interior", "hallway", "kitchen", "apartment", "bedroom", "architecture", "wall",
                           "ceiling", "door", "window", "urban", "corridor", "enclosed_space", "structure", "bathroom"}
-    # Refined tag multipliers (ensure present)
     scores["people"] += len(refined_people_tags & tags)
     scores["built"] += len(refined_built_tags & tags)
 
@@ -128,13 +162,13 @@ def score_phase(tags, mood, motion, motion_score):
     if "interior" in tags and "structure" in material_tags:
         scores["built"] += 2
 
-    # Motion/mood influence
+    # Motion and mood influence
     if motion == "moderate" and "human" in tags:
         scores["people"] += 1
     if motion == "still" and "room" in tags:
         scores["built"] += 1
 
-    # Mood and motion modifiers for built, people, blur only
+    # Mood and motion modifiers
     if mood in {"warm", "joyful", "intimate", "relaxed"}:
         scores["people"] += 1
     if motion_score > 8:
@@ -142,6 +176,7 @@ def score_phase(tags, mood, motion, motion_score):
     if motion == "dynamic" or motion_score > 20:
         scores["blur"] += 1
 
+    # Natural element scoring
     natural_signifiers = {"forest", "moss", "stream", "sunlight", "rocks", "spider_webs", "earth_materials"}
     if len(natural_signifiers & tags) >= 2:
         scores["elemental"] += 2
@@ -150,9 +185,11 @@ def score_phase(tags, mood, motion, motion_score):
     if len(soft_nature_tags & tags) >= 2:
         scores["elemental"] += 1
 
+    # Disqualify elemental for artificial content
     if any(tag in tags for tag in {"photograph", "screen", "tv", "static", "projection"}) and scores["elemental"] <= 2:
         scores["elemental"] = 0
-    # Require at least two raw tag matches for elemental
+    
+    # Require minimum tag matches for elemental
     if scores["elemental"] < 2:
         scores["elemental"] = 0
 

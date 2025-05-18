@@ -1,70 +1,94 @@
 # movements.yml
-orientation:
-  csv: movement_csvs/orientation.csv
-  total_duration: 300
-  simultaneous: 1
-  duration_range: [8, 20]
-  allow_loop: False
-  transition_strategy: low_similarity
-  use_color_harmony: true
-  use_temporal_decay: false
+# This configuration file defines the parameters for each movement phase in the video playback system.
+# Each movement has specific characteristics that control how clips are selected and played.
 
+# Orientation Phase
+# Initial phase that sets up the experience with a single layer of clips
+# Uses quick bursts of clips followed by longer sustained clips
+orientation:
+  csv: movement_csvs/orientation.csv  # Source of clip metadata
+  total_duration: 300                 # Total duration in seconds
+  simultaneous: 1                     # Number of simultaneous video layers
+  duration_range: [8, 20]            # Min/max duration for each clip in seconds
+  allow_loop: False                  # Whether clips can loop
+  transition_strategy: low_similarity # Space similar clips apart
+  use_color_harmony: true           # Consider color harmony between clips
+  use_temporal_decay: false         # Don't use temporal decay for clip selection
+
+# Elemental Phase
+# Nature and environmental clips with multiple layers
+# Emphasizes natural elements and environmental themes
 elemental:
   csv: movement_csvs/elemental.csv
   total_duration: 300
-  simultaneous: 3
-  duration_range: [5, 20]
+  simultaneous: 3                    # Three layers of natural content
+  duration_range: [5, 20]           # Longer durations for environmental immersion
   allow_loop: False
-  transition_strategy: high_similarity
-  use_color_harmony: true
-  use_temporal_decay: true
+  transition_strategy: high_similarity # Keep similar natural elements together
+  use_color_harmony: true           # Maintain natural color harmony
+  use_temporal_decay: true          # Use temporal decay to vary clip selection
 
+# Built Phase
+# Architectural and urban environment clips
+# Focuses on man-made structures and spaces
 built:
   csv: movement_csvs/built.csv
   total_duration: 300
-  simultaneous: 2
-  duration_range: [5, 15]
-  allow_loop: True
-  transition_strategy: high_similarity
-  use_color_harmony: true
-  use_temporal_decay: true
+  simultaneous: 2                    # Two layers of architectural content
+  duration_range: [5, 15]           # Moderate durations for built environments
+  allow_loop: True                  # Allow looping for architectural elements
+  transition_strategy: high_similarity # Group similar architectural elements
+  use_color_harmony: true           # Maintain architectural color harmony
+  use_temporal_decay: true          # Use temporal decay for variety
 
+# People Phase (Part 1)
+# First part of human interaction clips
+# Focuses on individual and small group interactions
 people_part1:
   csv: movement_csvs/people.csv
-  total_duration: 150
-  simultaneous: 1
-  duration_range: [2, 8]
+  total_duration: 150               # Shorter duration for first part
+  simultaneous: 1                   # Single layer for focused human content
+  duration_range: [2, 8]           # Shorter durations for human interactions
   allow_loop: False
-  transition_strategy: high_similarity
-  use_color_harmony: true
-  use_temporal_decay: true
+  transition_strategy: high_similarity # Group similar human interactions
+  use_color_harmony: true          # Maintain warm color harmony for people
+  use_temporal_decay: true         # Use temporal decay for variety
 
+# People Phase (Part 2)
+# Second part of human interaction clips
+# Increases complexity with multiple layers
 people_part2:
   csv: movement_csvs/people.csv
   total_duration: 150
-  simultaneous: 3
-  duration_range: [1, 5]
-  allow_loop: True
-  transition_strategy: high_similarity
-  use_color_harmony: true
-  use_temporal_decay: true
+  simultaneous: 3                   # Three layers for complex human interactions
+  duration_range: [1, 5]           # Even shorter durations for dynamic content
+  allow_loop: True                 # Allow looping for continuous interaction
+  transition_strategy: high_similarity # Maintain human interaction grouping
+  use_color_harmony: true          # Keep warm color harmony
+  use_temporal_decay: true         # Continue temporal decay
 
+# Blur Phase (Part 1)
+# First part of abstract and motion-focused clips
+# Builds up complexity with multiple layers
 blur_part1:
   csv: movement_csvs/blur.csv
   total_duration: 150
-  simultaneous: 6
-  duration_range: [2, 6]
-  allow_loop: True
-  transition_strategy: high_similarity
-  use_color_harmony: true
-  use_temporal_decay: true
+  simultaneous: 6                   # Six layers for complex abstract content
+  duration_range: [2, 6]           # Short durations for dynamic content
+  allow_loop: True                 # Allow looping for continuous motion
+  transition_strategy: high_similarity # Group similar abstract elements
+  use_color_harmony: true          # Maintain color harmony
+  use_temporal_decay: true         # Use temporal decay for variety
 
+# Blur Phase (Part 2)
+# Final part of abstract and motion-focused clips
+# Maximum complexity with rapid transitions
 blur_part2:
   csv: movement_csvs/blur.csv
   total_duration: 150
-  simultaneous: 6
-  duration_range: [1, 3]
-  allow_loop: True
-  transition_strategy: low_similarity
-  use_color_harmony: false
-  use_temporal_decay: true
+  simultaneous: 6                   # Maintain six layers
+  duration_range: [1, 3]           # Shortest durations for rapid transitions
+  allow_loop: True                 # Allow looping for continuous motion
+  transition_strategy: low_similarity # Space similar elements apart
+  use_color_harmony: false         # Allow more dramatic color changes
+  use_temporal_decay: true         # Continue temporal decay

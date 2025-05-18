@@ -1,20 +1,33 @@
-# Track root usage counts per movement
+"""
+This script generates CSV files for each movement phase by processing video metadata JSON files.
+It creates separate CSV files for each movement (orientation, elemental, built, people, blur)
+with carefully selected clips that meet specific criteria for each phase.
+
+Key features:
+- Limits the number of clips from the same source video per movement
+- Ensures diversity in clip selection
+- Handles special cases for the orientation phase
+- Maintains metadata consistency across movements
+"""
+
+# Track root usage counts per movement to prevent overuse of clips from same source
 root_usage_counts = {}
-ROOT_CLIP_CAP = 2  # max number of clips allowed per root per movement
+ROOT_CLIP_CAP = 2  # Maximum number of clips allowed per root video per movement
+
 import os
 import json
 import csv
 from pathlib import Path
 
-# Directory containing processed video JSON files
+# Directory containing processed video JSON files with metadata
 INPUT_DIR = Path("/Volumes/CORSAIR/DESCRIPTIONS")
 OUTPUT_DIR = Path("./movement_csvs")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# Define the five movements
+# Define the five main movement phases
 MOVEMENTS = ["orientation", "elemental", "built", "people", "blur"]
 
-# Final headers (excluding 'theme_anchors' and 'segments')
+# CSV headers for the output files, excluding internal processing fields
 HEADERS = [
     "video_id", "file_path", "duration", "frame_rate", "resolution",
     "motion_score", "motion_variance", "motion_tag", "mood_tag",
@@ -22,7 +35,7 @@ HEADERS = [
     "dominant_colors", "semantic_caption", "ai_description"
 ]
 
-# Open one CSV per movement
+# Initialize CSV writers for each movement
 writers = {}
 files = {}
 for movement in MOVEMENTS:
@@ -32,9 +45,10 @@ for movement in MOVEMENTS:
     writers[movement] = writer
     files[movement] = f
 
+# Track processed files to avoid duplicates
 seen_files = set()
 
-# Process each JSON file
+# Process each JSON file and assign to appropriate movement CSV
 for file in INPUT_DIR.glob("*.json"):
     if file.name.startswith("._"):
         continue
@@ -42,14 +56,17 @@ for file in INPUT_DIR.glob("*.json"):
         with open(file, "r", encoding="utf-8") as f:
             data = json.load(f)
 
+        # Get the suggested phase from the JSON metadata
         movement = data.get("suggested_phase", "").lower()
         if movement not in MOVEMENTS:
             continue
 
+        # Skip duplicates except for orientation phase
         if data.get("video_id") in seen_files and movement != "orientation":
             continue
         seen_files.add(data.get("video_id"))
 
+        # Prepare row data from JSON metadata
         row = {
             "video_id": data.get("video_id"),
             "file_path": data.get("file_path"),
@@ -70,7 +87,7 @@ for file in INPUT_DIR.glob("*.json"):
         }
 
         if movement != "orientation":
-            # --- Insert root usage limiting logic here ---
+            # Limit the number of clips from the same source video
             root_id = data.get("video_id", "").split("_scene_")[0]
             root_usage_counts.setdefault(movement, {})
             count = root_usage_counts[movement].get(root_id, 0)
@@ -82,9 +99,10 @@ for file in INPUT_DIR.glob("*.json"):
     except Exception as e:
         print(f"⚠️ Error processing {file.name}: {e}")
 
-
+# Special handling for orientation phase
 import random
 
+# Collect all non-orientation clips for potential orientation use
 all_other_rows = []
 for movement in MOVEMENTS:
     if movement == "orientation":
@@ -93,22 +111,24 @@ for movement in MOVEMENTS:
         reader = csv.DictReader(f)
         all_other_rows.extend(list(reader))
 
+# Group clips by their source video
 base_seen = set()
 candidates = [r for r in all_other_rows if r["video_id"].split("_scene_")[0] not in base_seen]
 random.shuffle(candidates)
 
 from collections import defaultdict
 
+# Group clips by their root video ID
 grouped = defaultdict(list)
 for r in candidates:
     base = r["video_id"].split("_scene_")[0]
     grouped[base].append(r)
 
-
-# Deduplicate video_ids for diversity and reduce repeated scenes
+# Select clips for orientation phase with specific criteria
 used_video_ids = set()
 selected_orientation = []
 for group in grouped.values():
+    # Prefer medium-length clips (8-20 seconds) for orientation
     medium = [r for r in group if 8 <= float(r.get("duration", 0)) <= 20]
     selection = medium if medium else group
     if selection:
@@ -118,20 +138,21 @@ for group in grouped.values():
             selected_orientation.append(pick)
             used_video_ids.add(pick["video_id"])
 
-    # Reduce overrepresentation: limit number of clips per root_id
+    # Further reduce overrepresentation by limiting clips per root
     seen_roots = {}
     filtered_orientation = []
     for row in selected_orientation:
         root = row["video_id"].split("_scene_")[0]
-        # Lower threshold to 1: allow at most one scene per base root
+        # Allow at most one scene per source video
         if seen_roots.get(root, 0) < 1:
             filtered_orientation.append(row)
             seen_roots[root] = seen_roots.get(root, 0) + 1
     selected_orientation = filtered_orientation
+
+# Limit orientation phase to 150 clips
 selected_orientation = selected_orientation[:150]
 for row in selected_orientation:
     writers["orientation"].writerow(row)
-
 
 # Close all file handles
 for f in files.values():
