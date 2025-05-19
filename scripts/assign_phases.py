@@ -15,10 +15,14 @@ to determine the most appropriate phase for each clip.
 
 import os
 import json
+from pathlib import Path
+
+# Get the project root directory (parent of scripts directory)
+PROJECT_ROOT = Path(__file__).parent.parent
 
 # Input/output configuration
-INPUT_DIR = "/Volumes/CORSAIR/DESCRIPTIONS"
-OUTPUT_FILE = "movement_archive.json"
+INPUT_DIR = PROJECT_ROOT / "data" / "descriptions"
+OUTPUT_FILE = PROJECT_ROOT / "movement_archive.json"
 
 # Initialize phase assignment containers
 phase_assignments = {
@@ -157,9 +161,9 @@ def score_phase(tags, mood, motion, motion_score):
     scores["built"] += len(refined_built_tags & tags)
 
     # Co-occurrence boosting
-    if "people" in tags and "interaction" in emotional_tags:
+    if "people" in tags and "interaction" in tags:
         scores["people"] += 2
-    if "interior" in tags and "structure" in material_tags:
+    if "interior" in tags and "structure" in tags:
         scores["built"] += 2
 
     # Motion and mood influence
@@ -212,13 +216,20 @@ for filename in os.listdir(INPUT_DIR):
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        semantic_tags = set(data.get("semantic_tags", []))
-        formal_tags = set(data.get("formal_tags", []))
-        emotional_tags = set(data.get("emotional_tags", []))
-        material_tags = set(data.get("material_tags", []))
-        mood_tag = data.get("mood_tag", "")
-        motion_tag = data.get("motion_tag", "")
-        motion_score = data.get("motion_score", 0)
+        # Skip if no playback_path is available
+        if "playback_path" not in data:
+            print(f"⚠️ Skipping {filename}: No playback_path found")
+            continue
+
+        # Get tags from metadata_payload
+        metadata = data.get("metadata_payload", {})
+        semantic_tags = set(metadata.get("semantic_tags", []))
+        formal_tags = set(metadata.get("formal_tags", []))
+        emotional_tags = set(metadata.get("emotional_tags", []))
+        material_tags = set(metadata.get("material_tags", []))
+        mood_tag = metadata.get("mood_tag", "")
+        motion_tag = metadata.get("motion_tag", "")
+        motion_score = metadata.get("motion_score", 0)
         all_tags = semantic_tags | formal_tags | emotional_tags | material_tags
         if "people" not in all_tags and "human" in all_tags:
             all_tags.add("people")
@@ -232,7 +243,7 @@ for filename in os.listdir(INPUT_DIR):
         else:
             filename_disqualify_elemental = False
         all_filenames.append(filename)
-        filename_to_path[filename] = filepath
+        filename_to_path[filename] = data["playback_path"]  # Use playback_path instead of filepath
         filename_to_data[filename] = data
 
         top_phase, score_dict = score_phase(all_tags, mood_tag, motion_tag, motion_score)
@@ -247,7 +258,7 @@ for filename in os.listdir(INPUT_DIR):
         if filename_disqualify_elemental:
             score_dict["elemental"] = 0
         # --- Insert location_tag check here ---
-        location_hint = data.get("location_tag", "")
+        location_hint = metadata.get("location_tag", "")
         if location_hint in {"studio", "interior", "performance_space"}:
             score_dict["elemental"] = 0
 
@@ -337,13 +348,14 @@ for fname in unmatched_orientation_files:
 reassigned = []
 for fname in unmatched_orientation_files:
     data = filename_to_data[fname]
-    semantic_tags = set(data.get("semantic_tags", []))
-    formal_tags = set(data.get("formal_tags", []))
-    emotional_tags = set(data.get("emotional_tags", []))
-    material_tags = set(data.get("material_tags", []))
-    mood_tag = data.get("mood_tag", "")
-    motion_tag = data.get("motion_tag", "")
-    motion_score = data.get("motion_score", 0)
+    metadata = data.get("metadata_payload", {})
+    semantic_tags = set(metadata.get("semantic_tags", []))
+    formal_tags = set(metadata.get("formal_tags", []))
+    emotional_tags = set(metadata.get("emotional_tags", []))
+    material_tags = set(metadata.get("material_tags", []))
+    mood_tag = metadata.get("mood_tag", "")
+    motion_tag = metadata.get("motion_tag", "")
+    motion_score = metadata.get("motion_score", 0)
     all_tags = semantic_tags | formal_tags | emotional_tags | material_tags
     if "people" not in all_tags and "human" in all_tags:
         all_tags.add("people")
@@ -371,13 +383,14 @@ for fname in phase_assignments["orientation"][:]:
     data = filename_to_data[fname]
     if data.get("suggested_phase") != "orientation":
         continue  # Already updated
-    semantic_tags = set(data.get("semantic_tags", []))
-    formal_tags = set(data.get("formal_tags", []))
-    emotional_tags = set(data.get("emotional_tags", []))
-    material_tags = set(data.get("material_tags", []))
-    mood_tag = data.get("mood_tag", "")
-    motion_tag = data.get("motion_tag", "")
-    motion_score = data.get("motion_score", 0)
+    metadata = data.get("metadata_payload", {})
+    semantic_tags = set(metadata.get("semantic_tags", []))
+    formal_tags = set(metadata.get("formal_tags", []))
+    emotional_tags = set(metadata.get("emotional_tags", []))
+    material_tags = set(metadata.get("material_tags", []))
+    mood_tag = metadata.get("mood_tag", "")
+    motion_tag = metadata.get("motion_tag", "")
+    motion_score = metadata.get("motion_score", 0)
     all_tags = semantic_tags | formal_tags | emotional_tags | material_tags
     if "people" not in all_tags and "human" in all_tags:
         all_tags.add("people")

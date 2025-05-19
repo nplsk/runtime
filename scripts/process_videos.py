@@ -47,6 +47,22 @@ logging.getLogger('imageio_ffmpeg').setLevel(logging.ERROR)
 import sys
 import subprocess
 from contextlib import contextmanager
+from pathlib import Path
+
+# Add the project root to Python path
+project_root = Path(__file__).parent.parent.absolute()
+sys.path.insert(0, str(project_root))
+
+# Now import config after adding the project root to Python path
+import config
+from config import (
+    SCENES_DIR,
+    OUTPUT_DIR,
+    VIDEO_EXTENSIONS,
+    MAX_CAPTION_LENGTH,
+    THUMBNAIL_SIZE,
+    SCENE_THRESHOLD
+)
 
 # Use DEVNULL for all subprocess calls
 DEVNULL = subprocess.DEVNULL

@@ -2,10 +2,9 @@
 This script generates rich descriptions and metadata for video clips using AI models.
 It combines multiple AI systems to analyze video content and generate structured metadata:
 
-1. BLIP-2: For generating initial image captions
-2. GPT-4: For creating poetic, ambient descriptions
-3. Color Analysis: For extracting dominant colors and mood
-4. Motion Analysis: For characterizing movement patterns
+1. GPT-4: For creating poetic, ambient descriptions
+2. Color Analysis: For extracting dominant colors and mood
+3. Motion Analysis: For characterizing movement patterns
 
 The script processes video metadata JSON files and enriches them with:
 - AI-generated scene descriptions
@@ -34,7 +33,6 @@ import base64
 from openai import OpenAI
 from PIL import Image
 from datetime import datetime
-from transformers import Blip2Processor, Blip2ForConditionalGeneration
 import torch
 import cv2
 import numpy as np
@@ -44,7 +42,18 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from dotenv import load_dotenv
 from pathlib import Path
 from tqdm import tqdm
+import sys
+
+# Add the project root to Python path
+project_root = Path(__file__).parent.parent.absolute()
+sys.path.insert(0, str(project_root))
+
 import config
+from config import (
+    OUTPUT_DIR,
+    THUMBNAILS_DIR,
+    MAX_CAPTION_LENGTH
+)
 
 # Load environment variables
 load_dotenv()
@@ -80,26 +89,6 @@ def get_common_tags():
 
 # === CONFIG ===
 client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
-
-# Initialize BLIP-2 model for image captioning
-blip_processor = Blip2Processor.from_pretrained("Salesforce/blip2-opt-2.7b", use_fast=True)
-blip_model = Blip2ForConditionalGeneration.from_pretrained("Salesforce/blip2-opt-2.7b", torch_dtype=torch.float16)
-blip_model.eval()
-
-# Template for generating poetic, ambient descriptions
-perceptual_ambient_prompt = (
-    "Describe a short video fragment using minimal language. "
-    "Focus on spatial layout, motion, light, and atmosphere. "
-    "Avoid metaphor and narrative. Prioritize clarity and tone. "
-    "Return structured JSON:\n"
-    "{\n"
-    '  "ai_description": "...",\n'
-    '  "semantic_tags": [...],\n'
-    '  "formal_tags": [...],\n'
-    '  "emotional_tags": [...],\n'
-    '  "material_tags": [...]'
-    "\n}"
-)
 
 def describe_thumbnail(image_path):
     """
@@ -291,7 +280,8 @@ def enrich_json(video_path):
             
             # Calculate average motion score
             metadata_payload["motion_score"] = sum(all_motion_scores) / len(all_motion_scores) if all_motion_scores else 0
-            metadata_payload["motion_variance"] = 0  # Not provided by process_videos
+            # Calculate motion variance from the motion scores
+            metadata_payload["motion_variance"] = float(round(np.var(all_motion_scores), 3)) if all_motion_scores else 0
             
             # Get unique dominant colors
             metadata_payload["dominant_colors"] = list(set(all_dominant_colors))

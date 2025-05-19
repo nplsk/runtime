@@ -17,21 +17,35 @@ The script includes features for:
 
 import time
 import time as systime
-def get_safe_thread_count():
-    """Return a safe number of threads for parallel processing."""
-    return 4
 import os
+import sys
+from pathlib import Path
 import subprocess
 from scenedetect import VideoManager, SceneManager
 from scenedetect.detectors import ContentDetector, ThresholdDetector, AdaptiveDetector
 import cv2
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from scenedetect.video_stream import VideoOpenFailure
+import numpy as np
+from tqdm import tqdm
+
+# Add the project root to Python path
+project_root = Path(__file__).parent.parent.absolute()
+sys.path.insert(0, str(project_root))
+
 import config
+from config import (
+    SCENES_DIR,
+    PRORES_DIR
+)
 
 # Configuration parameters
 DEFAULT_THRESHOLD = 30.0  # Default threshold for content detection
 MIN_SCENE_LENGTH_SEC = 4.0  # Minimum scene duration in seconds
+
+def get_safe_thread_count():
+    """Return a safe number of threads for parallel processing."""
+    return 4
 
 def are_frames_similar(frame1, frame2, threshold=0.90):
     """

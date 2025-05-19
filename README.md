@@ -8,6 +8,31 @@ A live audio-visual performance exploring the loop between memory and motion. Pa
 
 runtime is a generative performance system that transforms personal digital archives into a living, breathing composition. The initial version was built from over two thousand video fragments spanning twenty-five years of digital life. The system processes, analyzes, and recombines these memories into a dynamic performance that moves through five distinct movements: orientation, elemental, built, people, and blur.
 
+This project is part of the IN.SIGHT PERFORMANCE SERIES, exploring the intersection of memory and motion through digital archives. It leverages advanced video processing techniques and AI-driven metadata generation to create a dynamic, generative performance. The system is designed to be flexible and extensible, allowing for the integration of new content and performance elements as needed. The collaboration with Torn Space Theater highlights the project's commitment to innovative, interdisciplinary art forms.
+
+## Dependencies and Requirements
+
+- **Python**: Ensure you have Python 3.8 or higher installed.
+- **FFmpeg**: Required for video processing tasks. Install it via your package manager or from [ffmpeg.org](https://ffmpeg.org/download.html).
+- **TouchDesigner**: Used for real-time video playback. Download from [derivative.ca](https://derivative.ca/download).
+- **Ableton Live**: Required for audio processing and performance. The project uses Ableton Live 11 or higher.
+- **BlackHole**: Virtual audio driver for routing audio between applications. Download from [existential.audio](https://existential.audio/blackhole/).
+- **Python Packages**: Install the required Python packages using the `requirements.txt` file:
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+## Project Structure
+
+- **scripts/**: Contains all pre-processing scripts used in the video processing pipeline. These scripts handle tasks such as video conversion, scene detection, metadata generation, and performance scheduling, forming the backbone of the runtime system's data preparation and organization.
+- **data/**: Contains source video files and generated metadata.
+- **movement_csvs/**: Stores CSV files for each movement phase.
+- **runtime-env/**: Environment-specific configurations and scripts.
+- **config.py**: Configuration settings for paths and processing options.
+- **requirements.txt**: Lists Python package dependencies.
+- **archived-performance-schedules/**: Contains past performance schedules.
+- **ableton/**: Contains the Ableton Live project and Max for Live patches for the generative soundtrack.
+
 ## Technical Architecture
 
 The system consists of several interconnected components:
@@ -16,30 +41,37 @@ The system consists of several interconnected components:
 1. **Initial Processing**
    - `scripts/convert_to_prores.py`: Converts source videos to ProRes format with parallel processing, error handling, and audio normalization
    - `scripts/split_scenes.py`: Analyzes and splits videos into distinct scenes
-   - `scripts/process_videos.py`: Processes video metadata and prepares for analysis
+   - `scripts/process_videos.py`: Processes video for analysis using BLIP-2, generates metadata
 
-2. **Format Conversion**
-   - `scripts/convert_to_hap.py`: Creates HAP-encoded versions for TouchDesigner playback
-   - `scripts/update_json_paths.py`: Updates JSON metadata to reference HAP-encoded files
-
-3. **Metadata Generation**
-   - `scripts/generate_descriptions.py`: Uses BLIP-2 and GPT-4 to generate rich descriptions
-   - `scripts/generate_embeddings.py`: Creates semantic embeddings for content-based retrieval
-   - `scripts/check_captions.py`: Validates and filters generated captions
-   - `scripts/regenerate_bad_captions.py`: Identifies and regenerates poor quality captions
-
-4. **Content Organization**
+2. **Metadata Generation**
+   - `scripts/check_captions.py`: Validates and filters generated captions, identifies and regenerates poor quality captions
+   - `scripts/generate_descriptions.py`: Uses GPT-4 to generate rich descriptions
    - `scripts/resolve_conflicts.py`: Resolves semantic conflicts in video tags
    - `scripts/normalize_tags.py`: Standardizes metadata tags across the collection
-   - `scripts/assign_phases.py`: Assigns videos to performance phases
-   - `scripts/generate_movement_csv.py`: Creates the performance schedule
+   - `scripts/generate_embeddings.py`: Creates semantic embeddings for content-based retrieval
+   - `scripts/find_similar_videos.py`: Debugging tool to verify embedding quality and metadata consistency
+     - Uses semantic search to find similar videos
+     - Helps identify potential issues with descriptions or tags
+     - Minimum similarity threshold of 0.3 to ensure quality matches
+     - Useful for verifying the semantic coherence of the metadata
 
-5. **Performance Engine**
-   - `scripts/emit_playback.py`: Generates the final playback configuration
-   - TouchDesigner-based playback system (`runtime.toe`)
-   - Multi-layer video composition
-   - Real-time synchronization with audio
-   - Movement-based clip scheduling
+3. **Performance Preparation**
+   - `scripts/convert_to_hap.py`: Creates HAP-encoded versions for TouchDesigner playback
+   - `scripts/update_json_paths.py`: Updates JSON metadata to reference HAP-encoded files
+   - `scripts/assign_phases.py`: Assigns videos to performance phases
+   - `scripts/generate_movement_csv.py`: Creates individual CSV files for each movement phase (orientation.csv, elemental.csv, etc.)
+   - `scripts/emit_playback.py`: Combines movement CSVs into a single performance_schedule.csv for TouchDesigner playback control
+   - `scripts/dat_chopexec.py`: Provides the core playback control logic used in the TouchDesigner DAT ChopExec component, managing video transitions, timing, and layer composition during performance
+
+### TouchDesigner Integration
+The system uses TouchDesigner for real-time video playback and composition. The `dat_chopexec.py` script is a critical component that:
+- Manages video transitions and timing
+- Controls layer composition and blending
+- Handles performance phase transitions
+- Coordinates with the movement schedule
+- Provides real-time control over playback parameters
+
+This script is integrated into the TouchDesigner project through a DAT ChopExec component, which executes the Python code for precise control over video playback during performance. The TouchDesigner file (`runtime.toe`) reads the `performance_schedule.csv` file generated by `emit_playback.py` to determine the sequence and timing of video playback, ensuring synchronized performance across all movements.
 
 ## Setup
 
@@ -90,23 +122,19 @@ The system consists of several interconnected components:
    python scripts/split_scenes.py
    python scripts/process_videos.py
    
-   # 2. Format Conversion
-   python scripts/convert_to_hap.py
-   python scripts/update_json_paths.py
-   
-   # 3. Metadata Generation
-   python scripts/generate_descriptions.py
-   python scripts/generate_embeddings.py
+   # 2. Metadata Generation
    python scripts/check_captions.py
-   python scripts/regenerate_bad_captions.py
-   
-   # 4. Content Organization
+   python scripts/generate_descriptions.py
    python scripts/resolve_conflicts.py
    python scripts/normalize_tags.py
+   python scripts/generate_embeddings.py
+   python scripts/find_similar_videos.py
+   
+   # 3. Performance Preparation
+   python scripts/convert_to_hap.py
+   python scripts/update_json_paths.py
    python scripts/assign_phases.py
    python scripts/generate_movement_csv.py
-   
-   # 5. Performance Setup
    python scripts/emit_playback.py
    ```
 
@@ -137,25 +165,21 @@ The development workflow follows these key steps:
    - Split videos into scene segments
    - Process videos for metadata extraction
 
-2. **Format Conversion**
+2. **Metadata Generation**
+   - Validate and filter generated captions
+   - Regenerate poor quality captions
+   - Generate AI-powered descriptions and tags using GPT-4
+   - Resolve semantic conflicts in tags
+   - Normalize metadata tags
+   - Create semantic embeddings
+
+3. **Performance Preparation**
    - Convert ProRes scenes to HAP codec
    - Update JSON file paths for HAP videos
-
-3. **Metadata Generation**
-   - Generate AI-powered descriptions and tags
-   - Create semantic embeddings
-   - Validate and regenerate captions as needed
-
-4. **Content Organization**
-   - Resolve semantic conflicts
-   - Normalize metadata tags
    - Assign videos to performance phases
    - Generate movement scheduling
-
-5. **Performance Integration**
    - Finalize performance configuration
    - Test and refine playback
-   - Create performance schedule
 
 ### Key Components
 
@@ -221,39 +245,7 @@ The development workflow follows these key steps:
   - Generates thumbnails for each scene
   - Creates initial JSON metadata for each scene in `data/descriptions`
 
-- **Generate AI-powered descriptions and tags**
-  ```bash
-  python scripts/generate_descriptions.py
-  ```
-  - Uses GPT-4 to enhance descriptions created by BLIP-2
-  - Identifies key visual elements and themes
-  - Enhances metadata with semantic understanding of content
-
-- **Create optimized playback formats**
-  ```bash
-  python scripts/convert_to_hap.py
-  ```
-  - Converts ProRes scenes to HAP codec for efficient playback
-  - Optimizes for TouchDesigner performance
-  - Creates files in `data/playback` directory 
-
-- **Update JSON file paths for HAP videos**
-  ```bash
-  python scripts/update_json_paths.py
-  ```
-  - Copies and updates JSON metadata files to point to HAP video files
-  - Ensures TouchDesigner uses the optimized video format
-  - Updates file paths in metadata to reference the HAP-encoded versions
-
 #### 3. Metadata Enhancement and Validation
-
-- **Generate semantic embeddings**
-  ```bash
-  python scripts/generate_embeddings.py
-  ```
-  - Creates vector representations of video content
-  - Enables semantic searching and grouping
-  - Prepares for phase assignment
 
 - **Validate generated captions**
   ```bash
@@ -262,14 +254,17 @@ The development workflow follows these key steps:
   - Identifies poor quality or problematic captions
   - Flags videos that need improved descriptions
   - Creates a list of scenes requiring regeneration
-
-- **Regenerate problematic captions**
-  ```bash
-  python scripts/regenerate_bad_captions.py
-  ```
   - Uses alternative prompts or settings for previously flagged scenes
   - Improves caption quality through targeted refinement
   - Updates metadata with improved descriptions
+
+- **Generate AI-powered descriptions and tags**
+  ```bash
+  python scripts/generate_descriptions.py
+  ```
+  - Uses GPT-4 to enhance descriptions created by BLIP-2
+  - Identifies key visual elements and themes
+  - Enhances metadata with semantic understanding of content
 
 - **Resolve semantic conflicts**
   ```bash
@@ -287,7 +282,40 @@ The development workflow follows these key steps:
   - Merges similar concepts for consistency
   - Improves searchability and organization
 
+- **Generate semantic embeddings**
+  ```bash
+  python scripts/generate_embeddings.py
+  ```
+  - Creates vector representations of video content
+  - Enables semantic searching and grouping
+  - Prepares for phase assignment
+
+- **Find similar videos**
+  ```bash
+  python scripts/find_similar_videos.py
+  ```
+  - Uses semantic search to find similar videos
+  - Helps identify potential issues with descriptions or tags
+  - Minimum similarity threshold of 0.3 to ensure quality matches
+  - Useful for verifying the semantic coherence of the metadata
+
 #### 4. Performance Integration
+
+- **Create optimized playback formats**
+  ```bash
+  python scripts/convert_to_hap.py
+  ```
+  - Converts ProRes scenes to HAP codec for efficient playback
+  - Optimizes for TouchDesigner performance
+  - Creates files in `data/playback` directory 
+
+- **Update JSON file paths for HAP videos**
+  ```bash
+  python scripts/update_json_paths.py
+  ```
+  - Copies and updates JSON metadata files to point to HAP video files
+  - Ensures TouchDesigner uses the optimized video format
+  - Updates file paths in metadata to reference the HAP-encoded versions
 
 - **Assign videos to performance phases**
   ```bash
@@ -335,6 +363,40 @@ The development workflow follows these key steps:
   - Archive valuable metadata for future reference
   - Consider versioning important configuration files
 
+## Audio System
+
+The performance uses a multi-layered audio system that combines generative composition with real-time processing:
+
+### Components
+- **Ableton Live Project**: Contains the main composition structure and mixer setup
+- **Max for Live Patches**: Custom patches for generative audio processing and control
+- **BlackHole Audio Routing**: [BlackHole](https://existential.audio/blackhole/) virtual audio driver for routing audio between applications
+
+### Setup and Configuration
+1. **Install and Configure BlackHole**
+   - Download and install from [existential.audio](https://existential.audio/blackhole/)
+   - Set up as audio output in TouchDesigner and input in Ableton Live
+   - Route video layer audio through separate BlackHole channels
+
+2. **Ableton Live Setup**
+   - Open `ableton/Runtime Project/runtime.als`
+   - Replace proprietary VST instruments with your preferred synths:
+     - Ambient pad textures
+     - Granular processing
+     - Spectral manipulation
+     - Movement-based sound design
+   - Configure mixer channels for each video layer
+   - Load and configure Max for Live patches for:
+     - Video metadata response
+     - Movement-based parameter control
+     - Real-time audio processing
+
+### Performance
+- Each movement has its own audio processing chain
+- Video metadata influences generative parameters
+- Real-time mixing and effects processing
+- Synchronized audio-visual transitions between movements
+
 ## Credits
 
 - Created by Frank Napolski
@@ -356,59 +418,3 @@ Under the following terms:
 - ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license
 
 For more information, see the [LICENSE](LICENSE) file.
-
-## Dependencies and Requirements
-
-- **Python**: Ensure you have Python 3.8 or higher installed.
-- **FFmpeg**: Required for video processing tasks. Install it via your package manager or from [ffmpeg.org](https://ffmpeg.org/download.html).
-- **TouchDesigner**: Used for real-time video playback. Download from [derivative.ca](https://derivative.ca/download).
-- **Python Packages**: Install the required Python packages using the `requirements.txt` file:
-  ```bash
-  pip install -r requirements.txt
-  ```
-
-## Project Structure
-
-- **scripts/**: Contains all pre-processing scripts used in the video processing pipeline. These scripts handle tasks such as video conversion, scene detection, metadata generation, and performance scheduling, forming the backbone of the runtime system's data preparation and organization.
-- **data/**: Contains source video files and generated metadata.
-- **movement_csvs/**: Stores CSV files for each movement phase.
-- **runtime-env/**: Environment-specific configurations and scripts.
-- **config.py**: Configuration settings for paths and processing options.
-- **requirements.txt**: Lists Python package dependencies.
-- **archived-performance-schedules/**: Contains past performance schedules.
-- **ableton/**: Contains the Ableton Live project and Max for Live patches for the generative soundtrack.
-
-## Audio System
-
-The performance uses a multi-layered audio system that combines generative composition with real-time processing:
-
-### Components
-- **Ableton Live Project**: Contains the main composition structure and mixer setup
-- **Max for Live Patches**: Custom patches for generative audio processing and control
-- **BlackHole Audio Routing**: [BlackHole](https://existential.audio/blackhole/) virtual audio driver for routing audio between applications
-
-### Setup
-1. **Install BlackHole**
-   - Download and install BlackHole from [existential.audio](https://existential.audio/blackhole/)
-   - Configure BlackHole as an audio output device in TouchDesigner
-   - Set up BlackHole as an audio input device in Ableton Live
-
-2. **Audio Routing**
-   - Route individual video layer audio from TouchDesigner to separate BlackHole channels
-   - Configure Ableton Live to receive audio from BlackHole channels
-   - Set up mixer channels in Ableton for processing each layer independently
-
-3. **Max for Live Integration**
-   - Load the provided Max for Live patches in Ableton Live
-   - Configure patches to respond to video metadata and movement changes
-   - Set up generative parameters for real-time audio processing
-
-### Performance
-- Each movement has its own audio processing chain
-- Video metadata influences generative parameters
-- Real-time mixing and effects processing in Ableton Live
-- Synchronized audio-visual transitions between movements
-
-## Additional Context
-
-This project is part of the IN.SIGHT PERFORMANCE SERIES, exploring the intersection of memory and motion through digital archives. It leverages advanced video processing techniques and AI-driven metadata generation to create a dynamic, generative performance. The system is designed to be flexible and extensible, allowing for the integration of new content and performance elements as needed. The collaboration with Torn Space Theater highlights the project's commitment to innovative, interdisciplinary art forms.

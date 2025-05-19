@@ -4,11 +4,22 @@ Uses paths and settings from config.py.
 """
 
 import os
+import sys
+from pathlib import Path
 import subprocess
 import argparse
-from pathlib import Path
 from tqdm import tqdm
+
+# Add the project root to Python path
+project_root = Path(__file__).parent.parent.absolute()
+sys.path.insert(0, str(project_root))
+
 import config
+from config import (
+    SCENES_DIR,
+    PLAYBACK_DIR,
+    HAP_QUALITY
+)
 
 def convert_to_hap(input_path, output_path):
     """Convert a single video file to HAP format."""

@@ -13,12 +13,24 @@ Key features:
 """
 
 import os
+import sys
+from pathlib import Path
 import subprocess
 from multiprocessing import Pool, cpu_count
-from pathlib import Path
 from tqdm import tqdm
 import shutil
+
+# Add the project root to Python path
+project_root = Path(__file__).parent.parent.absolute()
+sys.path.insert(0, str(project_root))
+
 import config
+from config import (
+    DATA_DIR,
+    SOURCE_DIR,
+    PRORES_DIR,
+    VIDEO_EXTENSIONS
+)
 
 def color(text, c):
     """
@@ -41,7 +53,7 @@ def log_error(message):
     Args:
         message: Error message to log
     """
-    error_log = config.DATA_DIR / "conversion_errors.txt"
+    error_log = DATA_DIR / "conversion_errors.txt"
     with open(error_log, "a") as f:
         f.write(message + "\n")
 
@@ -54,7 +66,7 @@ def move_to_skipped(input_path, reason):
         input_path: Path to the input file
         reason: Reason for skipping (e.g., "MOOV_MISSING", "BITSTREAM_ERROR")
     """
-    skip_dir = config.DATA_DIR / "_SKIPPED_OR_CORRUPTED" / reason
+    skip_dir = DATA_DIR / "_SKIPPED_OR_CORRUPTED" / reason
     os.makedirs(skip_dir, exist_ok=True)
     dest_path = skip_dir / Path(input_path).name
     try:
@@ -137,13 +149,13 @@ def main():
     """
     # Get list of source files (case-insensitive)
     source_files = []
-    for ext in config.VIDEO_EXTENSIONS:
+    for ext in VIDEO_EXTENSIONS:
         # Add both lowercase and uppercase extensions
-        source_files.extend(list(config.SOURCE_DIR.glob(f"*{ext.lower()}")))
-        source_files.extend(list(config.SOURCE_DIR.glob(f"*{ext.upper()}")))
+        source_files.extend(list(SOURCE_DIR.glob(f"*{ext.lower()}")))
+        source_files.extend(list(SOURCE_DIR.glob(f"*{ext.upper()}")))
     
     if not source_files:
-        print(f"No source video files found in {config.SOURCE_DIR}")
+        print(f"No source video files found in {SOURCE_DIR}")
         return
 
     # Create conversion tasks
@@ -152,7 +164,7 @@ def main():
         # Skip .gitkeep and other hidden files
         if input_path.name.startswith('.'):
             continue
-        output_path = config.PRORES_DIR / f"{input_path.stem}_prores.mov"
+        output_path = PRORES_DIR / f"{input_path.stem}_prores.mov"
         tasks.append((input_path, output_path))
 
     # Process files in parallel
@@ -168,12 +180,12 @@ def main():
     print(f"Files skipped: {len(source_files) - len(tasks)}")
     
     # Check for error log
-    error_log = config.DATA_DIR / "conversion_errors.txt"
+    error_log = DATA_DIR / "conversion_errors.txt"
     if error_log.exists():
         print(f"\nErrors were logged to: {error_log}")
     
     # Check for skipped files
-    skip_dir = config.DATA_DIR / "_SKIPPED_OR_CORRUPTED"
+    skip_dir = DATA_DIR / "_SKIPPED_OR_CORRUPTED"
     if skip_dir.exists():
         for reason_dir in skip_dir.iterdir():
             if reason_dir.is_dir():

@@ -1,54 +1,58 @@
 """
-Updates JSON metadata files to point to HAP-encoded video files.
+Updates JSON metadata files to add playback paths for HAP-encoded video files.
 
 This script:
-1. Reads JSON metadata files from the source directory
-2. Updates video file paths to point to HAP-encoded versions
-3. Saves the updated JSON files to the destination directory
-
-The script preserves all metadata while ensuring that file paths reference 
-the optimized HAP video files needed for TouchDesigner playback.
+1. Reads JSON metadata files from the descriptions directory
+2. Adds a playback_path field pointing to the corresponding HAP file
+3. Saves the updated JSON files back to the same location
 """
 
 import os
 import json
-import shutil
+from pathlib import Path
 
-SOURCE_DIR = "/Volumes/RUNTIME/PROCESSED_DESCRIPTIONS"
-DEST_DIR = "/Volumes/CORSAIR/DESCRIPTIONS"
-VIDEO_DIR = "/Volumes/CORSAIR/SCENES"
+# Get the project root directory (parent of scripts directory)
+PROJECT_ROOT = Path(__file__).parent.parent
 
-os.makedirs(DEST_DIR, exist_ok=True)
+# Define paths relative to project root
+DESCRIPTIONS_DIR = PROJECT_ROOT / "data" / "descriptions"
+PLAYBACK_DIR = PROJECT_ROOT / "data" / "playback"
 
-for filename in os.listdir(SOURCE_DIR):
+print(f"Processing JSON files in: {DESCRIPTIONS_DIR}")
+print(f"Looking for HAP files in: {PLAYBACK_DIR}")
+
+if not os.path.exists(DESCRIPTIONS_DIR):
+    print(f"Error: Descriptions directory does not exist: {DESCRIPTIONS_DIR}")
+    exit(1)
+
+if not os.path.exists(PLAYBACK_DIR):
+    print(f"Error: Playback directory does not exist: {PLAYBACK_DIR}")
+    exit(1)
+
+for filename in os.listdir(DESCRIPTIONS_DIR):
     if filename.startswith(".") or not filename.endswith(".json"):
         continue
 
-    source_path = os.path.join(SOURCE_DIR, filename)
-    dest_path = os.path.join(DEST_DIR, filename)
+    file_path = os.path.join(DESCRIPTIONS_DIR, filename)
 
     try:
-        with open(source_path, "r", encoding="utf-8", errors="replace") as f:
+        with open(file_path, "r", encoding="utf-8", errors="replace") as f:
             data = json.load(f)
     except json.JSONDecodeError:
         print(f"Skipping invalid JSON: {filename}")
         continue
 
-    updated = False
-    for key in ["file_path", "video_path"]:
-        if key in data and isinstance(data[key], str):
-            original_basename = os.path.basename(data[key])
-            hap_filename = os.path.splitext(original_basename)[0] + "_hap.mov"
-            hap_path = os.path.join(VIDEO_DIR, hap_filename)
-            if os.path.exists(hap_path):
-                data[key] = hap_path
-                updated = True
-            else:
-                print(f"⚠️ Missing HAP video for {filename}: {hap_path}")
+    # Get the base name without extension
+    base_name = os.path.splitext(filename)[0]
+    hap_filename = f"{base_name}_hap.mov"
+    hap_path = os.path.join(PLAYBACK_DIR, hap_filename)
 
-    if updated:
-        with open(dest_path, "w") as f:
+    if os.path.exists(hap_path):
+        # Add the playback_path field
+        data["playback_path"] = str(hap_path)
+        
+        with open(file_path, "w") as f:
             json.dump(data, f, indent=2)
-        print(f"✅ Updated and copied: {filename}")
+        print(f"✅ Added playback path to: {filename}")
     else:
-        print(f"➖ No updates made to: {filename}") 
+        print(f"⚠️ Missing HAP file for {filename}: {hap_path}") 

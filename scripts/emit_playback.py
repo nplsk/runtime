@@ -17,6 +17,9 @@ from pathlib import Path
 import pandas as pd
 import math
 
+# Get the project root directory (parent of scripts directory)
+PROJECT_ROOT = Path(__file__).parent.parent
+
 # --- Debug mode toggle ---
 DEBUG_MODE = True  # Set to False to suppress debug logging
 
@@ -84,7 +87,7 @@ def reorder_by_color(entries):
 def ensure_spacing(schedule, min_sep=3):
     """
     Enforce minimum separation between clips from the same source file
-    to prevent repetitive patterns. Uses the file_path prefix before '_scene'
+    to prevent repetitive patterns. Uses the playback_path prefix before '_scene'
     to identify related clips.
     
     Args:
@@ -146,7 +149,7 @@ def build_schedule(cfg, all_cfgs):
                     'movement': cfg_name,
                     'time_start': round(time + offset, 2),
                     'video_id': clip['video_id'],
-                    'path': clip['file_path'],
+                    'path': clip['playback_path'],
                     'layer': 0,
                     'duration': burst_dur,
                     'loop': False,
@@ -166,7 +169,7 @@ def build_schedule(cfg, all_cfgs):
                     "movement": cfg_name,
                     "time_start": round(time + offset, 2),
                     "video_id": clip['video_id'],
-                    "path": clip['file_path'],
+                    "path": clip['playback_path'],
                     "score_breakdown": {
                         "decay_weight": None,
                         "semantic_match": None,
@@ -186,7 +189,7 @@ def build_schedule(cfg, all_cfgs):
                     'movement': cfg_name,
                     'time_start': round(time + offset, 2),
                     'video_id': clip['video_id'],
-                    'path': clip['file_path'],
+                    'path': clip['playback_path'],
                     'layer': idx,
                     'duration': sustain_dur,
                     'loop': False,
@@ -205,7 +208,7 @@ def build_schedule(cfg, all_cfgs):
                     "movement": cfg_name,
                     "time_start": round(time + offset, 2),
                     "video_id": clip['video_id'],
-                    "path": clip['file_path'],
+                    "path": clip['playback_path'],
                     "score_breakdown": {
                         "decay_weight": None,
                         "semantic_match": None,
@@ -444,7 +447,7 @@ def build_schedule(cfg, all_cfgs):
                     'movement': cfg_name,
                     'time_start': round(master_time + offset, 2),
                     'video_id': clip['video_id'],
-                    'path': clip['file_path'],
+                    'path': clip['playback_path'],
                     'layer': layer,
                     'duration': round(duration, 2),
                     'loop': cfg['allow_loop'],
@@ -488,7 +491,7 @@ def build_schedule(cfg, all_cfgs):
                     "movement": cfg_name,
                     "time_start": round(master_time + offset, 2),
                     "video_id": clip['video_id'],
-                    "path": clip['file_path'],
+                    "path": clip['playback_path'],
                     "score_breakdown": {
                         "decay_weight": clip['_weight'] if cfg.get('use_temporal_decay') else 1.0,
                         "semantic_match": True,

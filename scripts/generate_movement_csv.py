@@ -1,3 +1,5 @@
+print('[DEBUG] Top of script reached.')
+
 """
 This script generates CSV files for each movement phase by processing video metadata JSON files.
 It creates separate CSV files for each movement (orientation, elemental, built, people, blur)
@@ -17,11 +19,16 @@ ROOT_CLIP_CAP = 2  # Maximum number of clips allowed per root video per movement
 import os
 import json
 import csv
+import random
 from pathlib import Path
+from collections import defaultdict
+
+# Get the project root directory (parent of scripts directory)
+PROJECT_ROOT = Path(__file__).parent.parent
 
 # Directory containing processed video JSON files with metadata
-INPUT_DIR = Path("/Volumes/CORSAIR/DESCRIPTIONS")
-OUTPUT_DIR = Path("./movement_csvs")
+INPUT_DIR = PROJECT_ROOT / "data" / "descriptions"
+OUTPUT_DIR = PROJECT_ROOT / "movement_csvs"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 # Define the five main movement phases
@@ -29,11 +36,16 @@ MOVEMENTS = ["orientation", "elemental", "built", "people", "blur"]
 
 # CSV headers for the output files, excluding internal processing fields
 HEADERS = [
-    "video_id", "file_path", "duration", "frame_rate", "resolution",
+    "video_id", "playback_path", "duration", "frame_rate", "resolution",
     "motion_score", "motion_variance", "motion_tag", "mood_tag",
     "semantic_tags", "formal_tags", "emotional_tags", "material_tags",
     "dominant_colors", "semantic_caption", "ai_description"
 ]
+
+print("[DEBUG] Script started.")
+print(f"[DEBUG] Looking for JSON files in: {INPUT_DIR}")
+json_files = list(INPUT_DIR.glob("*.json"))
+print(f"[DEBUG] Number of JSON files found: {len(json_files)}")
 
 # Initialize CSV writers for each movement
 writers = {}
@@ -49,12 +61,18 @@ for movement in MOVEMENTS:
 seen_files = set()
 
 # Process each JSON file and assign to appropriate movement CSV
-for file in INPUT_DIR.glob("*.json"):
+print("[DEBUG] Processing JSON files and writing to phase CSVs...")
+for file in json_files:
     if file.name.startswith("._"):
         continue
     try:
         with open(file, "r", encoding="utf-8") as f:
             data = json.load(f)
+
+        # Skip if no playback_path is available
+        if "playback_path" not in data:
+            print(f"⚠️ Skipping {file.name}: No playback_path found")
+            continue
 
         # Get the suggested phase from the JSON metadata
         movement = data.get("suggested_phase", "").lower()
@@ -69,7 +87,7 @@ for file in INPUT_DIR.glob("*.json"):
         # Prepare row data from JSON metadata
         row = {
             "video_id": data.get("video_id"),
-            "file_path": data.get("file_path"),
+            "playback_path": data.get("playback_path"),
             "duration": data.get("duration"),
             "frame_rate": data.get("frame_rate"),
             "resolution": "x".join(map(str, data.get("resolution", []))),
@@ -99,8 +117,11 @@ for file in INPUT_DIR.glob("*.json"):
     except Exception as e:
         print(f"⚠️ Error processing {file.name}: {e}")
 
-# Special handling for orientation phase
-import random
+# Close all phase CSV files before reading them
+for f in files.values():
+    f.close()
+
+print("[DEBUG] Building orientation phase from populated phase CSVs...")
 
 # Collect all non-orientation clips for potential orientation use
 all_other_rows = []
@@ -109,14 +130,14 @@ for movement in MOVEMENTS:
         continue
     with open(OUTPUT_DIR / f"{movement}.csv", "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        all_other_rows.extend(list(reader))
+        rows = list(reader)
+        print(f"[DEBUG] Rows read from {movement}.csv: {len(rows)}")
+        all_other_rows.extend(rows)
 
 # Group clips by their source video
 base_seen = set()
 candidates = [r for r in all_other_rows if r["video_id"].split("_scene_")[0] not in base_seen]
 random.shuffle(candidates)
-
-from collections import defaultdict
 
 # Group clips by their root video ID
 grouped = defaultdict(list)
@@ -124,13 +145,15 @@ for r in candidates:
     base = r["video_id"].split("_scene_")[0]
     grouped[base].append(r)
 
+print(f"[DEBUG] Number of grouped root videos for orientation: {len(grouped)}")
+
 # Select clips for orientation phase with specific criteria
 used_video_ids = set()
 selected_orientation = []
 for group in grouped.values():
-    # Prefer medium-length clips (8-20 seconds) for orientation
+    # Prioritize clips that meet the duration range (8-20 seconds)
     medium = [r for r in group if 8 <= float(r.get("duration", 0)) <= 20]
-    selection = medium if medium else group
+    selection = medium if medium else group  # Fallback to all clips if no medium clips
     if selection:
         candidates = [r for r in selection if r["video_id"] not in used_video_ids]
         if candidates:
@@ -138,24 +161,57 @@ for group in grouped.values():
             selected_orientation.append(pick)
             used_video_ids.add(pick["video_id"])
 
-    # Further reduce overrepresentation by limiting clips per root
-    seen_roots = {}
-    filtered_orientation = []
-    for row in selected_orientation:
-        root = row["video_id"].split("_scene_")[0]
-        # Allow at most one scene per source video
-        if seen_roots.get(root, 0) < 1:
-            filtered_orientation.append(row)
-            seen_roots[root] = seen_roots.get(root, 0) + 1
-    selected_orientation = filtered_orientation
+print(f"[DEBUG] Number of orientation clips after initial logic: {len(selected_orientation)}")
+if selected_orientation:
+    print(f"[DEBUG] Example orientation video IDs: {[row['video_id'] for row in selected_orientation[:3]]}")
+    print(f"[DEBUG] Example durations: {[row['duration'] for row in selected_orientation[:3]]}")
 
-# Limit orientation phase to 150 clips
-selected_orientation = selected_orientation[:150]
+# Further reduce overrepresentation by limiting clips per root
+seen_roots = {}
+filtered_orientation = []
 for row in selected_orientation:
-    writers["orientation"].writerow(row)
+    root = row["video_id"].split("_scene_")[0]
+    # Allow at most one scene per source video
+    if seen_roots.get(root, 0) < 1:
+        filtered_orientation.append(row)
+        seen_roots[root] = seen_roots.get(root, 0) + 1
+selected_orientation = filtered_orientation
 
-# Close all file handles
-for f in files.values():
-    f.close()
+print(f"[DEBUG] Number of orientation clips after filtering per root: {len(selected_orientation)}")
+
+# --- Fallback if not enough orientation clips selected ---
+if len(selected_orientation) < 10:
+    print("[Fallback] Not enough orientation clips, using simplified selection.")
+    root_seen = set()
+    orientation_candidates = []
+    # First, get all 8-20s clips, one per root
+    for r in all_other_rows:
+        root = r["video_id"].split("_scene_")[0]
+        if root not in root_seen and 8 <= float(r.get("duration", 0)) <= 20:
+            orientation_candidates.append(r)
+            root_seen.add(root)
+        if len(orientation_candidates) >= 150:
+            break
+    # If still not enough, fill with any duration, one per root
+    if len(orientation_candidates) < 150:
+        for r in all_other_rows:
+            root = r["video_id"].split("_scene_")[0]
+            if root not in root_seen:
+                orientation_candidates.append(r)
+                root_seen.add(root)
+            if len(orientation_candidates) >= 150:
+                break
+    selected_orientation = orientation_candidates
+    print(f"[DEBUG] Number of orientation clips after fallback: {len(selected_orientation)}")
+    if selected_orientation:
+        print(f"[DEBUG] Example fallback orientation video IDs: {[row['video_id'] for row in selected_orientation[:3]]}")
+        print(f"[DEBUG] Example fallback durations: {[row['duration'] for row in selected_orientation[:3]]}")
+
+# Write orientation clips to CSV
+with open(OUTPUT_DIR / "orientation.csv", "w", newline='', encoding="utf-8") as f:
+    writer = csv.DictWriter(f, fieldnames=HEADERS)
+    writer.writeheader()
+    for row in selected_orientation[:150]:  # Limit to 150 clips
+        writer.writerow(row)
 
 print("✅ Movement CSVs generated successfully.")
