@@ -1,3 +1,15 @@
+"""
+Updates JSON metadata files to point to HAP-encoded video files.
+
+This script:
+1. Reads JSON metadata files from the source directory
+2. Updates video file paths to point to HAP-encoded versions
+3. Saves the updated JSON files to the destination directory
+
+The script preserves all metadata while ensuring that file paths reference 
+the optimized HAP video files needed for TouchDesigner playback.
+"""
+
 import os
 import json
 import shutil
@@ -39,4 +51,4 @@ for filename in os.listdir(SOURCE_DIR):
             json.dump(data, f, indent=2)
         print(f"✅ Updated and copied: {filename}")
     else:
-        print(f"➖ No updates made to: {filename}")
+        print(f"➖ No updates made to: {filename}") 

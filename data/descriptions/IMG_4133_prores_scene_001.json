@@ -1,0 +1,251 @@
+{
+  "video_id": "IMG_4133_prores_scene_001",
+  "filename": "IMG_4133_prores_scene_001.mov",
+  "duration": 60.3,
+  "resolution": [
+    720,
+    1280
+  ],
+  "frame_rate": 30.0,
+  "creation_time": "2025-05-18T14:49:45.102364",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 17.93331597222222,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_0.jpg",
+      "captions": [
+        "a bowling alley with a bowling ball in the middle of the lane",
+        "a bowling alley with a light fixture",
+        "a bowling ball is a ball that is thrown in a bowling alley"
+      ],
+      "dominant_colors": [
+        "#a79a88",
+        "#171617",
+        "#625d5a"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 10.675569661458333,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_5.jpg",
+      "captions": [
+        "a bowling alley with a bowling ball in the middle of the lane",
+        "a bowling alley with a light and a bowling ball",
+        "a bowling game with a friend",
+        "a bowling ball is a bowling ball"
+      ],
+      "dominant_colors": [
+        "#2e2d2d",
+        "#9f8e75",
+        "#aeb5bd"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 15.0,
+      "motion_score": 9.335424262152777,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_10.jpg",
+      "captions": [
+        "a bowling alley with a bowling ball in the middle of the lane",
+        "a bowling alley with a light fixture",
+        "a bowling game with a friend",
+        "a bowling alley with a bowling alley and a bowling alley",
+        "a bowling alley with a bowling ball"
+      ],
+      "dominant_colors": [
+        "#9f8d76",
+        "#2e2d2c",
+        "#aeb5bd"
+      ]
+    },
+    {
+      "start": 15.0,
+      "end": 20.0,
+      "motion_score": 9.665164388020834,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_15.jpg",
+      "captions": [
+        "a bowling alley with a bowling ball in the middle of the lane",
+        "a bowling alley with a light fixture",
+        "a bowling alley is a bowling alley",
+        "a bowling alley with a bowling ball"
+      ],
+      "dominant_colors": [
+        "#acb3ba",
+        "#2e2c2c",
+        "#9e8c74"
+      ]
+    },
+    {
+      "start": 20.0,
+      "end": 25.0,
+      "motion_score": 6.144892306857639,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_20.jpg",
+      "captions": [
+        "a bowling alley with a large crowd of people",
+        "a bowling alley with a light fixture",
+        "a bowling alley is a bowling alley with a bowling alley and a bowling alley",
+        "a bowling alley with a bowling alley and a bowling alley",
+        "a bowling alley with a bowling pin in the middle"
+      ],
+      "dominant_colors": [
+        "#9e8c74",
+        "#2e2c2c",
+        "#abb2ba"
+      ]
+    },
+    {
+      "start": 25.0,
+      "end": 30.0,
+      "motion_score": 6.076235894097222,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_25.jpg",
+      "captions": [
+        "a bowling alley with a large crowd of people",
+        "a bowling alley with a light fixture",
+        "a bowling alley is a bowling alley with a bowling alley and a bowling alley",
+        "a bowling alley with a bowling alley and a bowling alley",
+        "a bowling alley with a bowling ball"
+      ],
+      "dominant_colors": [
+        "#a69a87",
+        "#171617",
+        "#65605a"
+      ]
+    },
+    {
+      "start": 30.0,
+      "end": 35.0,
+      "motion_score": 9.219758300781251,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_30.jpg",
+      "captions": [
+        "a bowling alley with a large crowd of people",
+        "a bowling alley with a light fixture",
+        "a bowling alley is a bowling alley",
+        "a bowling alley with a large crowd",
+        "a bowling alley with a bowling ball"
+      ],
+      "dominant_colors": [
+        "#65605a",
+        "#a79a87",
+        "#171717"
+      ]
+    },
+    {
+      "start": 35.0,
+      "end": 40.0,
+      "motion_score": 8.351696506076388,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_35.jpg",
+      "captions": [
+        "a bowling alley with a bowling ball in the middle of the lane",
+        "a bowling alley with a light fixture and a bowling ball",
+        "a bowling alley is a bowling alley with a bowling lane and a bowling ball",
+        "a bowling alley with a bowling alley and a bowling alley",
+        "a bowling alley in a bowling alley"
+      ],
+      "dominant_colors": [
+        "#abb3bd",
+        "#302e2d",
+        "#9f8e75"
+      ]
+    },
+    {
+      "start": 40.0,
+      "end": 45.0,
+      "motion_score": 4.32662109375,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_40.jpg",
+      "captions": [
+        "a bowling alley with a bowling ball in the middle of the floor",
+        "a bowling alley with a light and a bowling ball",
+        "a bowling game with a bowling ball",
+        "a bowling ball and a bowling ball"
+      ],
+      "dominant_colors": [
+        "#9e8c74",
+        "#aab2ba",
+        "#302e2d"
+      ]
+    },
+    {
+      "start": 45.0,
+      "end": 50.0,
+      "motion_score": 4.620583224826389,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_45.jpg",
+      "captions": [
+        "a bowling alley with a bowling ball in the middle of the lane",
+        "a bowling alley with a light and a bowling ball",
+        "a bowling game with a bowling ball",
+        "a bowling ball and a bowling ball"
+      ],
+      "dominant_colors": [
+        "#acb1b6",
+        "#2f2d2c",
+        "#9d8c73"
+      ]
+    },
+    {
+      "start": 50.0,
+      "end": 55.0,
+      "motion_score": 5.9647637261284725,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_50.jpg",
+      "captions": [
+        "a woman is standing in front of a bowling alley with a bowling ball in her hand",
+        "a bowling alley with a light and a bowling ball",
+        "a bowling game with a bowling ball",
+        "a woman is standing in front of a bowling alley",
+        "a bowling ball and a bowling ball"
+      ],
+      "dominant_colors": [
+        "#adada9",
+        "#99876f",
+        "#2d2a29"
+      ]
+    },
+    {
+      "start": 55.0,
+      "end": 60.0,
+      "motion_score": 17.265386555989583,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_55.jpg",
+      "captions": [
+        "a woman is bowling with a bowling ball in a bowling alley",
+        "a bowling alley with a bowling ball",
+        "a bowling game for seniors",
+        "a bowling ball and a bowling ball"
+      ],
+      "dominant_colors": [
+        "#2d2b29",
+        "#9d8c74",
+        "#aab3bc"
+      ]
+    },
+    {
+      "start": 60.0,
+      "end": 60.3,
+      "motion_score": 7.289524468315973,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/IMG_4133_prores_scene_001_60.jpg",
+      "captions": [
+        "a bowling alley with a bowling ball",
+        "a bowling alley with a light and a dark background",
+        "a bowling game with a tv",
+        "a bowling alley is a bowling alley with a bowling lane and a bowling ball",
+        "a bowling ball is a bowling ball"
+      ],
+      "dominant_colors": [
+        "#aea393",
+        "#736a61",
+        "#19191a"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a bowling alley with two lanes and two televisions | a bowling ball is thrown down the lanes | a woman is playing bowling with her dog | a bowling alley in the middle of the day | a day in the life of an elderly bowler | in a bowling alley or other public place | a woman is playing bowling with her grandson | lighting and atmosphere in a bowling alley",
+    "motion_score": 8.99,
+    "motion_variance": 17.062,
+    "dominant_colors": [
+      "#262423",
+      "#9a876e",
+      "#b5b4b4"
+    ],
+    "motion_tag": "moderate"
+  }
+}

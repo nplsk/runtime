@@ -1,0 +1,93 @@
+{
+  "video_id": "Untitled8_prores_scene_014",
+  "filename": "Untitled8_prores_scene_014.mov",
+  "duration": 17.61,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:09.268809",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 59.2761372324159,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_014_0.jpg",
+      "captions": [
+        "a sand beach with a blue sky and a white cloud",
+        "a textured background with a light blue sky",
+        "a blue sky with clouds and a blue sky",
+        "a textured background with a pattern of a pattern of a pattern of a pattern of a pattern of a pattern of a pattern of a pattern of a pattern of a pattern of a pattern",
+        "a white background with a blue sky"
+      ],
+      "dominant_colors": [
+        "#b8c3c9",
+        "#d5e2ec",
+        "#96a2a9"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 133.01971521406728,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_014_5.jpg",
+      "captions": [
+        "a tv screen with a white background",
+        "a white background with a blue sky",
+        "a clock with a clock face on it",
+        "a white tee with a black background"
+      ],
+      "dominant_colors": [
+        "#d8dcdd",
+        "#c1cbce",
+        "#ececef"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 15.0,
+      "motion_score": 165.49843829638124,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_014_10.jpg",
+      "captions": [
+        "a blue sky with clouds and a blue sky",
+        "a blue light reflects off a blue background",
+        "a blue background with a blue sky"
+      ],
+      "dominant_colors": [
+        "#cfddee",
+        "#e5f4fc",
+        "#b9c4cd"
+      ]
+    },
+    {
+      "start": 15.0,
+      "end": 17.61,
+      "motion_score": 61.43824302370031,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_014_15.jpg",
+      "captions": [
+        "a smoky sky with clouds and a cloudy sky",
+        "a smudge of light on a textured background",
+        "a twilight sky with a twilight sky",
+        "a smudge of dust on a window screen",
+        "a spherical object that is a spherical object"
+      ],
+      "dominant_colors": [
+        "#98a1a9",
+        "#5c6565",
+        "#798385"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a cloudy sky with white clouds and blue sky | an airplane flying over a blue sky | a black and white image of an airplane flying in the sky | twilight time of day is shown | the overall visual impression of a piece of artwork | a blue sky is shown in the background",
+    "motion_score": 104.808,
+    "motion_variance": 2108.329,
+    "dominant_colors": [
+      "#7c8586",
+      "#e6f0f5",
+      "#adb9bd"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

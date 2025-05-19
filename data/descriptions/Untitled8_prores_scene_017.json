@@ -15,16 +15,16 @@
       "motion_score": 47.20689347604485,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_017_0.jpg",
       "captions": [
-        "a sandstorm is blowing through a city",
-        "a tv screen with a blue screen",
+        "a blue sky with clouds and a blue sky",
+        "a tv screen with a blue sky",
         "a tv identifies the time of day",
-        "a swivel chair with a swivel seat and a swivel chair",
+        "a solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary s",
         "a plane flying in the sky"
       ],
       "dominant_colors": [
-        "#74839f",
-        "#7988a6",
-        "#6d7b95"
+        "#98a8c9",
+        "#a0b1d3",
+        "#8f9ebd"
       ]
     },
     {
@@ -33,13 +33,16 @@
       "motion_score": 37.058912302497454,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_017_5.jpg",
       "captions": [
-        "a blue sky with clouds and a blue sky",
-        "a blue sky with a cloudy sky"
+        "a sandstorm is a storm that occurs when a large amount of rain falls on a large area",
+        "a solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary s",
+        "a tv screen is a screen that displays the time of day",
+        "a close up of a bird flying in the sky",
+        "a teddy bear is flying in the sky"
       ],
       "dominant_colors": [
-        "#8594b0",
-        "#74839b",
-        "#808faa"
+        "#586375",
+        "#647084",
+        "#6a768e"
       ]
     },
     {
@@ -48,26 +51,27 @@
       "motion_score": 15.636268794597349,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_017_10.jpg",
       "captions": [
-        "a tv screen with a white background",
-        "a tv screen with a white screen",
-        "a tv screen with a clock",
-        "a white tee shirt with a black shirt and a white shirt"
+        "a sand beach with a blue sky and a cloudy sky",
+        "a symphony of light and shadows on a blue sky",
+        "a twilight sky with a twilight sky",
+        "a sandstorm is a sandstorm",
+        "a teddy bear flying in the sky"
       ],
       "dominant_colors": [
-        "#9ca8bb",
-        "#b0bdd3",
-        "#838f9e"
+        "#8a97b0",
+        "#828fa6",
+        "#929fba"
       ]
     }
   ],
   "metadata_payload": {
-    "semantic_caption": "a blue sky with clouds in the background | an airplane flying over a blue sky | a black and white image of an airplane flying in the sky | twilight time of day is shown | twilight, sunrise or sunset",
+    "semantic_caption": "a blue sky with clouds in the background | a plane flying in the sky | an airplane flying over a blue sky | a black and white image of an airplane flying in the sky | a view of the sky with clouds in the distance | twilight time in the sky | twilight, sunrise or sunset",
     "motion_score": 33.301,
     "motion_variance": 173.18,
     "dominant_colors": [
-      "#7c8ca7",
-      "#8393b3",
-      "#8090af"
+      "#8493b4",
+      "#7c8daa",
+      "#8091b0"
     ],
     "motion_tag": "dynamic"
   }

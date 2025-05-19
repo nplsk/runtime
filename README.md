@@ -1,6 +1,8 @@
 # runtime
 
-A live audio-visual performance exploring the loop between memory and motion. Part of the IN.SIGHT PERFORMANCE SERIES in collaboration with Torn Space Theater.
+*"runtime is recognition through repetition — meaning built from echo."*
+
+A live audio-visual performance exploring the loop between memory and motion. Part of the IN.SIGHT PERFORMANCE SERIES, a collaboration between [Groupwork](https://groupwork.fyi) and [Torn Space Theater](https://tornspacetheater.com).
 
 ## Overview
 
@@ -18,6 +20,7 @@ The system consists of several interconnected components:
 
 2. **Format Conversion**
    - `scripts/convert_to_hap.py`: Creates HAP-encoded versions for TouchDesigner playback
+   - `scripts/update_json_paths.py`: Updates JSON metadata to reference HAP-encoded files
 
 3. **Metadata Generation**
    - `scripts/generate_descriptions.py`: Uses BLIP-2 and GPT-4 to generate rich descriptions
@@ -83,6 +86,7 @@ The system consists of several interconnected components:
    
    # 2. Format Conversion
    python scripts/convert_to_hap.py
+   python scripts/update_json_paths.py
    
    # 3. Metadata Generation
    python scripts/generate_descriptions.py
@@ -127,53 +131,180 @@ Each movement is characterized by:
 
 ### Adding New Content
 
-1. **Prepare Source Videos**
-   - Place your video files in the `data/source` directory
-   - Supported formats: `.mov`, `.mp4`, `.avi`, `.mkv`, `.dv` (case-insensitive)
-   - Additional formats can be added by updating `VIDEO_EXTENSIONS` in `config.py`
-   - Special handling for specific formats:
-     - DV files are automatically deinterlaced and scaled to 720x480
-     - Other formats can be added with custom processing rules
-   - Files should be readable and not locked by other applications
-   - Avoid special characters in filenames
-   - Each file should be a complete, valid video file
+#### 1. Preparing Source Videos
 
-2. **Run the Processing Pipeline**
-   ```bash
-   # Start with ProRes conversion
-   python scripts/convert_to_prores.py
-   
-   # Check for any conversion errors
-   cat data/conversion_errors.txt  # if it exists
-   ls data/_SKIPPED_OR_CORRUPTED   # if it exists
-   
-   # Continue with the rest of the pipeline
-   python scripts/split_scenes.py
-   python scripts/process_videos.py
-   # ... (rest of the pipeline)
-   ```
+- **Gather your video files**
+  - Ensure videos are complete and not corrupted
+  - Remove any temporary or partial exports
+  - Consider trimming very long videos into more manageable segments
 
-3. **Review and Adjust**
-   - Check generated metadata in `data/scenes`
-   - Review AI-generated descriptions
-   - Adjust any incorrect tags or classifications
+- **Organize source material**
+  - Place all video files in the `data/source` directory
+  - Use descriptive filenames without special characters
+  - Supported formats: `.mov`, `.mp4`, `.avi`, `.mkv`, `.dv` (case-insensitive)
 
-4. **Update Performance**
-   - Run the final steps to update the performance schedule
-   - Test the new content in TouchDesigner
+- **Check video properties**
+  - Ensure videos have sufficient visual content (avoid mostly black/static videos)
+  - For optimal results, aim for videos between 10 seconds and 10 minutes
+  - If using DV files, note they will be automatically deinterlaced and scaled
 
-Note: The system will automatically create the `data/source` directory if it doesn't exist. Make sure you have sufficient disk space for the conversion process, as ProRes files are significantly larger than the source files.
+#### 2. Running the Processing Pipeline
 
-To add support for additional video formats:
-1. Add the extension to `VIDEO_EXTENSIONS` in `config.py`
-2. If the format needs special processing (like deinterlacing), add the appropriate ffmpeg parameters in `scripts/convert_to_prores.py`
-3. Test the conversion with a sample file to ensure proper handling
+- **Initial conversion to ProRes**
+  ```bash
+  python scripts/convert_to_prores.py
+  ```
+  - This converts all source videos to ProRes format for consistent processing
+  - Handles various input formats and normalizes them
+  - Creates `data/prores` directory with converted files
+
+- **Verify conversion success**
+  ```bash
+  # Check for conversion errors
+  cat data/conversion_errors.txt  # if it exists
+  
+  # Examine any problematic files
+  ls data/_SKIPPED_OR_CORRUPTED
+  ```
+  - Address any conversion issues before proceeding
+  - Common issues include corrupt files, permission problems, or unsupported codecs
+
+- **Split videos into scene segments**
+  ```bash
+  python scripts/split_scenes.py
+  ```
+  - Analyzes video content and splits at natural scene transitions
+  - Creates individual scene files in `data/scenes` directory
+  - Generates initial scene detection metadata
+
+- **Process videos for metadata extraction**
+  ```bash
+  python scripts/process_videos.py
+  ```
+  - Analyzes each scene for visual content, color, and motion
+  - Uses BLIP-2 AI model for initial frame captioning
+  - Generates thumbnails for each scene
+  - Creates initial JSON metadata for each scene in `data/descriptions`
+
+- **Generate AI-powered descriptions and tags**
+  ```bash
+  python scripts/generate_descriptions.py
+  ```
+  - Uses GPT-4 to enhance descriptions created by BLIP-2
+  - Identifies key visual elements and themes
+  - Enhances metadata with semantic understanding of content
+
+- **Create optimized playback formats**
+  ```bash
+  python scripts/convert_to_hap.py
+  ```
+  - Converts ProRes scenes to HAP codec for efficient playback
+  - Optimizes for TouchDesigner performance
+  - Creates files in `data/playback` directory 
+
+- **Update JSON file paths for HAP videos**
+  ```bash
+  python scripts/update_json_paths.py
+  ```
+  - Copies and updates JSON metadata files to point to HAP video files
+  - Ensures TouchDesigner uses the optimized video format
+  - Updates file paths in metadata to reference the HAP-encoded versions
+
+#### 3. Metadata Enhancement and Validation
+
+- **Generate semantic embeddings**
+  ```bash
+  python scripts/generate_embeddings.py
+  ```
+  - Creates vector representations of video content
+  - Enables semantic searching and grouping
+  - Prepares for phase assignment
+
+- **Validate generated captions**
+  ```bash
+  python scripts/check_captions.py
+  ```
+  - Identifies poor quality or problematic captions
+  - Flags videos that need improved descriptions
+  - Creates a list of scenes requiring regeneration
+
+- **Regenerate problematic captions**
+  ```bash
+  python scripts/regenerate_bad_captions.py
+  ```
+  - Uses alternative prompts or settings for previously flagged scenes
+  - Improves caption quality through targeted refinement
+  - Updates metadata with improved descriptions
+
+- **Resolve semantic conflicts**
+  ```bash
+  python scripts/resolve_conflicts.py
+  ```
+  - Harmonizes contradictory tags or descriptions
+  - Improves consistency across the collection
+  - Creates a more coherent semantic structure
+
+- **Normalize metadata tags**
+  ```bash
+  python scripts/normalize_tags.py
+  ```
+  - Standardizes terminology across tags
+  - Merges similar concepts for consistency
+  - Improves searchability and organization
+
+#### 4. Performance Integration
+
+- **Assign videos to performance phases**
+  ```bash
+  python scripts/assign_phases.py
+  ```
+  - Analyzes content and assigns to appropriate movements
+  - Considers visual themes, motion, and content
+  - Creates phase assignments for each video segment
+
+- **Generate movement scheduling**
+  ```bash
+  python scripts/generate_movement_csv.py
+  ```
+  - Creates CSV files for each movement phase
+  - Determines optimal sequencing within each movement
+  - Defines playback order and timing hints
+
+- **Finalize performance configuration**
+  ```bash
+  python scripts/emit_playback.py
+  ```
+  - Generates the final playback configuration
+  - Sets up all parameters needed for the TouchDesigner environment
+  - Creates the complete performance schedule
+
+#### 5. Testing and Refinement
+
+- **Load the TouchDesigner environment**
+  - Open `runtime.toe` in TouchDesigner
+  - Ensure all directories are correctly referenced
+  - Check that video files are properly detected
+
+- **Test playback in each movement**
+  - Preview scenes from each movement phase
+  - Verify transitions between videos
+  - Check for any performance issues or glitches
+
+- **Make refinements as needed**
+  - Adjust phase assignments for misclassified videos
+  - Re-process problematic videos
+  - Fine-tune movement transitions
+
+- **Backup your work**
+  - Create a backup of your final configuration
+  - Archive valuable metadata for future reference
+  - Consider versioning important configuration files
 
 ## Credits
 
 - Created by Frank Napolski
 - Part of the IN.SIGHT PERFORMANCE SERIES
-- Presented by Groupwork and Torn Space
+- Presented by [Groupwork](https://groupwork.fyi) and [Torn Space Theater](https://tornspacetheater.com)
 - Supported by the Cullen Foundation and the National Endowment for the Arts
 
 ## License
@@ -190,10 +321,6 @@ Under the following terms:
 - ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license
 
 For more information, see the [LICENSE](LICENSE) file.
-
----
-
-*"runtime is recognition through repetition — meaning built from echo."*
 
 ## Dependencies and Requirements
 

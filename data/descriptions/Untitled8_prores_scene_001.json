@@ -1,0 +1,115 @@
+{
+  "video_id": "Untitled8_prores_scene_001",
+  "filename": "Untitled8_prores_scene_001.mov",
+  "duration": 28.12,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:08.527910",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 71.09233642329256,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_001_0.jpg",
+      "captions": [
+        "in which the tree is reflected in the water",
+        "a blurred image of a tree in a forest"
+      ],
+      "dominant_colors": [
+        "#778185",
+        "#3e423d",
+        "#dde7ec"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 55.923494043068295,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_001_5.jpg",
+      "captions": [
+        "in the sky through a window",
+        "a light shining through a window"
+      ],
+      "dominant_colors": [
+        "#3d4747",
+        "#edf4f6",
+        "#829397"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 15.0,
+      "motion_score": 47.785933518093785,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_001_10.jpg",
+      "captions": [
+        "in the sky through a window",
+        "a sun shining through a window",
+        "a light shining through a window"
+      ],
+      "dominant_colors": [
+        "#2f3538",
+        "#dde2e5",
+        "#73788e"
+      ]
+    },
+    {
+      "start": 15.0,
+      "end": 20.0,
+      "motion_score": 42.411270387359835,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_001_15.jpg",
+      "captions": [
+        "a light reflected in a window",
+        "a view of a forest through a window"
+      ],
+      "dominant_colors": [
+        "#e3eaeb",
+        "#2d3433",
+        "#6f787a"
+      ]
+    },
+    {
+      "start": 20.0,
+      "end": 25.0,
+      "motion_score": 42.97067963175331,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_001_20.jpg",
+      "captions": [
+        "in the sky through a window",
+        "a light shining through a window"
+      ],
+      "dominant_colors": [
+        "#333a38",
+        "#e7eeee",
+        "#778482"
+      ]
+    },
+    {
+      "start": 25.0,
+      "end": 28.12,
+      "motion_score": 45.44012407619776,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_001_25.jpg",
+      "captions": [
+        "in the sky through the window",
+        "a light shining through a window"
+      ],
+      "dominant_colors": [
+        "#e2e9ea",
+        "#222a27",
+        "#727c7e"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "the sun shining through a window | a blurred image of trees in the forest | reflected in a glass window | a sun shines through the trees in the woods | twilight in the woods | in this image of a tree in the forest | a view of the forest from the window of my car | in this image taken with a digital camera",
+    "motion_score": 50.937,
+    "motion_variance": 101.233,
+    "dominant_colors": [
+      "#1e2522",
+      "#d7dede",
+      "#676f6e"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

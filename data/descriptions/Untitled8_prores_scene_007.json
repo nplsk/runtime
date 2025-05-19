@@ -14,13 +14,11 @@
       "end": 5.0,
       "motion_score": 71.31723607925586,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_007_0.jpg",
-      "captions": [
-        "in which the light is reflected in the water"
-      ],
+      "captions": [],
       "dominant_colors": [
-        "#646b66",
-        "#222823",
-        "#c7cbca"
+        "#767e77",
+        "#e0e5e2",
+        "#303731"
       ]
     },
     {
@@ -29,24 +27,25 @@
       "motion_score": 51.27801430300713,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_007_5.jpg",
       "captions": [
-        "in which the camera is placed",
-        "a black and white photograph of a tree in a forest"
+        "in which the object is seen from a distance",
+        "a symphony of light and shadows",
+        "a close up of a tree in a forest"
       ],
       "dominant_colors": [
-        "#aab3b2",
-        "#252b27",
-        "#616a66"
+        "#747c78",
+        "#cdd4d4",
+        "#363d38"
       ]
     }
   ],
   "metadata_payload": {
-    "semantic_caption": "a black and white image of an object | a black and white image of trees in the forest | a black and white image of the clouds in the sky | in this image of a black and white photograph | a black and white image of the moon | a black and white image of ice crystals in the snow | a sunrise or sunset is shown in this image | in this image by describing the lighting and atmosphere in the scene",
+    "semantic_caption": "a black and white image of an object | a black and white image of the stars in the sky | a black and white image of the sky with clouds | in this image of a black and white photograph | a black and white image of the moon | the sun shines through a window in the sky | a black and white image of an abstract pattern of light and shadows | in this image by describing the lighting and atmosphere",
     "motion_score": 61.298,
     "motion_variance": 100.393,
     "dominant_colors": [
-      "#29302a",
-      "#d7dcd9",
-      "#6f7771"
+      "#282f29",
+      "#d6dbd8",
+      "#6e756f"
     ],
     "motion_tag": "dynamic"
   }

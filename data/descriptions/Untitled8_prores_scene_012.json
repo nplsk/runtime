@@ -15,25 +15,26 @@
       "motion_score": 59.16724802497451,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_012_0.jpg",
       "captions": [
-        "a tv screen with a black screen",
-        "a tv tv tv tv tv tv tv tv tv tv tv tv tv tv tv t",
-        "a tv screen is a screen that is a screen that is a screen that is a screen that is a screen that is a screen that is a screen that is a screen that is a"
+        "a black and white image of a tree in a dark forest",
+        "a tv screen is a screen that displays the time of day",
+        "a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of",
+        "a tv screen with a tv screen"
       ],
       "dominant_colors": [
-        "#797676",
-        "#484340",
-        "#645d58"
+        "#2b2c24",
+        "#23271e",
+        "#282a21"
       ]
     }
   ],
   "metadata_payload": {
-    "semantic_caption": "a black and white image of an airplane flying in the sky | a black and white image of an object in space | in a dark room with light and shadows | twilight time of day is shown",
+    "semantic_caption": "a blurred image of an object in motion | an airplane flying in the sky | a black and white image of an object in space | in a photograph of the sun rising over the horizon | a black and white image of an airplane flying in the sky",
     "motion_score": 59.167,
     "motion_variance": 0.0,
     "dominant_colors": [
+      "#79858b",
       "#d9e7f0",
-      "#39403c",
-      "#79858b"
+      "#39403c"
     ],
     "motion_tag": "dynamic"
   }

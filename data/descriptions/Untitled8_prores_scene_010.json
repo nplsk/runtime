@@ -15,15 +15,12 @@
       "motion_score": 79.15929934378185,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_010_0.jpg",
       "captions": [
-        "a tree in the forest",
-        "in the forest with a flashlight",
-        "a sunbeam through a tree",
-        "a tree trunk in the forest"
+        "a light shining through a tree"
       ],
       "dominant_colors": [
-        "#282b27",
-        "#ebece9",
-        "#787872"
+        "#3c4243",
+        "#8f9693",
+        "#edf0ee"
       ]
     },
     {
@@ -32,16 +29,12 @@
       "motion_score": 79.52232017711518,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_010_5.jpg",
       "captions": [
-        "a sunbeam reflected through the trees",
-        "rays through the trees",
-        "a sunbeam through a tree",
-        "a light shining through a tree",
-        "a sun shining through a tree"
+        "a light shining through a tree"
       ],
       "dominant_colors": [
-        "#8e938b",
-        "#f0f2ee",
-        "#3b423c"
+        "#8c9289",
+        "#313731",
+        "#e9ece8"
       ]
     },
     {
@@ -50,25 +43,27 @@
       "motion_score": 46.75124952217126,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_010_10.jpg",
       "captions": [
-        "a light shining through a tree",
-        "rays of light through a tree",
-        "a tree in the forest"
+        "a tree with a light shining through the leaves",
+        "reflected in the trees",
+        "a light shining through a window",
+        "a ray of light shining through a tree",
+        "a tree in the forest , a tree in the forest , a tree in the forest , a tree in the forest , a tree in the forest , a tree in the forest , "
       ],
       "dominant_colors": [
-        "#393e3b",
-        "#edefec",
-        "#8d928b"
+        "#eaece9",
+        "#3a3f3b",
+        "#92968f"
       ]
     }
   ],
   "metadata_payload": {
-    "semantic_caption": "a bird perched on the branches of an oak tree | the sun shining through a tree | the sun shines through a window in the sky | a black and white image of the sun shining through the clouds | image of a sunbeam in the sky",
+    "semantic_caption": "a bird perched on the branches of an oak tree | rays of light shining through a tree | an image of the sun shining through a tree | the sun shines through a window in the sky | twilight in a dark forest | a black and white image of the sun rising in the sky | a close up of the sun in the sky | of a scene by describing the overall visual impression of the scene",
     "motion_score": 68.478,
     "motion_variance": 236.04,
     "dominant_colors": [
-      "#212520",
-      "#eff1ef",
-      "#706f6b"
+      "#20241f",
+      "#eff0ee",
+      "#6e6e69"
     ],
     "motion_tag": "dynamic"
   }

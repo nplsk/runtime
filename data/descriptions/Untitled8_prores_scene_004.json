@@ -15,16 +15,16 @@
       "motion_score": 94.88052529306829,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_004_0.jpg",
       "captions": [
-        "a white background with a black screen",
-        "a white screen with a black background",
-        "a clock on a wall clock",
-        "a tv screen background",
-        "a white background with a black and white striped pattern"
+        "a tv screen with a black screen",
+        "reflected in a mirror",
+        "a tv screen identifies the time of day",
+        "a smudge of dust on a window",
+        "a tv screen background"
       ],
       "dominant_colors": [
-        "#e6f4fa",
-        "#7b8188",
-        "#afb8ca"
+        "#3d3d3d",
+        "#aab5c9",
+        "#727781"
       ]
     },
     {
@@ -33,14 +33,15 @@
       "motion_score": 85.31168530198777,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_004_5.jpg",
       "captions": [
-        "a black and white image of a person in a black and white background",
-        "a twilight sky with a twilight sky",
-        "a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of"
+        "a solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary solitary s",
+        "a smudge of light on a white background",
+        "a symphony of a bird flying in the sky",
+        "a sand dune in the sand dunes"
       ],
       "dominant_colors": [
-        "#6e7276",
-        "#413f3e",
-        "#525453"
+        "#b6c3d3",
+        "#6f767c",
+        "#99a2af"
       ]
     },
     {
@@ -49,24 +50,27 @@
       "motion_score": 54.80879762359837,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_004_10.jpg",
       "captions": [
-        "a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of a black and white image of",
-        "a twilight sky with a twilight sky"
+        "a symphony orchestra is a symphony orchestra with a symphony orchestra",
+        "a white light is shining on a white wall",
+        "a tv identifies the time of day",
+        "a smudge of dust on a surface",
+        "a white striped background with a blue sky"
       ],
       "dominant_colors": [
-        "#4f4e4b",
-        "#737678",
-        "#5f5f5f"
+        "#d0ddeb",
+        "#8f949b",
+        "#555554"
       ]
     }
   ],
   "metadata_payload": {
-    "semantic_caption": "a black and white image of an abstract painting | an airplane flying over a white background | a black and white image of an airplane flying in the sky | twilight time of day is shown | the overall visual impression is that of a black and white image",
+    "semantic_caption": "a black and white image of an abstract painting | a black and white image of an airplane flying in the sky | in a black and white photograph of an empty room | twilight time of day is shown",
     "motion_score": 78.334,
     "motion_variance": 291.97,
     "dominant_colors": [
+      "#858c96",
       "#353534",
-      "#868d97",
-      "#5a5f61"
+      "#585e5f"
     ],
     "motion_tag": "dynamic"
   }

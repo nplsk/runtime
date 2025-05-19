@@ -1,0 +1,58 @@
+{
+  "video_id": "Untitled8_prores_scene_015",
+  "filename": "Untitled8_prores_scene_015.mov",
+  "duration": 7.13,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.87,
+  "creation_time": "2025-05-18T14:44:09.302597",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 54.458846999235476,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_015_0.jpg",
+      "captions": [
+        "a sand beach in a sand beach in a sand beach in a sand beach in a sand beach in a sand beach in a sand beach in",
+        "a light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light blue light",
+        "a sandstone sandstone sandstone sandstone sandstone sandstone sandstone sandstone sandstone sandstone sandstone sand",
+        "a slat of a fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric, fabric,"
+      ],
+      "dominant_colors": [
+        "#717a83",
+        "#4d565c",
+        "#656d76"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 7.13,
+      "motion_score": 43.034816195208975,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_015_5.jpg",
+      "captions": [
+        "a sand beach with a sand beach and a sand beach",
+        "a tv identifies the time of day",
+        "a symphony of a song",
+        "a tv screen with a remote control"
+      ],
+      "dominant_colors": [
+        "#949ca5",
+        "#889198",
+        "#a1aab3"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a black and white image of an airplane flying in the sky | a close up image of the sky with clouds and blue sky | an airplane flying over a blue sky | twilight time of day is shown | the overall visual impression of a piece of fabric | a blue sky with white clouds in the sky | the lighting and atmosphere in a room or scene",
+    "motion_score": 48.747,
+    "motion_variance": 32.627,
+    "dominant_colors": [
+      "#5f666a",
+      "#767e84",
+      "#98a1ab"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

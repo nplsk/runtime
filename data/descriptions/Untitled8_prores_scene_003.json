@@ -1,0 +1,67 @@
+{
+  "video_id": "Untitled8_prores_scene_003",
+  "filename": "Untitled8_prores_scene_003.mov",
+  "duration": 10.44,
+  "resolution": [
+    654,
+    480
+  ],
+  "frame_rate": 29.88,
+  "creation_time": "2025-05-18T14:44:08.587195",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 62.2503193488787,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_003_0.jpg",
+      "captions": [
+        "a symphony of a song"
+      ],
+      "dominant_colors": [
+        "#7e898e",
+        "#dae5ea",
+        "#3d4543"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 60.46708078491335,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_003_5.jpg",
+      "captions": [
+        "a blurred image of a tree in a forest"
+      ],
+      "dominant_colors": [
+        "#818e97",
+        "#4d534b",
+        "#d1e3ef"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 10.44,
+      "motion_score": 56.43895498853211,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_003_10.jpg",
+      "captions": [
+        "a ray of light through a window",
+        "a symphony of light and shadows"
+      ],
+      "dominant_colors": [
+        "#39403e",
+        "#e0e7e9",
+        "#757e80"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a blurred image of trees | a black and white image of clouds in the sky | the reflection of trees in a window | a blurred image of an airplane flying in the sky | in the light of the sun shining through a window | a black and white image of trees in the foreground | in a sentence or phrase that best describes the subject of the image | in this image by describing the lighting and atmosphere",
+    "motion_score": 59.719,
+    "motion_variance": 5.909,
+    "dominant_colors": [
+      "#474e4b",
+      "#ccddf1",
+      "#7e8998"
+    ],
+    "motion_tag": "dynamic"
+  }
+}

@@ -15,14 +15,16 @@
       "motion_score": 82.41565446610602,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_009_0.jpg",
       "captions": [
-        "a tree in the forest",
-        "in the forest with a reflected light",
-        "a light reflected through a tree"
+        "a tree trunk in the sunlight",
+        "reflected in the trees",
+        "a sunbeam reflects on a tree trunk",
+        "a tree trunk reflected in a tree trunk",
+        "reflected in a tree trunk"
       ],
       "dominant_colors": [
-        "#888d84",
-        "#e5e8e4",
-        "#353a33"
+        "#3e443b",
+        "#eef1ed",
+        "#95998f"
       ]
     },
     {
@@ -31,27 +33,26 @@
       "motion_score": 85.8801677178899,
       "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/Untitled8_prores_scene_009_5.jpg",
       "captions": [
-        "a tree with leaves in the sunlight",
-        "reflected in the water",
-        "a tree reflected in a lake",
-        "a tree trunk in the sunlight",
-        "a tree trunk in the forest"
+        "a tree in the forest",
+        "in the shadows of trees",
+        "a shadow of a tree in the sunlight",
+        "a tree trunk in the sunlight"
       ],
       "dominant_colors": [
-        "#98a49c",
-        "#4a5750",
-        "#f0f4f1"
+        "#1c211b",
+        "#dadcd8",
+        "#797c75"
       ]
     }
   ],
   "metadata_payload": {
-    "semantic_caption": "the reflection of the sun through a tree | the reflection of a tree in the water stock video footage | a bird flies through the branches of trees | a black and white image of an airplane flying in the sky | of a tree or tree trunk in the foreground | a bird perched on the branches of an oak tree | reflected in the water of a lake stock video footage | twilight reflected in a tree trunk | in this image of the sun shining through a pine tree | the sun shines through a window in the sky",
+    "semantic_caption": "the reflection of the sun through a tree | the reflection of a tree trunk in the water | a black and white image of an airplane flying in the sky | of a tree silhouetted against the sky | a black and white image of trees with shadows and reflections | a sun ray streaks across the sky | the sun shines on a tree",
     "motion_score": 84.148,
     "motion_variance": 3.001,
     "dominant_colors": [
-      "#181e19",
       "#eff2ee",
-      "#6c7267"
+      "#6c7267",
+      "#181e19"
     ],
     "motion_tag": "dynamic"
   }

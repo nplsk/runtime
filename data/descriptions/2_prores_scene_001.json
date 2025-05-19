@@ -1,0 +1,180 @@
+{
+  "video_id": "2_prores_scene_001",
+  "filename": "2_prores_scene_001.mov",
+  "duration": 49.5,
+  "resolution": [
+    2160,
+    3840
+  ],
+  "frame_rate": 30.0,
+  "creation_time": "2025-05-18T14:51:02.838646",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "motion_score": 39.46086579499421,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/2_prores_scene_001_0.jpg",
+      "captions": [
+        "a boat in the sea",
+        "a sunrise or sunset",
+        "a sand beach in the sea"
+      ],
+      "dominant_colors": [
+        "#b5b6b8",
+        "#545e6b",
+        "#868c95"
+      ]
+    },
+    {
+      "start": 5.0,
+      "end": 10.0,
+      "motion_score": 41.14521559727045,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/2_prores_scene_001_5.jpg",
+      "captions": [
+        "a ship in the sea",
+        "a boat in the sea",
+        "a sunrise or sunset",
+        "a wave , a wave , a wave , a wave , a wave , a wave , a wave , a wave , a wave , a wave "
+      ],
+      "dominant_colors": [
+        "#b0b3b7",
+        "#515b6a",
+        "#828a95"
+      ]
+    },
+    {
+      "start": 10.0,
+      "end": 15.0,
+      "motion_score": 41.41742130232446,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/2_prores_scene_001_10.jpg",
+      "captions": [
+        "a boat in the sea",
+        "a sunrise or sunset",
+        "a sand beach in the sea"
+      ],
+      "dominant_colors": [
+        "#7b8490",
+        "#b1b3b6",
+        "#445162"
+      ]
+    },
+    {
+      "start": 15.0,
+      "end": 20.0,
+      "motion_score": 37.41299810715663,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/2_prores_scene_001_15.jpg",
+      "captions": [
+        "a boat in the sea",
+        "a sunrise or sunset"
+      ],
+      "dominant_colors": [
+        "#566171",
+        "#b3b5b8",
+        "#878f99"
+      ]
+    },
+    {
+      "start": 20.0,
+      "end": 25.0,
+      "motion_score": 38.49150453920718,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/2_prores_scene_001_20.jpg",
+      "captions": [
+        "a boat in the sea",
+        "a sunrise or sunset"
+      ],
+      "dominant_colors": [
+        "#58616f",
+        "#b6b6b7",
+        "#8a9098"
+      ]
+    },
+    {
+      "start": 25.0,
+      "end": 30.0,
+      "motion_score": 38.81790219907407,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/2_prores_scene_001_25.jpg",
+      "captions": [
+        "a boat in the water",
+        "a sunrise or sunset"
+      ],
+      "dominant_colors": [
+        "#b6b6b7",
+        "#576171",
+        "#899099"
+      ]
+    },
+    {
+      "start": 30.0,
+      "end": 35.0,
+      "motion_score": 37.99706651475694,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/2_prores_scene_001_30.jpg",
+      "captions": [
+        "a boat in the water",
+        "a sailor sailor sailor sailor sailor sailor sailor sailor sailor sailor sailor sa"
+      ],
+      "dominant_colors": [
+        "#4f5d6e",
+        "#b0b3b6",
+        "#828b96"
+      ]
+    },
+    {
+      "start": 35.0,
+      "end": 40.0,
+      "motion_score": 39.336689453125004,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/2_prores_scene_001_35.jpg",
+      "captions": [
+        "a boat in the sea",
+        "a sunrise or sunset"
+      ],
+      "dominant_colors": [
+        "#4b5869",
+        "#b2b5b8",
+        "#808994"
+      ]
+    },
+    {
+      "start": 40.0,
+      "end": 45.0,
+      "motion_score": 39.978425383391205,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/2_prores_scene_001_40.jpg",
+      "captions": [
+        "a boat in the water",
+        "a swan in the water"
+      ],
+      "dominant_colors": [
+        "#b3b5b7",
+        "#848c96",
+        "#505c6c"
+      ]
+    },
+    {
+      "start": 45.0,
+      "end": 49.5,
+      "motion_score": 30.02992588372878,
+      "thumbnail_path": "/Users/franknapolski/Sites/RUNTIME-CODE/_WORKING/data/scenes/thumbnails/2_prores_scene_001_45.jpg",
+      "captions": [
+        "a boat in the sea",
+        "a sunrise or sunset",
+        "a symphony of sound and light",
+        "a boat in the water"
+      ],
+      "dominant_colors": [
+        "#b1b4b6",
+        "#505b6b",
+        "#818a95"
+      ]
+    }
+  ],
+  "metadata_payload": {
+    "semantic_caption": "a boat sails in the water | a seagull perched on the surface of the water | in this image of a man fishing in the water | a seagull flying in the sky | in this image of a boat in the water",
+    "motion_score": 38.409,
+    "motion_variance": 9.251,
+    "dominant_colors": [
+      "#828b95",
+      "#4a5869",
+      "#b3b5b7"
+    ],
+    "motion_tag": "dynamic"
+  }
+}
