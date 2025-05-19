@@ -6,7 +6,7 @@ A live audio-visual performance exploring the loop between memory and motion. Pa
 
 ## Overview
 
-runtime is a generative performance system that transforms personal digital archives into a living, breathing composition. Built from over two thousand video fragments spanning twenty-five years of digital life, the system processes, analyzes, and recombines these memories into a dynamic performance that moves through five distinct movements: orientation, elemental, built, people, and blur.
+runtime is a generative performance system that transforms personal digital archives into a living, breathing composition. The initial version was built from over two thousand video fragments spanning twenty-five years of digital life. The system processes, analyzes, and recombines these memories into a dynamic performance that moves through five distinct movements: orientation, elemental, built, people, and blur.
 
 ## Technical Architecture
 
@@ -46,8 +46,8 @@ The system consists of several interconnected components:
 1. **Environment Setup**
    ```bash
    # Create and activate virtual environment
-   python -m venv venv
-   source venv/bin/activate  # or `venv\Scripts\activate` on Windows
+   python -m venv runtime
+   source runtime/bin/activate  # or `runtime\Scripts\activate` on Windows
    
    # Install dependencies
    pip install -r requirements.txt
@@ -55,22 +55,28 @@ The system consists of several interconnected components:
 
 2. **Configuration**
    - Copy `.env.example` to `.env` and add your OpenAI API key
-   - Configure `config.py` with your system paths and settings:
+   - Configure `scripts/config.py` with your system paths and settings:
      ```python
-     # Base directories
-     BASE_DIR = Path("/path/to/your/runtime/directory")
-     PROCESSED_DIR = BASE_DIR / "PROCESSED"
-     PROCESSED_DESCRIPTIONS_DIR = BASE_DIR / "PROCESSED_DESCRIPTIONS"
-     
-     # Video processing settings
-     PRORES_PROFILE = "ProRes422"  # Options: ProRes422, ProRes422HQ, ProRes4444
-     HAP_QUALITY = "high"  # Options: low, medium, high
-     
-     # AI settings
-     BLIP_MODEL = "Salesforce/blip2-opt-2.7b"
-     EMBEDDING_MODEL = "all-MiniLM-L6-v2"
-     ```
-   - Update the TouchDesigner project path in `config.py` to point to your `runtime.toe` file
+      # Base directories
+      DATA_DIR = PROJECT_ROOT / "data"
+
+      # Video processing directories
+      SOURCE_DIR = DATA_DIR / "source"          # Original source videos
+      PRORES_DIR = DATA_DIR / "prores"          # ProRes converted videos
+      PLAYBACK_DIR = DATA_DIR / "playback"      # HAP encoded videos
+      SCENES_DIR = DATA_DIR / "scenes"          # Scene-split videos and metadata
+      THUMBNAILS_DIR = SCENES_DIR / "thumbnails"  # Video thumbnails
+
+      # Output directories
+      OUTPUT_DIR = DATA_DIR / "descriptions"  # AI-generated descriptions
+
+      # Video processing settings
+      PRORES_PROFILE = "ProRes422"  # Options: ProRes422, ProRes422HQ, ProRes4444
+      HAP_QUALITY = "high"  # Options: low, medium, high
+      VIDEO_EXTENSIONS = [".mov", ".mp4", ".avi", ".mkv", ".dv"]
+      THUMBNAIL_SIZE = (320, 180)  # Width, Height in pixels
+      SCENE_THRESHOLD = 30  # Minimum frames between scene cuts
+      ```   
 
 3. **Processing Pipeline**
    ```bash
@@ -121,6 +127,35 @@ Each movement is characterized by:
 - Movement-specific audio processing
 
 ## Development
+
+### Processing Pipeline
+
+The development workflow follows these key steps:
+
+1. **Initial Processing**
+   - Convert source videos to ProRes format
+   - Split videos into scene segments
+   - Process videos for metadata extraction
+
+2. **Format Conversion**
+   - Convert ProRes scenes to HAP codec
+   - Update JSON file paths for HAP videos
+
+3. **Metadata Generation**
+   - Generate AI-powered descriptions and tags
+   - Create semantic embeddings
+   - Validate and regenerate captions as needed
+
+4. **Content Organization**
+   - Resolve semantic conflicts
+   - Normalize metadata tags
+   - Assign videos to performance phases
+   - Generate movement scheduling
+
+5. **Performance Integration**
+   - Finalize performance configuration
+   - Test and refine playback
+   - Create performance schedule
 
 ### Key Components
 
@@ -332,23 +367,6 @@ For more information, see the [LICENSE](LICENSE) file.
   pip install -r requirements.txt
   ```
 
-## Detailed Usage Instructions
-
-1. **Initial Setup**
-   - Follow the environment setup instructions to create and activate a virtual environment.
-   - Install all necessary dependencies as outlined above.
-
-2. **Running the Processing Pipeline**
-   - Start with the ProRes conversion:
-     ```bash
-     python scripts/convert_to_prores.py
-     ```
-   - Follow the sequence of scripts as described in the Processing Pipeline section to complete the setup.
-
-3. **Playback and Performance**
-   - Use TouchDesigner to load the `runtime.toe` file for real-time playback.
-   - Ensure all video files are correctly processed and available in the specified directories.
-
 ## Project Structure
 
 - **scripts/**: Contains all pre-processing scripts used in the video processing pipeline. These scripts handle tasks such as video conversion, scene detection, metadata generation, and performance scheduling, forming the backbone of the runtime system's data preparation and organization.
@@ -359,6 +377,6 @@ For more information, see the [LICENSE](LICENSE) file.
 - **requirements.txt**: Lists Python package dependencies.
 - **archived-performance-schedules/**: Contains past performance schedules.
 
-## Additional Context or Background
+## Additional Context
 
 This project is part of the IN.SIGHT PERFORMANCE SERIES, exploring the intersection of memory and motion through digital archives. It leverages advanced video processing techniques and AI-driven metadata generation to create a dynamic, generative performance. The system is designed to be flexible and extensible, allowing for the integration of new content and performance elements as needed. The collaboration with Torn Space Theater highlights the project's commitment to innovative, interdisciplinary art forms.
