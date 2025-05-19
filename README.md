@@ -376,6 +376,38 @@ For more information, see the [LICENSE](LICENSE) file.
 - **config.py**: Configuration settings for paths and processing options.
 - **requirements.txt**: Lists Python package dependencies.
 - **archived-performance-schedules/**: Contains past performance schedules.
+- **ableton/**: Contains the Ableton Live project and Max for Live patches for the generative soundtrack.
+
+## Audio System
+
+The performance uses a multi-layered audio system that combines generative composition with real-time processing:
+
+### Components
+- **Ableton Live Project**: Contains the main composition structure and mixer setup
+- **Max for Live Patches**: Custom patches for generative audio processing and control
+- **BlackHole Audio Routing**: [BlackHole](https://existential.audio/blackhole/) virtual audio driver for routing audio between applications
+
+### Setup
+1. **Install BlackHole**
+   - Download and install BlackHole from [existential.audio](https://existential.audio/blackhole/)
+   - Configure BlackHole as an audio output device in TouchDesigner
+   - Set up BlackHole as an audio input device in Ableton Live
+
+2. **Audio Routing**
+   - Route individual video layer audio from TouchDesigner to separate BlackHole channels
+   - Configure Ableton Live to receive audio from BlackHole channels
+   - Set up mixer channels in Ableton for processing each layer independently
+
+3. **Max for Live Integration**
+   - Load the provided Max for Live patches in Ableton Live
+   - Configure patches to respond to video metadata and movement changes
+   - Set up generative parameters for real-time audio processing
+
+### Performance
+- Each movement has its own audio processing chain
+- Video metadata influences generative parameters
+- Real-time mixing and effects processing in Ableton Live
+- Synchronized audio-visual transitions between movements
 
 ## Additional Context
 
